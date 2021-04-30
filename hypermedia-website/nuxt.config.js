@@ -4,7 +4,7 @@ export default {
     target: 'server',
     env: {
       //'https://NAME.herokuapp.com  //production
-      BASE_URL: '' //development
+      BASE_URL: '', //development
     },
     serverMiddleware: [
       {

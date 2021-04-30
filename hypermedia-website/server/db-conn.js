@@ -1,17 +1,17 @@
 const { Sequelize, DataTypes } = require('sequelize')
 
+if(Sequelize !== null){
+  for(var i = 0; i<100; i++)
+  console.log("Sequelize working plus info + ", Sequelize);
+} else{
+  for(var i = 0; i<100; i++)
+  console.log("Sequelize not working plus info + ", Sequelize);  
+}
+
 // Development
-// Note: this will go to git ignore after this commit
-/* Fill the blanks. Below, go to last method and uncomment insertFakeData() to initialize your database with some data, 
-and comment it after the first execution */
 const db = new Sequelize(
-  'postgres://postgres: blank_password @localhost:5432/ blank_database_name '
+  'postgres://postgres:castlejam@localhost:5432/hypermedia-test'
 )
-//
-/**
- * 
-  
- */
 // Production
 // const pg = require('pg')
 // pg.defaults.ssl = true
@@ -106,14 +106,9 @@ async function initializeDatabase() {
   // Call the function for the database structure definition
   defineDatabaseStructure()
   // Synchronize Sequelize with the actual database
-  await db.sync({ force: true })
+  await db.sync({ force: false })
   // Call the function to insert some fake data
-
-    /**
-     * Remove comment if you want new tuples in your database. Add it back because those comments are just the same static tuples
-     */
-
-  await insertFakeData()
+  // await insertFakeData()
   return db
 }
 

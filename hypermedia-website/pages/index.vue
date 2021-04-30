@@ -1,12 +1,13 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
       <button >
         <nuxt-link to ="/about">
           Go to About page
         </nuxt-link>
       </button>
+      <br><br>
+      <Logo />
       <h1 class="title">hypermedia-website</h1>
       <div class="links">
         <a
@@ -36,7 +37,7 @@ export default {
   components: { ArticleMini },}
 </script>
 
-<style>
+<style scoped>
 .container {
   margin: 0 auto;
   min-height: 100vh;
