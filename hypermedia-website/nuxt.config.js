@@ -1,7 +1,6 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    ssr: true,
+  ssr: true,
     target: 'server',
     env: {
       //'https://NAME.herokuapp.com  //production
@@ -13,6 +12,7 @@ export default {
         handler: '~/server/rest/api.js',
       },
     ],
+  head: {
     title: 'hypermedia-website',
     htmlAttrs: {
       lang: 'en',
