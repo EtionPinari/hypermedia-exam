@@ -1,7 +1,6 @@
 import express from 'express'
 import initializeDatabase from '../db-conn'
 const app = express()
-
 // We need this one if we send data inside the body as JSON
 
 app.use(express.json())

@@ -1,9 +1,11 @@
+import { databasePassword } from '../server/personalDB.js'
 const { Sequelize, DataTypes } = require('sequelize')
 import axios from 'axios'
 
+const password = databasePassword
 // Development
 const db = new Sequelize(
-  'postgres://postgres:castlejam@localhost:5432/hypermedia-test'
+  'postgres://postgres:'+password+'@localhost:5432/hypermedia-test'
 )
 // Production
 // const pg = require('pg')

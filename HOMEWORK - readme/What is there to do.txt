@@ -17,6 +17,8 @@ all jobs with * can already be designed.
 
 
 IMPORTANT:
+	FOR THE DATABASE TO WORK, PLEASE CREATE A NEW FILE IN THE FOLDER /server CALLED 'personalDB.js'. IN THIS FILE WRITE THE FOLLOWING CODE: 
+		export const databasePassword = 'yourPassword'
 	We can focus first on the content and lastly on the css. Let's define firstly the components
 	Try putting <style scoped> everywhere except for the layout/default.vue so we do not have css rules that conflict.
 	In ~/assets/scss/colors.scss there are two (random and to be changed) colors which we could use in css rules so they can be consistent throughout all the website.
