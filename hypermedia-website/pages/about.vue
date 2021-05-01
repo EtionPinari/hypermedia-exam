@@ -65,11 +65,11 @@ export default {
       this.adUrl = data.url
     }, 1000)
   },
-//   methods: {
-//     goToArticle(path) {
-//       this.$router.push({ path })
-//     },
-//   },
+  methods: {
+    goToArticle(path) {
+      this.$router.push({ path })
+    },
+  },
 }
 
 </script>

@@ -3,7 +3,12 @@
     <div>
       <button >
         <nuxt-link to ="/about">
-          Go to About page
+          About us
+        </nuxt-link>
+      </button>
+      <button >
+        <nuxt-link to ="/allEmployees">
+          Watch our employees
         </nuxt-link>
       </button>
       <br><br>
@@ -34,7 +39,8 @@
 <script>
 import ArticleMini from '../components/ArticleMini.vue'
 export default {
-  components: { ArticleMini },}
+  components: { ArticleMini },
+  }
 </script>
 
 <style scoped>

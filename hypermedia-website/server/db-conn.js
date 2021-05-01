@@ -1,12 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize')
-
-if(Sequelize !== null){
-  for(var i = 0; i<100; i++)
-  console.log("Sequelize working plus info + ", Sequelize);
-} else{
-  for(var i = 0; i<100; i++)
-  console.log("Sequelize not working plus info + ", Sequelize);  
-}
+import axios from 'axios'
 
 // Development
 const db = new Sequelize(
@@ -19,6 +12,9 @@ const db = new Sequelize(
 //   ssl: true,
 //   dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
 // })
+
+
+
 
 /**
  * Function to define the structure of the database
@@ -49,12 +45,25 @@ function defineDatabaseStructure() {
       underscored: true,
     }
   )
+  const Person = db.define (
+      'person',
+      { 
+        name: DataTypes.STRING,
+        surname: DataTypes.STRING,
+        biography: DataTypes.TEXT,
+        summary: DataTypes.STRING,
+        image: DataTypes.STRING,
+      }
+  )
   // Creating the 1 -> N association between Article and Comment
   // More on association: https://sequelize.org/master/manual/assocs.html
   Article.hasMany(Comment, { foreignKey: 'article_id' })
+  Person.hasMany(Article, {foreignKey: 'person_id'} )
+  Article.belongsTo(Person)
   db._tables = {
     Article,
     Comment,
+    Person,
   }
 }
 
@@ -91,7 +100,7 @@ async function insertFakeData() {
     summary: 'This is the summary of the third good article',
     content: 'The content of the third article',
     image:
-      'https://pbs.twimg.com/media/CB6OrVUUAAAU4eQ.jpg',
+      'hthttps://www.bmw.it/content/dam/bmw/common/home/teaser/bmw-i4-mini-hometeaser-1680x756.jpg.asset.1615561624175.jpgtps://pbs.twimg.com/media/CB6OrVUUAAAU4eQ.jpg',
   })
 
   // Adding the first comment to the first article
@@ -99,17 +108,68 @@ async function insertFakeData() {
   // Adding the second comment to the first article
   await firstArticle.addComment(comment2.id)
 }
+
+async function seedPeople(){
+  
+  /**
+   * data contains these important variables in the field data.results:
+   * gender (string),
+   * name (object divided into title, first, last),
+   * location( if needed contains other fields such as city, state, country),
+   * dob (object {age and date}),
+   * picture (object which contains {large, medium, thumbnail})
+   * nationality
+   */
+  const { data }= await axios.get(`https://randomuser.me/api/`);
+  // twitter bio generator generates a short bio of a person
+  const summary  = await axios.get(`http://www.twitterbiogenerator.com/generate`);
+ 
+  //gets first result in an array of results
+  var res = data.results[0];
+
+  const { Article, Person } = db._tables
+  var heOrShe = '';
+  if (res.gender === 'male'){
+    heOrShe = 'He';
+  } else {
+    heOrShe = 'She';
+  }
+  await Person.create(
+    {
+      name: res.name.first,
+      surname: res.name.last,
+      biography: res.name.first + ` ` + res.name.last + ` is a 30-year-old chef at chain restaurant who enjoys golf, spreading fake news on Facebook and photography. Being generous and creative, `+ res.name.first +
+      `can also be very disloyal and a bit dull. ` + heOrShe +
+      ` started studying food science at college but never finished the course. Physically,`+res.name.first+`  is in good shape. ` + heOrShe+` is very tall with pale skin, brown hair and green eyes. 
+      `+heOrShe+` grew up in an upper class neighbourhood. `+res.name.first+`'s best friend is a chef at chain restaurant called Susie Torres. They have a very firey friendship.`,
+      summary: summary.data,
+      image: res.picture.large
+    }
+  )
+}
+
 /**
  * Function to initialize the database. This is exported and called in the main api.js file
  */
 async function initializeDatabase() {
   // Call the function for the database structure definition
   defineDatabaseStructure()
-  // Synchronize Sequelize with the actual database
+  // Synchronize Sequelize with the actual database. force = true removes all current tuples in db
   await db.sync({ force: false })
   // Call the function to insert some fake data
   // await insertFakeData()
+  // for(var i = 0; i<8; i++)
+  // await seedPeople()
   return db
 }
 
 export default initializeDatabase
+
+
+// get a random person through an api provided from https://randomuser.me
+// async function getPerson(){
+//   // go to the below api and see the json file provided
+//   const { data } = await axios.get(`https://randomuser.me/api/`);
+//     console.log("String of data gotten from rand user" , data.results)
+//     console.log("String of name of rand user" , data.results[0])  
+// }

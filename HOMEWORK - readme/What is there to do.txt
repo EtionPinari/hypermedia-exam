@@ -1,0 +1,23 @@
+THERE IS TO DEFINE:
+	//		JOB													//	AUTHOR
+	A NAVBAR COMPONENT WHICH WOULD CONTAINS ALL LINKS TO **SERVICES, AREAS, EXPERTS, PUBLICATIONS (called articles)**	//	INSERT YOUR NAME HERE
+
+*	THE EXPERT's page which uses the personProfile component (and the component's css)					//	ETION
+*	THE RELATIONSHIPS ON THE DATABASE between person AND article								//	ETION
+*	THE PUBLICATION'S PAGE which uses ARTICLEMINI										//	INSERT YOUR NAME HERE
+	ARTICLEMINI's component CSS												//	INSERT YOUR NAME HERE
+*	THE SERVICES'S PAGE and its component											//	INSERT YOUR NAME HERE
+*	THE AREA's PAGE AND its component											//	INSERT YOUR NAME HERE
+*	THE TABLES "SERVICES" AND "AREAS" IN THE DATABASE (look ~/server/db-conn.js and /server/rest/api.js)			//	INSERT YOUR NAME HERE
+	HOW THE HOMEPAGE LOOKS													//	INSERT YOUR NAME HERE
+	GLOBAL CSS														//	INSERT YOUR NAME HERE
+
+all jobs with * can already be designed.
+
+
+
+IMPORTANT:
+	We can focus first on the content and lastly on the css. Let's define firstly the components
+	Try putting <style scoped> everywhere except for the layout/default.vue so we do not have css rules that conflict.
+	In ~/assets/scss/colors.scss there are two (random and to be changed) colors which we could use in css rules so they can be consistent throughout all the website.
+		To use them just type in your css rule "   .my-class { background-color : $main-bg-color}  ". We will have one point of entrance to change all colors of the website if we want.
