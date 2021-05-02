@@ -1,56 +1,61 @@
 <template>
   <div class="container">
     <div>
-      <button >
-        <nuxt-link to ="/about">
-          About us
-        </nuxt-link>
-      </button>
-      <button >
-        <nuxt-link to ="/allEmployees">
-          Watch our employees
-        </nuxt-link>
-      </button>
-      <br><br>
+      <the-navbar />
       <Logo />
       <h1 class="title">hypermedia-website</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <div class="content">
+        <!-- here lay all the previews of articles, employess and services -->
+        <!-- If you want to put content in here, delete all the text below :) -->
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
+        aspernatur maxime unde, itaque repudiandae voluptas esse est ullam,
+        blanditiis dignissimos ex ipsum aperiam nulla! Accusantium alias
+        officiis tenetur voluptas est. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Quis, veritatis doloremque praesentium illo nobis at
+        asperiores nihil libero exercitationem voluptate excepturi nam optio
+        inventore eos explicabo fuga doloribus, quaerat eveniet.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
+        aspernatur maxime unde, itaque repudiandae voluptas esse est ullam,
+        blanditiis dignissimos ex ipsum aperiam nulla! Accusantium alias
+        officiis tenetur voluptas est. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Quis, veritatis doloremque praesentium illo nobis at
+        asperiores nihil libero exercitationem voluptate excepturi nam optio
+        inventore eos explicabo fuga doloribus, quaerat eveniet.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
+        aspernatur maxime unde, itaque repudiandae voluptas esse est ullam,
+        blanditiis dignissimos ex ipsum aperiam nulla! Accusantium alias
+        officiis tenetur voluptas est. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Quis, veritatis doloremque praesentium illo nobis at
+        asperiores nihil libero exercitationem voluptate excepturi nam optio
+        inventore eos explicabo fuga doloribus, quaerat eveniet.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
+        aspernatur maxime unde, itaque repudiandae voluptas esse est ullam,
+        blanditiis dignissimos ex ipsum aperiam nulla! Accusantium alias
+        officiis tenetur voluptas est. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Quis, veritatis doloremque praesentium illo nobis at
+        asperiores nihil libero exercitationem voluptate excepturi nam optio
+        inventore eos explicabo fuga doloribus, quaerat eveniet.
+        </div>
+      <the-footer />
     </div>
   </div>
 </template>
 
 <script>
 import ArticleMini from '../components/ArticleMini.vue'
+import TheFooter from '../components/TheFooter.vue'
+import TheNavbar from '../components/TheNavbar.vue'
 export default {
-  components: { ArticleMini },
-  }
+  components: { ArticleMini, TheFooter, TheNavbar },
+}
 </script>
 
 <style scoped>
 .container {
-  margin: 0 auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
 .title {

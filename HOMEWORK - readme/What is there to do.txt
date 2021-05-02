@@ -11,12 +11,15 @@ THERE IS TO DEFINE:
 *	THE TABLES "SERVICES" AND "AREAS" IN THE DATABASE (look ~/server/db-conn.js and /server/rest/api.js)			//	INSERT YOUR NAME HERE
 	HOW THE HOMEPAGE LOOKS													//	INSERT YOUR NAME HERE
 	GLOBAL CSS														//	INSERT YOUR NAME HERE
+	OUR LOGO														//	INSERT YOUR NAME HERE
+	FOOTER COMPONENT													//	ETION
 
 all jobs with * can already be designed.
 
 
 
 IMPORTANT:
+	The main div that contains all content should be called class = "container"
 	FOR THE DATABASE TO WORK, PLEASE CREATE A NEW FILE IN THE FOLDER /server CALLED 'personalDB.js'. IN THIS FILE WRITE THE FOLLOWING CODE: 
 		export const databasePassword = 'yourPassword'
 	We can focus first on the content and lastly on the css. Let's define firstly the components

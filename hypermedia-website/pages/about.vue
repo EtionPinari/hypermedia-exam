@@ -1,18 +1,8 @@
 <template>
   <div>
-    <div>
-        
-      <button >
-        <nuxt-link to ="/">
-          Go to homepage
-        </nuxt-link>
-      </button>
-      <br>
-        Lorem lorem Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora atque ducimus enim ipsum. Temporibus minus quod asperiores. Porro inventore ullam voluptatem, architecto doloremque saepe minima dolor necessitatibus dolorem officia! Cumque.
-    </div>
-
-    <!-- Container class only adds some style properties -->
+    <!-- Container class only adds some style properties such as centering text and putting the right margin to containers  -->
     <div class= "container">
+      <the-navbar/>
       <header id = "header">
       <h1>Blog of the WebSite</h1>
       <h4>And it's made with Nuxt</h4>
@@ -43,9 +33,11 @@
 <script>
 import axios from 'axios'
 import ArticleMini from '~/components/ArticleMini.vue'
+import TheNavbar from '../components/TheNavbar.vue'
 export default {
   components: {
     ArticleMini,
+    TheNavbar
   },
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/articles`)

@@ -1,7 +1,6 @@
 <template>
   <section class="container">
-      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit laborum non excepturi ipsum sed magni eligendi, autem debitis quas! Culpa molestiae repellendus assumenda quasi nostrum quia corrupti rerum animi praesentium.</p>
-    <header>
+     <header>
       <h1>{{ article.title }}</h1>
       <h4>{{ article.summary }}</h4>
       <img :src="article.image" :alt="article.summary" />
@@ -29,10 +28,15 @@
         </div>
       </div>
     </section>
+    <the-footer/>
   </section>
 </template>
+
+
 <script>
+import TheFooter from '../../components/TheFooter.vue'
 export default {
+  components: { TheFooter },
   async asyncData({ $axios, route }) {
     const { id } = route.params
     console.log('this url', process.env.BASE_URL)
@@ -47,3 +51,19 @@ export default {
 }
 </script>
 
+<style lang = "scss" scoped>
+.container{
+  text-align: center;
+}
+.container .comments{
+  text-align: left;
+}
+.comment{
+  background-color: $comment-background-color;
+  border: 0.1vw solid $main-border-color;
+}
+img {
+  width: 100%;
+  max-width: 400px;
+}
+</style>

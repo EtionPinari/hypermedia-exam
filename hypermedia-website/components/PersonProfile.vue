@@ -28,7 +28,7 @@ export default {
 /* LANG = SCSS is used for global variables. check file ~assets/scss/colors.scss */
 .card {
   padding: 20px 10px;
-  border: 1.3px solid grey;
+  border: 1.3px solid $main-border-color;
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
