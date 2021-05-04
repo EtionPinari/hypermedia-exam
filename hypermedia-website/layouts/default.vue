@@ -28,5 +28,6 @@ html {
   margin: 0 auto;
   width:80%;
   background-color: $main-bg-color;
+  text-align: center;
 }
 </style>

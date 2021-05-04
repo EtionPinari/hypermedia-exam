@@ -3,7 +3,7 @@
     
       <nuxt-link to="/"> <logo id='logo'/> </nuxt-link>
     <button>
-      <nuxt-link to="/about"> About us </nuxt-link>
+      <nuxt-link to="/articles"> All our articles </nuxt-link>
     </button>
     <button>
       <nuxt-link to="/allEmployees"> Watch our employees </nuxt-link>

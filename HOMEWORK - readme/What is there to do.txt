@@ -19,9 +19,7 @@ IMPORTANT:
 		{export const databasePassword = 'yourPostgresPassword'}
 			   3.2) to initialize the database you should go to the file 'db-conn.js' and remove the comments from the code:
 				"
- 					  // await insertFakeData()
- 					 // for(var i = 0; i<8; i++)
- 					 // await seedPeople()
+ 					  // await seedDatabase()
 				"
 			    3.3) Before running the website, go to your postgres server (pgAdmin or localhost://50000 ) and create a database called 'hypermedia-test'.
 				 After this, run the website ( through the command npm run dev ) and after the run, comment the above mentioned lines, or otherwise your database will be spammed with irrelevant tuples.

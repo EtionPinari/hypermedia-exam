@@ -11,7 +11,6 @@ async function init() {
 
   // Let's extract all the objects we need to perform queries inside the endpoints
   const { Article, Comment, Person } = db._tables
-  console.log(`DB TABLES ARE: ` + db._tables)
 
   // API to get all the articles
   app.get('/articles', async (req, res) => {
@@ -36,6 +35,18 @@ async function init() {
     return res.json(article)
   })
   
+  // API to get an article by ID.
+  // This one will return also the comments
+  app.get('/employee/:id', async (req, res) => {
+    const { id } = req.params
+    const person = await Person.findOne({
+      where: { id },
+      include: { model: Article },
+    })
+    return res.json(person)
+  })
+  
+
   // This one is just an example
   app.get('/ad', (req, res) => {
     return res.json({

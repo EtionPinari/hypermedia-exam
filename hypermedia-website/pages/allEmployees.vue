@@ -51,6 +51,10 @@ export default {
   font-size: 1.5vw;
 }
 
+.container{
+  text-align: left;
+}
+
 /* .center{ */
 /* margin: 0% 15%; */
 /* } */
