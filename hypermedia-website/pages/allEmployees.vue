@@ -47,9 +47,13 @@ export default {
 
 <style scoped>
 .person :not(h3){
-  margin: 1vw;
+  margin: 1vw 0vw;
   text-align: left;
   font-size: 1.5vw;
+}
+.person{
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
 }
 h2{
   margin: 1vw;

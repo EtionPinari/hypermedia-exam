@@ -1,5 +1,5 @@
 <template>
-  <div class="Person">
+  <div class="PersonProfile">
     <div class="card" @click="goToArticle(`/employee/${id}`)">
       <div class="content2">
         <h3>{{ name + ` ` + surname }}</h3>

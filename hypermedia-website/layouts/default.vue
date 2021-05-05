@@ -48,6 +48,13 @@ html {
   background-color: $main-highlight-color; /* Green */
   color: white;
 }
+.article-mini, .PersonProfile{
+  transition: 0.3s;
+}
+.article-mini:hover, .PersonProfile:hover{
+  background-color: rgba(255,255,255,0.2);
+}
+
 /* TEXT SCALINGS WITH VIEW WIDTH */
 h1{
   font-size: 2vw;
