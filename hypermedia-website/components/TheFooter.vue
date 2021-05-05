@@ -14,12 +14,12 @@
       </p>
       <br />
       <div id="short-nav">
-        <button>
-          <nuxt-link to="/contacts"> Contact us </nuxt-link>
-        </button>
-        <button>
-          <nuxt-link to="/about"> About us </nuxt-link>
-        </button>
+        <nuxt-link to="/contacts">
+          <div class="nav-button">Contact us</div>
+        </nuxt-link>
+        <nuxt-link to="/about">
+          <div class="nav-button">About us</div>
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -41,6 +41,18 @@ export default {
 }
 p {
   color: white;
+  margin: 1.5vw;
+  font-size: 1vw;
+}
+//
+#short-nav {
+  display: flex;
+  flex-direction: row;
+  // margin: -1.5vw 1vw 1vw 1vw;
+  justify-content: space-evenly;
+}
+#short-nav .nav-button{
+  width: 10vw;
 }
 .logo {
   flex: 3 100%;

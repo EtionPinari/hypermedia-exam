@@ -1,6 +1,7 @@
 <template>
   <section class="container">
-     <header>
+    <the-navbar/>
+    <header>
       <h1>{{ article.title }}</h1>
       <h4>{{ article.summary }}</h4>
       <img :src="article.image" :alt="article.summary" />
@@ -27,16 +28,21 @@
           }}/{{ new Date(comment.createdAt).getFullYear() }}
         </div>
       </div>
+      <div class="date">
+        Published the: {{ new Date(article.createdAt).getDate() }}/{{
+          new Date(article.createdAt).getMonth()
+        }}/{{ new Date(article.createdAt).getFullYear() }}
+      </div>
     </section>
-    <the-footer/>
+    <the-footer />
   </section>
 </template>
 
-
 <script>
 import TheFooter from '../../components/TheFooter.vue'
+import TheNavbar from '../../components/TheNavbar.vue'
 export default {
-  components: { TheFooter },
+  components: { TheFooter, TheNavbar },
   async asyncData({ $axios, route }) {
     const { id } = route.params
     console.log('this url', process.env.BASE_URL)
@@ -51,14 +57,14 @@ export default {
 }
 </script>
 
-<style lang = "scss" scoped>
-.container{
+<style lang="scss" scoped>
+.container {
   text-align: center;
 }
-.container .comments{
+.container .comments {
   text-align: left;
 }
-.comment{
+.comment {
   background-color: $comment-background-color;
   border: 0.1vw solid $main-border-color;
 }

@@ -1,8 +1,11 @@
 <template>
   <div class="container">
-    <div>
       <the-navbar />
+      <div id='center'>
+      <div id='logo'>
       <Logo />
+      </div>
+      </div>
       <h1 class="title">hypermedia-website</h1>
       <div class="content">
         <!-- here lay all the previews of articles, employess and services -->
@@ -37,7 +40,6 @@
         inventore eos explicabo fuga doloribus, quaerat eveniet.
         </div>
       <the-footer />
-    </div>
   </div>
 </template>
 
@@ -52,12 +54,13 @@ export default {
 
 <style scoped>
 .container {
-  min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
-
+#logo{
+  width:33%;
+  margin: auto 30%;
+}
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -68,15 +71,8 @@ export default {
   letter-spacing: 1px;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.content{
+  align-content: center;
+  margin: auto 10%;
 }
 </style>
