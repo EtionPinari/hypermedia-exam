@@ -118,7 +118,7 @@ export default {
   margin: 0vw 10% 3vw 10%;
 }
 img {
-  width: 100%;
-  max-width: 225px;
+  width: 13vw;
+  height: 13vw;
 }
 </style>

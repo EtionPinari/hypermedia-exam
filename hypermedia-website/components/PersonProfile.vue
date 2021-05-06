@@ -50,7 +50,7 @@ h3 {
   position: relative;
   border-radius: 15%;
   border: solid 0.3em $main-border-color;
-  width: 120px;
-  height: 120px;
+  width: 13vw;
+  height: 13vw;
 }
 </style>
