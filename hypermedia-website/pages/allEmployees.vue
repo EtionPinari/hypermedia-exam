@@ -4,9 +4,7 @@
   <div>
     <div class="container">
       <the-navbar />
-      <h2>
-        These are all the employees of our company:
-      </h2>
+      <h2>These are all the employees of our company:</h2>
       <div
         v-for="(person, personIndex) of people"
         :key="'person-' + personIndex"
@@ -20,7 +18,7 @@
           :summary="person.summary"
         ></person-profile>
       </div>
-      <the-footer/>
+      <the-footer />
     </div>
   </div>
 </template>
@@ -46,16 +44,16 @@ export default {
 </script>
 
 <style scoped>
-.person :not(h3){
+.person :not(h3) {
   margin: 1vw 0vw;
   text-align: left;
   font-size: 1.5vw;
 }
-.person{
+.person {
   margin-left: 1.5vw;
   margin-right: 1.5vw;
 }
-h2{
+h2 {
   margin: 1vw;
 }
 
