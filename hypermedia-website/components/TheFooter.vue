@@ -51,7 +51,7 @@ p {
   // margin: -1.5vw 1vw 1vw 1vw;
   justify-content: space-evenly;
 }
-#short-nav .nav-button{
+#short-nav .nav-button {
   width: 10vw;
 }
 .logo {

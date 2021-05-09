@@ -13,7 +13,7 @@
 <script>
 export default {
   props: {
-    id: { type: Number, default: () => '' },
+    id: { type: Number, default: () => 0 },
     name: { type: String, default: () => '' }, //
     surname: { type: String, default: () => '' }, //
     image: { type: String, default: () => '' }, //

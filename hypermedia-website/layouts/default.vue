@@ -4,9 +4,9 @@
   </div>
 </template>
 
-<style lang = "scss">
+<style lang="scss">
 /* THIS IS THE BACKGROUND CLASS */
-html{
+html {
   background-color: $secondary-bg-color;
 }
 html {
@@ -28,19 +28,19 @@ html {
   margin: 0;
 }
 
-.container{
+.container {
   margin: 0.5vw 8% 0.5vw 8%;
   background-color: $main-bg-color;
   text-align: center;
 }
-.center{
+.center {
   margin: 0 auto;
   width: 80%;
 }
 /* If you want to use navigation buttons they will use this style */
-.nav-button{
+.nav-button {
   background-color: $main-button-color;
-  height:100%;
+  height: 100%;
   transition-duration: 0.4s;
   padding: 5%;
 }
@@ -48,30 +48,35 @@ html {
   background-color: $main-highlight-color; /* Green */
   color: white;
 }
-.article-mini, .PersonProfile{
+.article-mini,
+.PersonProfile {
   transition: 0.3s;
 }
-.article-mini:hover, .PersonProfile:hover{
-  background-color: rgba(255,255,255,0.2);
+.article-mini:hover,
+.PersonProfile:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* TEXT SCALINGS WITH VIEW WIDTH */
-h1{
+h1 {
   font-size: 2vw;
 }
-h2{
+h2 {
   font-size: 1.5vw;
 }
-h3{
-  font-size :1.17vw;
+h3 {
+  font-size: 1.17vw;
 }
-p, div, h4{
+p,
+div,
+h4 {
   font-size: 1vw;
 }
-a, h5 {
+a,
+h5 {
   font-size: 0.87vw;
 }
-a{
+a {
   text-decoration: none;
   color: black;
 }
