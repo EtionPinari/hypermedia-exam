@@ -10,15 +10,28 @@ async function init() {
   const db = await initializeDatabase()
 
   // Let's extract all the objects we need to perform queries inside the endpoints
-  const { Article, Comment, Person } = db._tables
+  const {
+    Area,
+    Article,
+    Comment,
+    Person,
+    PeopleAreas,
+    Service,
+    ServicesAreas,
+  } = db._tables
 
   // API to get all the articles
   app.get('/articles', async (req, res) => {
     const articles = await Article.findAll()
     return res.json(articles)
   })
+  // Call this to get all services
+  app.get('/services', async (req, res) => {
+    const services = await Service.findAll()
+    return res.json(services)
+  })
 
-  //API to get all people
+  // API to get all people
   app.get('/people', async (req, res) => {
     const people = await Person.findAll()
     return res.json(people)
@@ -34,9 +47,7 @@ async function init() {
     })
     return res.json(article)
   })
-  
-  // API to get an article by ID.
-  // This one will return also the comments
+
   app.get('/employee/:id', async (req, res) => {
     const { id } = req.params
     const person = await Person.findOne({
@@ -45,7 +56,54 @@ async function init() {
     })
     return res.json(person)
   })
-  
+  //Finds ALL PEOPLE that work in :AREA
+  app.get('/employeeName/:area', async (req, res) => {
+    const { area } = req.params
+    //find our area so we can fetch its ID
+    const ourArea = await Area.findOne({
+      where: { title: area },
+    })
+    //find all tuples in PeopleAreas (equivalently find all person's ids:) that belong to area with id ourArea.id
+    const ourPeople = await PeopleAreas.findAll({
+      //select only the personId attribute
+      attributes: ['personId'],
+      where: { areaId: ourArea.id },
+    })
+    console.log('OUR PEOPLE IS: ' + ourPeople[0])
+    const peopleResult = []
+    for (var i = 0; i < ourPeople.length; i++) {
+      peopleResult.push(
+        await Person.findOne({
+          where: { id: ourPeople[i].dataValues.personId },
+        })
+      )
+    }
+    return res.json(peopleResult)
+  })
+
+  // Call this to get a service of an area
+  // Careful: address is SERVICE (no final s)
+  app.get('/service/:area', async (req, res) => {
+    const { area } = req.params
+    //find our area so we can fetch its ID
+    const ourArea = await Area.findOne({
+      where: { title: area },
+    })
+    //find all tuples in ServiceAreas (equivalently find all service's ids:) that belong to area with id ourArea.id
+    const ourServices = await ServicesAreas.findAll({
+      attributes: ['serviceId'],
+      where: { areaId: ourArea.id },
+    })
+    const servicesResult = []
+    for (var i = 0; i < ourServices.length; i++) {
+      servicesResult.push(
+        await Service.findOne({
+          where: { id: ourServices[i].dataValues.serviceId },
+        })
+      )
+    }
+    return res.json(servicesResult)
+  })
 
   // This one is just an example
   app.get('/ad', (req, res) => {

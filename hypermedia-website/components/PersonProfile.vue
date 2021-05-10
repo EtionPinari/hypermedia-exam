@@ -40,6 +40,7 @@ export default {
   flex: 0;
 }
 h3 {
+  text-align: left;
   margin-bottom: 10px;
 }
 .p {

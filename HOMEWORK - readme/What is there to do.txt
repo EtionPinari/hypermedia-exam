@@ -30,15 +30,15 @@ THERE IS TO DEFINE:
 
 *	THE EXPERT's page which uses the personProfile component (and the component's css)					//	ETION
 *	THE RELATIONSHIPS ON THE DATABASE between person AND article								//	ETION
-*	THE PUBLICATION'S PAGE which uses ARTICLEMINI										//	INSERT YOUR NAME HERE
-	ARTICLEMINI's component CSS												//	INSERT YOUR NAME HERE
-*	THE SERVICES'S PAGE and its component											//	INSERT YOUR NAME HERE
-*	THE AREA's PAGE AND its component											//	INSERT YOUR NAME HERE
-*	THE TABLES "SERVICES" AND "AREAS" IN THE DATABASE (look ~/server/db-conn.js and /server/rest/api.js)			//	INSERT YOUR NAME HERE
-	HOW THE HOMEPAGE LOOKS													//	INSERT YOUR NAME HERE
+*	THE SERVICES'S PAGE and its component											//	MICHAEL
+*	THE AREA's PAGE AND its component											//	LISA
+*	ADD TUPLES IN ALL TABLES												// 	MICHAEL, LISA, ETION, PARDEEP
+	HOW THE HOMEPAGE LOOKS (X)												//	INSERT YOUR NAME HERE
 	GLOBAL CSS														//	INSERT YOUR NAME HERE
 	OUR LOGO														//	INSERT YOUR NAME HERE
-	FOOTER COMPONENT													//	ETION
+	FOOTER COMPONENT													//	PARDEEP
+	NAVBAR COMPONENT													//	PARDEEP
+
 
 all jobs with * can already be designed.
 			
