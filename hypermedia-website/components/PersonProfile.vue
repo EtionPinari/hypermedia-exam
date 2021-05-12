@@ -1,11 +1,11 @@
 <template>
-  <div class="PersonProfile">
+  <div class="PersonProfile person">
     <div class="card" @click="goToArticle(`/employee/${id}`)">
+      <img :src="image" class="facepreview" />
       <div class="content2">
         <h3>{{ name + ` ` + surname }}</h3>
         <div class="p">{{ summary }}</div>
       </div>
-      <img :src="image" class="facepreview" />
     </div>
   </div>
 </template>
@@ -32,23 +32,31 @@ export default {
 <style lang="scss" scoped>
 /* LANG = SCSS is used for global variables. check file ~assets/scss/colors.scss */
 .card {
-  padding: 20px 10px;
-  border: 1.3px solid $main-border-color;
-  border-radius: 4px;
+  padding: 0.3vw 0.5vw;
+  align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  flex: 0;
+  width: inherit;
+  margin-bottom: 1.3vw;
+}
+.PersonProfile,
+.person {
+  cursor: pointer;
+  width: 15vw;
 }
 h3 {
-  text-align: left;
-  margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 0.1em;
 }
 .p {
-  margin-bottom: 3vw;
-  height: 60px;
+  overflow: hidden;
+  text-align: center;
+  overflow: hidden;
+  height: 2.9em;
+  width: inherit;
 }
 .facepreview {
-  position: relative;
   border-radius: 15%;
   border: solid 0.3em $main-border-color;
   width: 13vw;
