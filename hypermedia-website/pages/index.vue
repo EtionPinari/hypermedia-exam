@@ -6,37 +6,32 @@
         <Logo />
       </div>
     </div>
-    <h1 class="title">hypermedia-website</h1>
+    <h1 class="title">Hatgemini-website</h1>
     <div class="content">
       <!-- here lay all the previews of articles, employess and services -->
       <!-- If you want to put content in here, delete all the text below :) -->
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
-      aspernatur maxime unde, itaque repudiandae voluptas esse est ullam,
-      blanditiis dignissimos ex ipsum aperiam nulla! Accusantium alias officiis
-      tenetur voluptas est. Lorem ipsum dolor sit amet consectetur adipisicing
-      elit. Quis, veritatis doloremque praesentium illo nobis at asperiores
-      nihil libero exercitationem voluptate excepturi nam optio inventore eos
-      explicabo fuga doloribus, quaerat eveniet. Lorem ipsum dolor, sit amet
-      consectetur adipisicing elit. Adipisci aspernatur maxime unde, itaque
-      repudiandae voluptas esse est ullam, blanditiis dignissimos ex ipsum
-      aperiam nulla! Accusantium alias officiis tenetur voluptas est. Lorem
-      ipsum dolor sit amet consectetur adipisicing elit. Quis, veritatis
-      doloremque praesentium illo nobis at asperiores nihil libero
-      exercitationem voluptate excepturi nam optio inventore eos explicabo fuga
-      doloribus, quaerat eveniet. Lorem ipsum dolor, sit amet consectetur
-      adipisicing elit. Adipisci aspernatur maxime unde, itaque repudiandae
-      voluptas esse est ullam, blanditiis dignissimos ex ipsum aperiam nulla!
-      Accusantium alias officiis tenetur voluptas est. Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Quis, veritatis doloremque praesentium
-      illo nobis at asperiores nihil libero exercitationem voluptate excepturi
-      nam optio inventore eos explicabo fuga doloribus, quaerat eveniet. Lorem
-      ipsum dolor, sit amet consectetur adipisicing elit. Adipisci aspernatur
-      maxime unde, itaque repudiandae voluptas esse est ullam, blanditiis
-      dignissimos ex ipsum aperiam nulla! Accusantium alias officiis tenetur
-      voluptas est. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Quis, veritatis doloremque praesentium illo nobis at asperiores nihil
-      libero exercitationem voluptate excepturi nam optio inventore eos
-      explicabo fuga doloribus, quaerat eveniet.
+      <div id="our-company">
+        Hatgemini was established in 1996 to provide information technology
+        solutions for small to medium-sized businesses. Our mission from the
+        very first day has been to cultivate professional relationships with our
+        clients to provide effective and reliable information technology
+        solutions for their needs. The team at Hatgemini is equipped with a
+        highly developed skillset developed over decades of experience not only
+        in information technology but also in business processes across a range
+        of industry sectors. This business experience makes us uniquely
+        positioned to offer solutions promising greater operational efficiency,
+        productivity gains and cost savings for each of our clients, regardless
+        of their industry. As an established technology-intensive company, we
+        pride ourselves on providing a comprehensive suite of solutions
+        comprising of infrastructure consultancy, on/offsite services, custom
+        software and web development, software and web application testing, and
+        enterprise architecture consulting. Our team consistently delivers
+        state-of-the-art solutions in various areas including, but not limited
+        to, integrated business solutions, system applications, product
+        development, Internet/Intranet applications and communication & network
+        management services. At Hatgemini, we guarantee rapid, reliable and
+        robust information technology solutions that work.
+      </div>
     </div>
     <the-footer />
   </div>

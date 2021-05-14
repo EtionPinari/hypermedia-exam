@@ -1,6 +1,6 @@
+import axios from 'axios'
 import { databasePassword } from '../server/personalDB.js'
 const { Sequelize, DataTypes } = require('sequelize')
-import axios from 'axios'
 
 const password = databasePassword
 // Development
@@ -51,7 +51,7 @@ function defineDatabaseStructure() {
     summary: DataTypes.STRING,
     image: DataTypes.STRING,
   })
-  //No attributes because it only contains the keys to and from people and area (Person1 <-> Area1)
+  // No attributes because it only contains the keys to and from people and area (Person1 <-> Area1)
   const PeopleAreas = db.define('people_areas', {})
   const ServicesAreas = db.define('services_areas', {})
   const Area = db.define('area', {
@@ -90,17 +90,9 @@ function defineDatabaseStructure() {
  * Function to insert some fake info in the database
  */
 async function insertFakeData() {
-  const {
-    Area,
-    Article,
-    Comment,
-    Person,
-    PeopleAreas,
-    Service,
-    ServicesAreas,
-  } = db._tables
+  const { Area, Article, Comment, Service } = db._tables
 
-  //ETION's ARTICLES
+  // ETION's ARTICLES
   const art1 = await Article.create({
     title: 'How video game play may provide learning, health, social benefits',
     summary: `Playing video games, including violent shooter games, may boost children's learning, health and social skills, according to a review of research in American Psychologist.`,
@@ -195,7 +187,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   const comment2 = await Comment.create({
     content: 'Such Doge.',
   })
-  //Etion's area
+  // Etion's area
   const Etion = await Area.create({
     title: `Gaming and Entertainment`,
     image: `https://www.translationsuniverse.com/images/video-game-streaming-subscription.jpg`,
@@ -205,8 +197,8 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       ` These and many more articles in the following links: `,
     overview: `Area when you can learn more about games' design and how it affects people.`,
   })
-  //Sorry for being ego-centric
-  //This method adds the people with id 9-8-7 to my area (titled: gaming)
+  // Sorry for being ego-centric
+  // This method adds the people with id 9-8-7 to my area (titled: gaming)
   Etion.addPerson(9)
   Etion.addPerson(8)
   Etion.addPerson(7)
@@ -278,11 +270,11 @@ async function seedPerson() {
   // twitter bio generator generates a short bio of a person
   const summary = await axios.get(`http://www.twitterbiogenerator.com/generate`)
 
-  //gets first result in an array of results
-  var res = data.results[0]
+  // gets first result in an array of results
+  const res = data.results[0]
 
   const { Person } = db._tables
-  var heOrShe = ''
+  let heOrShe = ''
   if (res.gender === 'male') {
     heOrShe = 'He'
   } else {
@@ -315,8 +307,9 @@ async function seedPerson() {
   return Author
 }
 
+// eslint-disable-next-line no-unused-vars
 async function seedDatabase() {
-  for (var i = 0; i < 8; i++) await seedPerson()
+  for (let i = 0; i < 8; i++) await seedPerson()
   await insertFakeData()
 }
 /**

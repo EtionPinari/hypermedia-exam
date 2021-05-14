@@ -6,14 +6,15 @@
         <header id="person">
           <div id="short-description">
             <h1>{{ person.name + ' ' + person.surname }}</h1>
-            <h4>{{ person.summary }}</h4>
           </div>
           <div id="face">
             <img :src="person.image" />
+            <h4>{{ person.summary }}</h4>
           </div>
         </header>
+        <hr />
         <article id="biography">
-          <h4>{{ person.name + `'s biography` }}</h4>
+          <h2>{{ person.name + `'s biography` }}</h2>
           <p>
             {{ person.biography }}
           </p>
@@ -70,14 +71,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  text-align: center;
+hr {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 90%;
+  align-self: center;
+}
+.article-mini {
+  border: 0px;
+  min-height: 500px;
 }
 
 .content {
   display: flex;
   flex-direction: column;
 }
+
+.container {
+  text-align: center;
+}
+
 .publications {
   display: flex;
   justify-content: space-evenly;
@@ -93,9 +105,11 @@ export default {
   flex-direction: column;
 }
 // keep the short-description on the left
+// add margin on top and bottom
 #person {
   display: flex;
   justify-content: space-evenly;
+  margin: 3vh 0;
 }
 //short description with name and surname occupies 1/2 of the width
 #person #short-description {
@@ -115,9 +129,21 @@ export default {
   float: right;
   margin: 0 4vw;
 }
+// face container displays the content in a flew-column. So the image is gonna be the first
+// displayed and below that the summary
+#face {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+// The text below the face (img) of the person is gonna be a certain width
+#face > h4 {
+  width: 21vw;
+  text-align: center;
+}
 // give some space to the biography paragraph and differentiate it from other components
 #biography {
-  margin: 0vw 10% 3vw 10%;
+  margin: 3vh 10% 3vh 10%;
 }
 img {
   width: 13vw;

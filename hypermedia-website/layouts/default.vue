@@ -59,23 +59,9 @@ html {
 }
 
 /* TEXT SCALINGS WITH VIEW WIDTH */
-h1 {
-  font-size: 2vw;
-}
-h2 {
-  font-size: 1.5vw;
-}
-h3 {
-  font-size: 1.17vw;
-}
-p,
-div,
-h4 {
-  font-size: 1vw;
-}
 a,
 h5 {
-  font-size: 0.87vw;
+  font-size: 0.87em;
 }
 a {
   text-decoration: none;

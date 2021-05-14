@@ -44,13 +44,13 @@ async function init() {
     const { limit } = req.params
     const { index } = req.params
     const people = await Person.findAll({
-      limit: limit,
+      limit,
       where: {
         id: {
           [Op.gt]: index * limit,
         },
       },
-      include: {model: Area}
+      include: { model: Area },
     })
     people.initialNumber = 0
     return res.json(people)
@@ -75,21 +75,21 @@ async function init() {
     })
     return res.json(person)
   })
-  //Finds ALL PEOPLE that work in :AREA
+  // Finds ALL PEOPLE that work in :AREA
   app.get('/employeeName/:area', async (req, res) => {
     const { area } = req.params
-    //find our area so we can fetch its ID
+    // find our area so we can fetch its ID
     const ourArea = await Area.findOne({
       where: { title: area },
     })
-    //find all tuples in PeopleAreas (equivalently find all person's ids:) that belong to area with id ourArea.id
+    // find all tuples in PeopleAreas (equivalently find all person's ids:) that belong to area with id ourArea.id
     const ourPeople = await PeopleAreas.findAll({
-      //select only the personId attribute
+      // select only the personId attribute
       attributes: ['personId'],
       where: { areaId: ourArea.id },
     })
     const peopleResult = []
-    for (var i = 0; i < ourPeople.length; i++) {
+    for (let i = 0; i < ourPeople.length; i++) {
       peopleResult.push(
         await Person.findOne({
           where: { id: ourPeople[i].dataValues.personId },
@@ -103,17 +103,17 @@ async function init() {
   // Careful: address is SERVICE (no final s)
   app.get('/service/:area', async (req, res) => {
     const { area } = req.params
-    //find our area so we can fetch its ID
+    // find our area so we can fetch its ID
     const ourArea = await Area.findOne({
       where: { title: area },
     })
-    //find all tuples in ServiceAreas (equivalently find all service's ids:) that belong to area with id ourArea.id
+    // find all tuples in ServiceAreas (equivalently find all service's ids:) that belong to area with id ourArea.id
     const ourServices = await ServicesAreas.findAll({
       attributes: ['serviceId'],
       where: { areaId: ourArea.id },
     })
     const servicesResult = []
-    for (var i = 0; i < ourServices.length; i++) {
+    for (let i = 0; i < ourServices.length; i++) {
       servicesResult.push(
         await Service.findOne({
           where: { id: ourServices[i].dataValues.serviceId },
