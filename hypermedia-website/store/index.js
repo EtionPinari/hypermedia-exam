@@ -3,18 +3,21 @@
 // If counter is > number_employees/6 (or 9) then it stops showing next button
 // If you go away from a page it gets reset to 0 (by clicking the buttons on the navbar)
 export const state = () => ({
-    counter: 0
-  })
-  
-  export const mutations = {
-    increment(state) {
-      state.counter++
-    },
-    decrement(state) {
-      state.counter--
-    },
-    reset(state){
-      console.log("CALLED REST IN INDEXJS")
-      state.counter = 0
-    }
-  }
+  counter: 0,
+  numberOfEmployees: -1,
+})
+
+export const mutations = {
+  increment(state) {
+    state.counter++
+  },
+  decrement(state) {
+    state.counter--
+  },
+  reset(state) {
+    state.counter = 0
+  },
+  setNumberOfEmployees(state, number) {
+    state.numberOfEmployees = number
+  },
+}

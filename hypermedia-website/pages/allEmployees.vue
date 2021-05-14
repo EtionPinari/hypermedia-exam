@@ -23,9 +23,9 @@
       </div>
       <div class="control-bar">
         <div v-if="$data.next > 0" class="nav-button" @click="getPrevious()">
-          Previous
+          Previous 6
         </div>
-        <div class="nav-button" @click="getData()">Next</div>
+        <div class="nav-button" @click="getData()">Next 6</div>
       </div>
 
       <the-footer />
