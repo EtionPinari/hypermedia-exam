@@ -43,6 +43,7 @@ html {
   height: 100%;
   transition-duration: 0.4s;
   padding: 5%;
+  cursor: pointer;
 }
 .nav-button:hover {
   background-color: $main-highlight-color; /* Green */

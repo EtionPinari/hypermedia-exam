@@ -4,7 +4,7 @@
       <img :src="image" class="facepreview" />
       <div class="content2">
         <h3>{{ name + ` ` + surname }}</h3>
-        <div class="p">{{ summary }}</div>
+        <h5 class="p">{{ area.title }}</h5>
       </div>
     </div>
   </div>
@@ -18,7 +18,8 @@ export default {
     surname: { type: String, default: () => '' }, //
     image: { type: String, default: () => '' }, //
     content: { type: String, default: () => '' },
-    summary: { type: String, default: () => '' }, //
+    area: { type: String, default: () => '' }, //
+    summary: { type: String, default: () => '' },
     articles: { type: String, default: () => '' },
   },
   methods: {

@@ -5,13 +5,15 @@ NAMES
   <div class="container">
     <the-navbar />
     <h3>All people that work in area {{ areaName }}</h3>
-    <div v-for="(person, personIndex) of person" :key="'art-' + personIndex">
-      <person-profile
-        :name="person.name"
-        :surname="person.surname"
-        :summary="person.summary"
-        :image="person.image"
-      />
+    <div class="all-people-container">
+      <div v-for="(person, personIndex) of person" :key="'art-' + personIndex">
+        <person-profile
+          :name="person.name"
+          :surname="person.surname"
+          :summary="person.summary"
+          :image="person.image"
+        />
+      </div>
     </div>
     <the-footer />
   </div>
@@ -38,4 +40,13 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.all-people-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
+}
+</style>

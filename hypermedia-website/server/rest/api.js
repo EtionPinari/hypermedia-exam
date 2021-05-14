@@ -1,6 +1,7 @@
 import express from 'express'
 import initializeDatabase from '../db-conn'
 const app = express()
+const { Op } = require('sequelize')
 // We need this one if we send data inside the body as JSON
 
 app.use(express.json())
@@ -34,6 +35,24 @@ async function init() {
   // API to get all people
   app.get('/people', async (req, res) => {
     const people = await Person.findAll()
+    people.initialNumber = 0
+    return res.json(people)
+  })
+
+  // API to get the first n people people
+  app.get('/people/:limit/:index', async (req, res) => {
+    const { limit } = req.params
+    const { index } = req.params
+    const people = await Person.findAll({
+      limit: limit,
+      where: {
+        id: {
+          [Op.gt]: index * limit,
+        },
+      },
+      include: {model: Area}
+    })
+    people.initialNumber = 0
     return res.json(people)
   })
 
@@ -69,7 +88,6 @@ async function init() {
       attributes: ['personId'],
       where: { areaId: ourArea.id },
     })
-    console.log('OUR PEOPLE IS: ' + ourPeople[0])
     const peopleResult = []
     for (var i = 0; i < ourPeople.length; i++) {
       peopleResult.push(

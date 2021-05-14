@@ -3,7 +3,7 @@
   <!-- <navbar/> -->
   <div>
     <div class="container">
-      <the-navbar />
+      <the-navbar @click='resetMethod()'/>
       <h2>These are all the employees of our company:</h2>
       <div class="all-people-container">
         <div
@@ -16,10 +16,20 @@
             :name="person.name"
             :surname="person.surname"
             :image="person.image"
-            :summary="person.summary"
+            :area="person.areas[0]"
           ></person-profile>
+          <div>
+          </div>
+          </div>
         </div>
-      </div>
+        <div class = 'control-bar'>
+          <div class= 'nav-button' v-if="$data.next>0" @click="getPrevious()">
+            Previous
+          </div>
+          <div class= 'nav-button' @click="getData()">
+            Next
+          </div>
+        </div>
 
       <the-footer />
     </div>
@@ -31,14 +41,39 @@ import PersonProfile from '../components/PersonProfile.vue'
 import TheFooter from '../components/TheFooter.vue'
 import TheNavbar from '../components/TheNavbar.vue'
 export default {
+  data:{
+    //default is 0 even though it would be more correct to be equal to store.state.counter
+     next : { type: Number, default: () => 0 },
+  },
   components: {
     PersonProfile,
     TheNavbar,
     TheFooter,
   },
-  async asyncData({ $axios }) {
-    const { data } = await $axios.get(`${process.env.BASE_URL}/api/people`)
+  methods: {
+    getData() {
+      this.$store.commit('increment')
+      this.$data.next = this.$store.state.counter
+      this.$nuxt.refresh()
+    },
+    getPrevious(){
+      this.$store.commit('decrement')
+      this.$data.next = this.$store.state.counter
+      this.$nuxt.refresh()
+    }
+  },
+  async asyncData({ $axios, store, props}) {
+    const peopleShown = 6
+    // the state counter will keep track of which page of users we currently are 
+    var index = store.state.counter
+    const { data } = await $axios.get(
+      `${process.env.BASE_URL}/api/people/${peopleShown}/${index}`
+    )
     const people = data
+    console.log("People data are: " + people[0]);
+    for(var x in people[0]){
+      console.log("Printing: " + x + " attribute of person 0: " + people[0][x])
+    }
     return {
       people,
     }
@@ -47,9 +82,6 @@ export default {
 </script>
 
 <style scoped>
-/* .person :not(h3) {
-  font-size: 1em;
-} */
 /* This is the child of the all-people-container */
 /* All children can only take up to 50% of the total space and always stay in the center position */
 .person {
@@ -68,8 +100,15 @@ export default {
 h2 {
   margin: 1vw;
 }
-
-/* .center{ */
-/* margin: 0% 15%; */
-/* } */
+.control-bar{
+  justify-content: space-around;
+  display: inline-flex;
+}
+.nav-button{
+  width: 5vw;
+  height: 2vw;
+  text-align: center;
+  padding: 0.3vw 0;
+  margin: auto 1vw;
+}
 </style>

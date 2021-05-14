@@ -15,10 +15,10 @@
       <br />
       <div id="short-nav">
         <nuxt-link to="/contacts">
-          <div class="nav-button">Contact us</div>
+          <div class="nav-button" @click='resetCounter()'>Contact us</div>
         </nuxt-link>
         <nuxt-link to="/about">
-          <div class="nav-button">About us</div>
+          <div class="nav-button" @click='resetCounter()'>About us</div>
         </nuxt-link>
       </div>
     </div>
@@ -29,6 +29,12 @@
 import Logo from './Logo.vue'
 export default {
   components: { Logo },
+  methods: {
+    //This method resets the previous/next counter on every click of the navbar
+    resetCounter(){
+      this.$store.commit(`reset`)
+    },
+  },
 }
 </script>
 

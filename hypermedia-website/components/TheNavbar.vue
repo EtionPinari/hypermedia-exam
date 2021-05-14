@@ -1,23 +1,23 @@
 <template>
   <div class="navbar"> 
-    <nuxt-link to="/"><logo id="logo" /></nuxt-link>
-    <nuxt-link to="/allAreas">
-      <div class="nav-button">Areas</div>
+    <nuxt-link to="/"><logo id="logo" @click='resetCounter()' /></nuxt-link>
+    <nuxt-link to="/allAreas" >
+      <div class="nav-button" @click='resetCounter()'>Areas</div>
     </nuxt-link>
     <nuxt-link to="/articles">
-      <div class="nav-button">Articles</div>
+      <div class="nav-button" @click='resetCounter()'>Articles</div>
     </nuxt-link>
-    <nuxt-link to="/allEmployees">
-      <div class="nav-button">Experts</div>
+    <nuxt-link to="/allEmployees" >
+      <div class="nav-button" @click='resetCounter()'>Experts</div>
     </nuxt-link>
-    <nuxt-link to="/allServices">
-      <div class="nav-button">Services</div>
+    <nuxt-link to="/allServices" >
+      <div class="nav-button" @click='resetCounter()'>Services</div>
     </nuxt-link>
     <nuxt-link to="/contacts">
-      <div class="nav-button">Contact us</div>
+      <div class="nav-button" @click='resetCounter()'>Contact us</div>
     </nuxt-link>
     <nuxt-link to="/about">
-      <div class="nav-button">About us</div>
+      <div class="nav-button" @click='resetCounter()'>About us</div>
     </nuxt-link>
     <br /><br />
   </div>
@@ -27,6 +27,12 @@
 import Logo from './Logo.vue'
 export default {
   components: { Logo },
+  methods: {
+    //This method resets the previous/next counter on every click of the navbar
+    resetCounter(){
+      this.$store.commit(`reset`)
+    },
+  }
 }
 </script>
 
