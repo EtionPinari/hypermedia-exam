@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <the-navbar/>
+    <the-navbar />
     <header>
       <h1>{{ article.title }}</h1>
       <h4>{{ article.summary }}</h4>
@@ -72,5 +72,4 @@ img {
   width: 100%;
   max-width: 400px;
 }
-
 </style>

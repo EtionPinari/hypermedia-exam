@@ -1,26 +1,26 @@
 <template>
-  <div class="navbar"> 
-    <nuxt-link to="/"><logo id="logo" @click='resetCounter()' /></nuxt-link>
-    <nuxt-link to="/allAreas" >
-      <div class="nav-button" @click='resetCounter()'>Areas</div>
+  <nav>
+    <nuxt-link to="/"><logo id="logo" @click="resetCounter()" /></nuxt-link>
+    <nuxt-link to="/allAreas">
+      <a>Areas</a>
     </nuxt-link>
     <nuxt-link to="/articles">
-      <div class="nav-button" @click='resetCounter()'>Articles</div>
+      <a>Articles</a>
     </nuxt-link>
-    <nuxt-link to="/allEmployees" >
-      <div class="nav-button" @click='resetCounter()'>Experts</div>
+    <nuxt-link to="/allEmployees">
+      <a>Experts</a>
     </nuxt-link>
-    <nuxt-link to="/allServices" >
-      <div class="nav-button" @click='resetCounter()'>Services</div>
+    <nuxt-link to="/allServices">
+      <a>Services</a>
     </nuxt-link>
     <nuxt-link to="/contacts">
-      <div class="nav-button" @click='resetCounter()'>Contact us</div>
+      <a>Contact us</a>
     </nuxt-link>
     <nuxt-link to="/about">
-      <div class="nav-button" @click='resetCounter()'>About us</div>
+      <a>About us</a>
     </nuxt-link>
     <br /><br />
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -28,16 +28,16 @@ import Logo from './Logo.vue'
 export default {
   components: { Logo },
   methods: {
-    //This method resets the previous/next counter on every click of the navbar
-    resetCounter(){
+    // This method resets the previous/next counter on every click of the navbar
+    resetCounter() {
       this.$store.commit(`reset`)
     },
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-.navbar {
+nav {
   justify-content: space-around;
   display: flex;
   top: 0%;
@@ -45,21 +45,32 @@ export default {
   padding: 0.8vw 0vw;
   margin-top: 5px;
   z-index: 9;
-  background-color: $footer-color-darkens;
+  background-color: white;
   height: 3.5vw;
-  // justify-content: center;
   align-content: center;
 }
-.nav-button, #logo {
-  height: 90%;
-  width: 6vw;
+a {
+  justify-content: center;
+  align-items: center;
+  color: rgb(46, 139, 201);
+  font-size: 17px;
+  margin-top: 5px;
+}
+#logo {
+  height: 100%;
+  width: 4vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
+  color: rgb(46, 139, 201);
+}
+a:hover {
+  color: rgb(44, 10, 117);
 }
 #logo {
   height: 140%;
   position: relative;
-  bottom: 30%;  
+  bottom: 30%;
 }
 </style>
