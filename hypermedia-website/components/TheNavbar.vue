@@ -1,6 +1,8 @@
 <template>
   <nav>
-    <nuxt-link to="/"><logo id="logo" @click="resetCounter()" /></nuxt-link>
+    <div>
+      <nuxt-link to="/"><logo id="logo" /></nuxt-link>
+    </div>
     <nuxt-link to="/allAreas">
       <a>Areas</a>
     </nuxt-link>
@@ -8,7 +10,8 @@
       <a>Articles</a>
     </nuxt-link>
     <nuxt-link to="/allEmployees">
-      <a>Experts</a>
+      <!-- This functionality resets the search buttons (Next 9 previous 9) -->
+      <a @click="resetCounter()">Experts</a>
     </nuxt-link>
     <nuxt-link to="/allServices">
       <a>Services</a>
