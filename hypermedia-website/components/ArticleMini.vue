@@ -1,10 +1,19 @@
 <template>
-  <div class="article-mini" @click="goToArticle(`/blog/${id}`)">
-    <div class="card">
-      <h3>{{ title }}</h3>
-      <div class="img" :style="{ 'background-image': `url(${image})` }"></div>
-      <p>{{ summary }}</p>
+  <div class="article-mini">
+    <div
+      class="img"
+      :style="{ 'background-image': `url(${image})` }"
+      @click="goToArticle(`/blog/${id}`)"
+    >
+      <div id="img-shadow">
+        <div class="card">
+          <h3>{{ title }}</h3>
+
+          <p>{{ summary }}</p>
+        </div>
+      </div>
     </div>
+    <hr />
   </div>
 </template>
 
@@ -26,9 +35,16 @@ export default {
 
 <style lang="scss" scoped>
 /* article-mini is the whole area the div covers (highlighted with the border) */
-.article-mini {
-  border: 1px solid $main-border-color;
-  border-radius: 4px;
+p,
+h3 {
+  color: rgba(250, 250, 250, 0.9);
+}
+
+hr {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 90%;
+  align-self: center;
+  margin: auto;
 }
 
 /* card is where the content is displayed */
@@ -39,15 +55,14 @@ export default {
   flex-direction: column;
 }
 h3 {
-  flex: 1;
-  margin-bottom: 2vw;
+  margin: auto;
   /* Allow for 3 lines before container requires more space */
-  min-height: 4em;
+  min-height: 3em;
 }
 p {
-  flex: 2;
-  height: 60px;
   margin-bottom: 1.3vw;
+  font-size: 20px;
+  align-self: bottom;
   /* Display the paragraph of the summary as */
   /* at maximum 4 lines of text and after those 4 lines  */
   /* overflow the content, hide it and add an ellipsis ('...' <= three dots) */
@@ -57,16 +72,23 @@ p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+#img-shadow {
+  background-color: rgba(0, 0, 0, 0.75);
+  width: inherit;
+  height: inherit;
+  min-height: 25vh;
+}
 .img {
+  cursor: pointer;
   /* flex: 2; */
   width: 100%;
-  height: 200px;
-  max-width: 600px;
-  margin: auto;
+  // height: 200px;
+  max-width: 80%;
+  min-height: 25vh;
+  margin: 2.3vh auto;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
 }
 </style>

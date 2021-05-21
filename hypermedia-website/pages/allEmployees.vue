@@ -11,13 +11,16 @@
           :key="'person-' + personIndex"
           class="person"
         >
-          <person-profile
-            :id="person.id"
-            :name="person.name"
-            :surname="person.surname"
-            :image="person.image"
-            :area="person.areas[0]"
-          ></person-profile>
+          <div v-if="canShow(personIndex)">
+            <person-profile
+              :id="person.id"
+              :name="person.name"
+              :surname="person.surname"
+              :image="person.image"
+              :area="person.areas[0]"
+            ></person-profile>
+          </div>
+
           <div></div>
         </div>
       </div>
@@ -25,7 +28,9 @@
         <div v-if="$data.next > 0" class="nav-button" @click="getPrevious()">
           Previous 6
         </div>
-        <div class="nav-button" @click="getData()">Next 6</div>
+        <div v-if="showNextButton()" class="nav-button" @click="getNewData()">
+          Next 6
+        </div>
       </div>
 
       <the-footer />
@@ -43,13 +48,8 @@ export default {
     TheNavbar,
     TheFooter,
   },
-  async asyncData({ $axios, store, props }) {
-    const peopleShown = 6
-    // the state counter will keep track of which page of users we currently are
-    const index = store.state.counter
-    const { data } = await $axios.get(
-      `${process.env.BASE_URL}/api/people/${peopleShown}/${index}`
-    )
+  async asyncData({ $axios }) {
+    const { data } = await $axios.get(`${process.env.BASE_URL}/api/people`)
     const people = data
     return {
       people,
@@ -62,15 +62,29 @@ export default {
     }
   },
   methods: {
-    getData() {
+    canShow(personIndex) {
+      if (personIndex < (this.$store.state.counter + 1) * 6) {
+        if (personIndex >= this.$store.state.counter * 6) {
+          return true
+        }
+      }
+      return false
+    },
+    showNextButton() {
+      if ((this.$store.state.counter + 1) * 6 >= this.people.length) {
+        return false
+      }
+      return true
+    },
+    getNewData() {
       this.$store.commit('increment')
       this.$data.next = this.$store.state.counter
-      this.$nuxt.refresh()
+      // this.$nuxt.refresh()
     },
     getPrevious() {
       this.$store.commit('decrement')
       this.$data.next = this.$store.state.counter
-      this.$nuxt.refresh()
+      // this.$nuxt.refresh()
     },
   },
 }
@@ -98,6 +112,7 @@ h2 {
 .control-bar {
   justify-content: space-around;
   display: inline-flex;
+  margin-top: 2vw;
 }
 .nav-button {
   width: 5vw;

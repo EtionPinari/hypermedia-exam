@@ -49,13 +49,15 @@ html {
   background-color: $main-highlight-color; /* Green */
   color: white;
 }
-.article-mini,
+
+// For articles, we make the image's shadow less intense in a transition of 0.3s
+.article-mini > .img > #img-shadow:hover,
 .PersonProfile {
   transition: 0.3s;
 }
-.article-mini:hover,
+.article-mini > .img > #img-shadow:hover,
 .PersonProfile:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* TEXT SCALINGS WITH VIEW WIDTH */

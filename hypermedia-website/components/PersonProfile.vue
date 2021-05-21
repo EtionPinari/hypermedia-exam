@@ -18,7 +18,15 @@ export default {
     surname: { type: String, default: () => '' }, //
     image: { type: String, default: () => '' }, //
     content: { type: String, default: () => '' },
-    area: { type: String, default: () => '' }, //
+    area: {
+      type: Object,
+      default: () => {
+        function Object() {
+          return { title: 'Hatgemini worker' }
+        }
+        return Object()
+      },
+    }, //
     summary: { type: String, default: () => '' },
     articles: { type: String, default: () => '' },
   },

@@ -34,8 +34,9 @@ async function init() {
 
   // API to get all people
   app.get('/people', async (req, res) => {
-    const people = await Person.findAll()
-    people.initialNumber = 0
+    const people = await Person.findAll({
+      include: { model: Area },
+    })
     return res.json(people)
   })
 

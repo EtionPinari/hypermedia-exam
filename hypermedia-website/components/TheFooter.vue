@@ -52,6 +52,7 @@ footer {
   background-color: white;
   height: 300px;
   position: relative;
+  margin-top: 5vh;
 }
 footer .footer-content {
   height: 250px;

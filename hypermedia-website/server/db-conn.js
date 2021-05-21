@@ -108,7 +108,7 @@ async function insertFakeData() {
       
       `,
     image:
-      'https://www.apa.org/images/2014-02-upfront-video-games_tcm7-165899.jpg',
+      'https://www.wanderglobe.org/wp-content/uploads/2018/08/5-Video-Games-That-your-Kids-Should-Play.jpg',
   })
   const art2 = await Article.create({
     title: 'Why is kids’ video game Roblox worth $38 billion?',
@@ -128,8 +128,7 @@ Some creators earn as much as US$50,000 per month. According to Roblox, there we
 Roblox’s optimistic market valuation is based on the sheer number of creators developing on its platform: as many as 20 million a year. While most games can quickly go in and out of fashion, Roblox’s community of developers will keep pumping out fresh content. This is great for Roblox, which benefits from what games scholar Julian Kucklich calls the “precarious playbour” of the creators.
 
 `,
-    image:
-      'https://store-images.s-microsoft.com/image/apps.23943.13510798883386282.e6f02eb7-a760-453e-8d79-46d4ec74807e.84e78792-8a8f-4ae3-a7a0-709c45161cf1?mode=scale&q=90&h=600&w=400',
+    image: 'https://wallpapercave.com/wp/wp1815435.png',
   })
   const art3 = await Article.create({
     title: 'How online gaming has become a social lifeline',
@@ -321,7 +320,7 @@ async function initializeDatabase() {
   // Synchronize Sequelize with the actual database. force = true removes all current tuples in db
   await db.sync({ force: false })
   // Call the function to insert some fake data
-  //await seedDatabase()
+  // await seedDatabase()
 
   return db
 }
