@@ -57,6 +57,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+header > img {
+  margin: 0 auto;
+}
 .container {
   text-align: center;
 }
