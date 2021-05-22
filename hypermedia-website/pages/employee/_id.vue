@@ -2,6 +2,7 @@
   <section class="container">
     <the-navbar />
     <section>
+      <!-- Person face, short biography and name + surname -->
       <div id="person-details">
         <header id="person">
           <div id="short-description">
@@ -13,6 +14,7 @@
           </div>
         </header>
         <hr />
+        <!-- person's biography section -->
         <article id="biography">
           <h2>{{ person.name + `'s biography` }}</h2>
           <p>
@@ -21,7 +23,7 @@
         </article>
       </div>
     </section>
-
+    <!-- All his publications -->
     <h3>Publications</h3>
     <h4 v-if="person.articles.length === 0">
       {{ person.name + ' ' + person.surname }} has no publications.
@@ -93,12 +95,22 @@ hr {
 .publications {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
-.publication {
-  background-color: $comment-background-color;
-  border: 0.1vw solid $main-border-color;
-  width: 33%;
+@media only screen and (min-width: 601px) {
+  .publication {
+    // border: 0.1vw solid $main-border-color;
+    width: 33%;
+  }
 }
+@media only screen and (max-width: 600px) {
+  .publication {
+    // border: 3px solid $main-border-color;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+}
+
 // in two columns, keep the short description and image on top while the biography on the second row
 #person-details {
   display: flex;

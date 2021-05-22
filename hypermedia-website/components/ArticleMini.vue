@@ -63,6 +63,7 @@ p {
   margin-bottom: 1.3vw;
   font-size: 20px;
   align-self: bottom;
+  font-family: Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
   /* Display the paragraph of the summary as */
   /* at maximum 4 lines of text and after those 4 lines  */
   /* overflow the content, hide it and add an ellipsis ('...' <= three dots) */
@@ -73,7 +74,7 @@ p {
   text-overflow: ellipsis;
 }
 #img-shadow {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.73);
   width: inherit;
   height: inherit;
   min-height: 25vh;
