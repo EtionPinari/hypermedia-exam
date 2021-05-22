@@ -3,8 +3,8 @@
     <div class="card" @click="goToArticle(`/employee/${id}`)">
       <img :src="image" class="facepreview" />
       <div class="content2">
-        <h3>{{ name + ` ` + surname }}</h3>
-        <h5 class="p">{{ area.title }}</h5>
+        <h3 class="lg:text-xl sm:text-base">{{ name + ` ` + surname }}</h3>
+        <h5 class="lg:text-lg sm:text-xs">{{ area.title }}</h5>
       </div>
     </div>
   </div>
@@ -49,11 +49,6 @@ export default {
   width: inherit;
   margin-bottom: 1.3vw;
 }
-.PersonProfile,
-.person {
-  cursor: pointer;
-  width: 15vw;
-}
 h3 {
   text-align: center;
   margin-bottom: 0.1em;
@@ -65,10 +60,30 @@ h3 {
   height: 2.9em;
   width: inherit;
 }
+@media only screen and (min-width: 601px) {
+  .facepreview {
+    width: 13vw;
+    height: 13vw;
+  }
+  .PersonProfile,
+  .person {
+    cursor: pointer;
+    width: 15vw;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .facepreview {
+    width: 120px;
+    height: auto;
+  }
+  .PersonProfile,
+  .person {
+    cursor: pointer;
+    width: 120px;
+  }
+}
 .facepreview {
   border-radius: 15%;
   border: solid 0.3em $main-border-color;
-  width: 13vw;
-  height: 13vw;
 }
 </style>

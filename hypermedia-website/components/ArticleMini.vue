@@ -7,9 +7,9 @@
     >
       <div id="img-shadow">
         <div class="card">
-          <h3>{{ title }}</h3>
+          <h3 class="lg: text-xl sm:text-base">{{ title }}</h3>
 
-          <p>{{ summary }}</p>
+          <p class="lg:text-lg :sm:text-xs">{{ summary }}</p>
         </div>
       </div>
     </div>

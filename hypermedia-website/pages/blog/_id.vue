@@ -45,7 +45,6 @@ export default {
   components: { TheFooter, TheNavbar },
   async asyncData({ $axios, route }) {
     const { id } = route.params
-    console.log('this url', process.env.BASE_URL)
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/article/${id}`
     )

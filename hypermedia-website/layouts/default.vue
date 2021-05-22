@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content-center">
     <Nuxt />
   </div>
 </template>
@@ -27,12 +27,22 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+@media only screen and (min-width: 601px) {
+  .container {
+    margin: 0.5vw 8% 0.5vw 8%;
+  }
+}
+@media only screen and (max-width: 601px) {
+  .container {
+    margin: 0.5vw 0;
+  }
+}
 
 .container {
-  margin: 0.5vw 8% 0.5vw 8%;
   background-color: $main-bg-color;
   text-align: center;
 }
+
 .center {
   margin: 0 auto;
   width: 80%;

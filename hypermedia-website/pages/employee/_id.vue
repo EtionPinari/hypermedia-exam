@@ -78,7 +78,7 @@ hr {
 }
 .article-mini {
   border: 0px;
-  min-height: 500px;
+  min-height: 30vh;
 }
 
 .content {
@@ -112,23 +112,58 @@ hr {
   margin: 3vh 0;
 }
 //short description with name and surname occupies 1/2 of the width
-#person #short-description {
-  flex: 1;
-  margin: auto 0;
-}
-//The face occupies 1/2 of the width
+
 #person #face {
   flex: 1;
   margin: auto 0;
-  align-items: flex-end;
 }
-// add rounded borders to the face's image and place it on the right side (float right)
-#face > img {
-  border: 2px solid $main-border-color;
-  border-radius: 5vw;
-  float: right;
-  margin: 0 4vw;
+@media only screen and (min-width: 600px) {
+  //The face occupies 1/2 of the width
+  #person #face {
+    align-items: flex-end;
+  }
+  #person #short-description {
+    flex: 1;
+    margin: auto 0;
+  }
+  // add rounded borders to the face's image and place it on the right side (float right)
+  #face > img {
+    border: 2px solid $main-border-color;
+    border-radius: 5vw;
+    float: right;
+    margin: 0 4vw;
+  }
+  // The text below the face (img) of the person is gonna be a certain width
+  #face > h4 {
+    width: 21vw;
+    text-align: center;
+  }
+  img {
+    width: 13vw;
+    height: 13vw;
+  }
 }
+@media only screen and (max-width: 600px) {
+  //The face occupies 1/2 of the width
+  #person #face {
+    align-items: center;
+  }
+  #person #short-description {
+    flex: 1;
+    margin: auto;
+  }
+  #face > h4 {
+    width: 90%;
+    margin: auto;
+  }
+  img {
+    border: 2px solid $main-border-color;
+    border-radius: 5vw;
+    width: 150px;
+    height: auto;
+  }
+}
+
 // face container displays the content in a flew-column. So the image is gonna be the first
 // displayed and below that the summary
 #face {
@@ -136,17 +171,9 @@ hr {
   flex-direction: column;
   flex-wrap: nowrap;
 }
-// The text below the face (img) of the person is gonna be a certain width
-#face > h4 {
-  width: 21vw;
-  text-align: center;
-}
+
 // give some space to the biography paragraph and differentiate it from other components
 #biography {
   margin: 3vh 10% 3vh 10%;
-}
-img {
-  width: 13vw;
-  height: 13vw;
 }
 </style>

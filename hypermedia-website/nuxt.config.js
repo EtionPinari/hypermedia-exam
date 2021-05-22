@@ -1,17 +1,17 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   ssr: true,
-    target: 'server',
-    env: {
-      //'https://NAME.herokuapp.com  //production
-      BASE_URL: '', //development
+  target: 'server',
+  env: {
+    // 'https://NAME.herokuapp.com  //production
+    BASE_URL: '', // development
+  },
+  serverMiddleware: [
+    {
+      path: '/api',
+      handler: '~/server/rest/api.js',
     },
-    serverMiddleware: [
-      {
-        path: '/api',
-        handler: '~/server/rest/api.js',
-      },
-    ],
+  ],
   head: {
     title: 'hypermedia-website',
     htmlAttrs: {
@@ -26,9 +26,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '~assets/scss/colors.scss'
-    ],
+  css: ['~assets/scss/colors.scss', '~assets/t-css/tailwinds.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -43,15 +41,12 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    `@nuxtjs/axios`,
-    '@nuxtjs/style-resources'
-  ],
+  modules: [`@nuxtjs/axios`, '@nuxtjs/style-resources'],
 
   styleResources: {
-    scss: ['./assets/scss/*.scss']
+    scss: ['./assets/scss/*.scss'],
   },
-  
+
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

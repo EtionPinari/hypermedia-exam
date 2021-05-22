@@ -25,10 +25,18 @@
         </div>
       </div>
       <div class="control-bar">
-        <div v-if="$data.next > 0" class="nav-button" @click="getPrevious()">
+        <div
+          v-if="$data.next > 0"
+          class="nav-button sm:w-32"
+          @click="getPrevious()"
+        >
           Previous 6
         </div>
-        <div v-if="showNextButton()" class="nav-button" @click="getNewData()">
+        <div
+          v-if="showNextButton()"
+          class="nav-button sm:w-32"
+          @click="getNewData()"
+        >
           Next 6
         </div>
       </div>
@@ -93,9 +101,24 @@ export default {
 <style scoped>
 /* This is the child of the all-people-container */
 /* All children can only take up to 50% of the total space and always stay in the center position */
-.person {
-  flex: 1 0 33%;
-  text-align: -webkit-center;
+@media only screen and (max-width: 600px) {
+  .person {
+    flex: 1 0 50%;
+    text-align: -webkit-center;
+  }
+}
+@media only screen and (min-width: 601px) {
+  .person {
+    flex: 1 0 33%;
+    text-align: -webkit-center;
+  }
+  .nav-button {
+    width: 5vw;
+    height: 2vw;
+    text-align: center;
+    padding: 0.3vw 0;
+    margin: auto 1vw;
+  }
 }
 /* This is the container of all people, and shows all employees in a row */
 .all-people-container {
@@ -113,12 +136,5 @@ h2 {
   justify-content: space-around;
   display: inline-flex;
   margin-top: 2vw;
-}
-.nav-button {
-  width: 5vw;
-  height: 2vw;
-  text-align: center;
-  padding: 0.3vw 0;
-  margin: auto 1vw;
 }
 </style>

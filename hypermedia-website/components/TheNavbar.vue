@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div>
-      <nuxt-link to="/"><logo id="logo" /></nuxt-link>
+      <nuxt-link to="/"><logo id="logoz" /></nuxt-link>
     </div>
     <nuxt-link to="/allAreas">
       <a>Areas</a>
@@ -59,21 +59,18 @@ a {
   font-size: 17px;
   margin-top: 5px;
 }
-#logo {
-  height: 100%;
+#logoz {
   width: 4vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
   color: rgb(46, 139, 201);
-}
-a:hover {
-  color: rgb(44, 10, 117);
-}
-#logo {
   height: 140%;
   position: relative;
   bottom: 30%;
+}
+a:hover {
+  color: rgb(44, 10, 117);
 }
 </style>
