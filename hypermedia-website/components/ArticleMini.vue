@@ -37,7 +37,7 @@ export default {
 /* article-mini is the whole area the div covers (highlighted with the border) */
 p,
 h3 {
-  color: rgba(250, 250, 250, 0.9);
+  color: rgba(250, 250, 250, 1);
 }
 
 hr {
@@ -73,7 +73,7 @@ p {
   text-overflow: ellipsis;
 }
 #img-shadow {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.6);
   width: inherit;
   height: inherit;
   min-height: 25vh;
