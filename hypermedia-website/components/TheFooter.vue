@@ -101,7 +101,7 @@ p {
 
 h2 {
   text-align: left;
-  margin-left: 10vw;
+  margin-left: 8vw;
 }
 
 h1 {
