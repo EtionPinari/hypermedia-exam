@@ -27,7 +27,7 @@
         </ul>
       </div>
     </div>
-    <br />
+    <hr />
     <div class="footer-bottom">
       All rights reserved by Hatgemini. Copyright © 2021
     </div>
@@ -53,10 +53,11 @@ footer {
   height: 300px;
   position: relative;
   margin-top: 5vh;
+  height: fit-content;
 }
 footer .footer-content {
-  height: 250px;
   display: flex;
+  height: fit-content;
 }
 
 footer .footer-content .footer-section {
@@ -87,25 +88,33 @@ footer .footer-content .links ul a:hover {
 }
 
 p {
-  margin: 1.5vw;
+  margin: 30px;
   font-size: 18px;
   text-align: left;
 }
 
 .logo {
-  height: 3vw;
+  height: 60px;
   float: left;
   margin-top: -5.5vh;
-  margin-left: 1.5vw;
+  margin-left: 30px;
 }
 
 h2 {
+  margin-top: 8px;
   text-align: left;
   margin-left: 8vw;
 }
 
 h1 {
   text-align: left;
-  margin-left: 7vw;
+  margin-left: 120px;
+}
+
+hr {
+  width: 90%;
+  height: 1px;
+  margin-left: 5%;
+  padding-bottom: 35px;
 }
 </style>

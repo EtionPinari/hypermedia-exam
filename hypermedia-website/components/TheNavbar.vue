@@ -11,7 +11,7 @@
           </div>
 
           <div class="hidden md:flex items-center">
-            <div class="flex xl:space-x-12">
+            <div class="flex xl:space-x-4">
               <nuxt-link to="/allAreas">
                 <a>Areas</a>
               </nuxt-link>
