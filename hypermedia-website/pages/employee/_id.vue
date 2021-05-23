@@ -2,10 +2,14 @@
   <section class="container">
     <the-navbar />
     <section>
+      <redirectButton :number-of-pages-back="-1" />
       <!-- Person face, short biography and name + surname -->
       <div id="person-details">
         <header id="person">
-          <div id="short-description">
+          <div
+            id="short-description"
+            class="md:text-lg sm:text-base lg:text-2xl"
+          >
             <h1>{{ person.name + ' ' + person.surname }}</h1>
           </div>
           <div id="face">
@@ -57,8 +61,9 @@
 import ArticleMini from '../../components/ArticleMini.vue'
 import TheFooter from '../../components/TheFooter.vue'
 import TheNavbar from '../../components/TheNavbar.vue'
+import redirectButton from '~/components/redirectButton.vue'
 export default {
-  components: { TheFooter, TheNavbar, ArticleMini },
+  components: { TheFooter, TheNavbar, ArticleMini, redirectButton },
   async asyncData({ $axios, route }) {
     // const { id } = route.params
     const { data } = await $axios.get(

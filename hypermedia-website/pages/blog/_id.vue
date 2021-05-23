@@ -1,33 +1,20 @@
 <template>
   <section class="container">
     <the-navbar />
+    <redirect-button :number-of-pages-back="-1" />
     <header>
-      <h1>{{ article.title }}</h1>
-      <h4>{{ article.summary }}</h4>
+      <h1 class="w-4/5 text-xl md:text-2xl">{{ article.title }}</h1>
+      <h4 class="w-4/5 text-lg font-light md:font-semibold md:text-xl">
+        {{ article.summary }}
+      </h4>
       <img :src="article.image" :alt="article.summary" />
     </header>
-    <article>
+    <article class="w-4/5 text-base md:text-lg">
       <p>
         {{ article.content }}
       </p>
     </article>
     <section class="comments">
-      <h3>Comments</h3>
-      <h4 v-if="article.comments.length === 0">There are no comments</h4>
-      <div
-        v-for="(comment, commentIndex) of article.comments"
-        :key="'comments-' + commentIndex"
-        class="comment"
-      >
-        <div class="content">
-          {{ comment.content }}
-        </div>
-        <div class="date">
-          Posted on: {{ new Date(comment.createdAt).getDate() }}/{{
-            new Date(comment.createdAt).getMonth()
-          }}/{{ new Date(comment.createdAt).getFullYear() }}
-        </div>
-      </div>
       <div class="date">
         Published the: {{ new Date(article.createdAt).getDate() }}/{{
           new Date(article.createdAt).getMonth()
@@ -41,8 +28,9 @@
 <script>
 import TheFooter from '../../components/TheFooter.vue'
 import TheNavbar from '../../components/TheNavbar.vue'
+import redirectButton from '~/components/redirectButton.vue'
 export default {
-  components: { TheFooter, TheNavbar },
+  components: { TheFooter, TheNavbar, redirectButton },
   async asyncData({ $axios, route }) {
     const { id } = route.params
     const { data } = await $axios.get(
@@ -57,21 +45,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header > img {
-  margin: 0 auto;
-}
 .container {
   text-align: center;
 }
 .container .comments {
   text-align: left;
+  margin-left: 3vh;
+  font-weight: 500;
 }
-.comment {
-  background-color: $comment-background-color;
-  border: 0.1vw solid $main-border-color;
-}
-img {
+
+header > img {
   width: 100%;
   max-width: 400px;
+  margin: 2vh auto;
+}
+h1 {
+  margin: auto;
+  width: 90%;
+}
+h4 {
+  margin: auto;
+  width: 85%;
+}
+article {
+  margin: auto;
+  text-align: center;
 }
 </style>
