@@ -1,9 +1,6 @@
 <template>
-  <!-- Add navbar component here  -->
-  <!-- <navbar/> -->
   <div>
-    <div class="container">
-      <the-navbar @click="resetMethod()" />
+    <div>
       <h2>These are all the employees of our company:</h2>
       <div class="all-people-container">
         <div
@@ -40,21 +37,15 @@
           Next 6
         </div>
       </div>
-
-      <the-footer />
     </div>
   </div>
 </template>
 
 <script>
 import PersonProfile from '../components/PersonProfile.vue'
-import TheFooter from '../components/TheFooter.vue'
-import TheNavbar from '../components/TheNavbar.vue'
 export default {
   components: {
     PersonProfile,
-    TheNavbar,
-    TheFooter,
   },
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/people`)

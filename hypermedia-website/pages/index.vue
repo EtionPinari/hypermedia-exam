@@ -1,6 +1,5 @@
 <template>
-  <div class="container">
-    <the-navbar />
+  <div>
     <div id="center">
       <div id="logoz">
         <Logo />
@@ -38,15 +37,12 @@
         information technology solutions that work.
       </div>
     </div>
-    <the-footer />
   </div>
 </template>
 
 <script>
-import TheFooter from '../components/TheFooter.vue'
-import TheNavbar from '../components/TheNavbar.vue'
 export default {
-  components: { TheFooter, TheNavbar },
+  components: {},
 }
 </script>
 

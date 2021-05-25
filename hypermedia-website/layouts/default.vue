@@ -1,6 +1,10 @@
 <template>
   <div class="content-center">
-    <Nuxt />
+    <div class="container">
+      <the-navbar />
+      <Nuxt />
+      <the-footer />
+    </div>
   </div>
 </template>
 

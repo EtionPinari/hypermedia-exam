@@ -1,6 +1,5 @@
 <template>
-  <section class="container">
-    <the-navbar />
+  <section>
     <redirect-button :number-of-pages-back="-1" />
     <header>
       <h1 class="w-4/5 text-xl md:text-2xl">{{ article.title }}</h1>
@@ -21,16 +20,13 @@
         }}/{{ new Date(article.createdAt).getFullYear() }}
       </div>
     </section>
-    <the-footer />
   </section>
 </template>
 
 <script>
-import TheFooter from '../../components/TheFooter.vue'
-import TheNavbar from '../../components/TheNavbar.vue'
 import redirectButton from '~/components/redirectButton.vue'
 export default {
-  components: { TheFooter, TheNavbar, redirectButton },
+  components: { redirectButton },
   async asyncData({ $axios, route }) {
     const { id } = route.params
     const { data } = await $axios.get(

@@ -1,7 +1,6 @@
 <template>
   <!-- Container class only adds some style properties such as centering text and putting the right margin to containers  -->
-  <div class="container">
-    <the-navbar />
+  <div>
     <header id="header">
       <h1>All our employee's articles</h1>
       <div v-if="adUrl" class="ad">
@@ -22,20 +21,15 @@
         ></article-mini>
       </div>
     </section>
-    <the-footer />
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import TheNavbar from '../components/TheNavbar.vue'
-import TheFooter from '../components/TheFooter.vue'
 import ArticleMini from '~/components/ArticleMini.vue'
 export default {
   components: {
     ArticleMini,
-    TheNavbar,
-    TheFooter,
   },
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/articles`)

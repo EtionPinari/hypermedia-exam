@@ -2,8 +2,7 @@
 NAMES
 
 <template>
-  <div class="container">
-    <the-navbar />
+  <div>
     <h3>All people that work in area {{ areaName }}</h3>
     <div class="all-people-container">
       <div v-for="(person, personIndex) of person" :key="'art-' + personIndex">
@@ -15,16 +14,13 @@ NAMES
         />
       </div>
     </div>
-    <the-footer />
   </div>
 </template>
 
 <script>
 import PersonProfile from '../../components/PersonProfile.vue'
-import TheFooter from '../../components/TheFooter.vue'
-import TheNavbar from '../../components/TheNavbar.vue'
 export default {
-  components: { PersonProfile, TheNavbar, TheFooter },
+  components: { PersonProfile },
   async asyncData({ $axios, route }) {
     // const { id } = route.params
     const areaName = route.params.area
