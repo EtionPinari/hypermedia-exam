@@ -19,10 +19,10 @@
         <br />
         <ul>
           <nuxt-link to="/about">
-            <a>About Us</a>
+            <p>About Us</p>
           </nuxt-link>
           <nuxt-link to="/contacts">
-            <a>Contact Us</a>
+            <p>Contact Us</p>
           </nuxt-link>
         </ul>
       </div>

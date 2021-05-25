@@ -13,22 +13,22 @@
           <div class="hidden md:flex items-center">
             <div class="flex xl:space-x-4">
               <nuxt-link to="/allAreas">
-                <a>Areas</a>
+                <p>Areas</p>
               </nuxt-link>
               <nuxt-link to="/articles">
-                <a>Articles</a>
+                <p>Articles</p>
               </nuxt-link>
               <nuxt-link to="/allEmployees">
-                <a @click="resetCounter()">Experts</a>
+                <p @click="resetCounter()">Experts</p>
               </nuxt-link>
               <nuxt-link to="/allServices">
-                <a>Services</a>
+                <p>Services</p>
               </nuxt-link>
               <nuxt-link to="/contacts">
-                <a>Contact us</a>
+                <p>Contact us</p>
               </nuxt-link>
               <nuxt-link to="/about">
-                <a>About us</a>
+                <p>About us</p>
               </nuxt-link>
             </div>
           </div>
@@ -59,22 +59,22 @@
     <!-- mobile menu -->
     <div v-if="showMenu" class="mobile-menu md:hidden">
       <nuxt-link to="/allAreas" class="block py-2 px-4 text-sm">
-        <a>Areas</a>
+        <p>Areas</p>
       </nuxt-link>
       <nuxt-link to="/articles" class="block py-2 px-4 text-sm">
-        <a>Articles</a>
+        <p>Articles</p>
       </nuxt-link>
       <nuxt-link to="/allEmployees" class="block py-2 px-4 text-sm">
-        <a @click="resetCounter()">Experts</a>
+        <p @click="resetCounter()">Experts</p>
       </nuxt-link>
       <nuxt-link to="/allServices" class="block py-2 px-4 text-sm">
-        <a>Services</a>
+        <p>Services</p>
       </nuxt-link>
       <nuxt-link to="/contacts" class="block py-2 px-4 text-sm">
-        <a>Contact us</a>
+        <p>Contact us</p>
       </nuxt-link>
       <nuxt-link to="/about" class="block py-2 px-4 text-sm">
-        <a>About us</a>
+        <p>About us</p>
       </nuxt-link>
     </div>
   </nav>
