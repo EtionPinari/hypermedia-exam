@@ -9,7 +9,7 @@
       <img :src="article.image" :alt="article.summary" />
     </header>
     <article class="w-4/5 text-base md:text-lg">
-      <p>
+      <p v-html="article.content">
         {{ article.content }}
       </p>
     </article>
