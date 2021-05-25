@@ -2,10 +2,14 @@
 // If counter is >0 then the previous button shows
 // If counter is > number_employees/6 (or 9) then it stops showing next button
 // If you go away from a page it gets reset to 0 (by clicking the buttons on the navbar)
-export const state = () => ({
-  counter: 0,
-  numberOfEmployees: -1,
-})
+import Vue from 'vue'
+export const state = () => {
+  return {
+    counter: 0,
+    numberOfEmployees: -1,
+    messages: [],
+  }
+}
 
 export const mutations = {
   increment(state) {
@@ -19,5 +23,10 @@ export const mutations = {
   },
   setNumberOfEmployees(state, number) {
     state.numberOfEmployees = number
+  },
+  addMessage(state, message) {
+    const messages = state.messages
+    messages.push(message)
+    Vue.set(state, 'messages', messages)
   },
 }

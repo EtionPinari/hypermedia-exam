@@ -5,6 +5,7 @@ export default {
   env: {
     // 'https://NAME.herokuapp.com  //production
     BASE_URL: '', // development
+    configurationId: '6ab8eced-846e-4a8f-b76e-1481bbf0ca0a', // fill the field
   },
   serverMiddleware: [
     {
@@ -29,7 +30,7 @@ export default {
   css: ['~assets/scss/colors.scss', '~assets/t-css/tailwinds.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/mmcc.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

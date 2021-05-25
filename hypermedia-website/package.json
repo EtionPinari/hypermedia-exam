@@ -17,10 +17,12 @@
     "core-js": "^3.9.1",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
+    "mmcc": "git+https://gitlab.com/i3lab/mmcc/frontend/mmcc-vue.git",
     "net": "^1.0.2",
     "nuxt": "^2.15.3",
     "pg": "^8.6.0",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "vue-mmcc": "0.0.14"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",

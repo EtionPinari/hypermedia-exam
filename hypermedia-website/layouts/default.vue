@@ -5,8 +5,20 @@
       <Nuxt />
       <the-footer />
     </div>
+    <chat :chat-list="list" />
   </div>
 </template>
+
+<script>
+import Chat from '~/components/Chat'
+import MMCCMixin from '~/mixins/mmcc-mixin'
+export default {
+  components: {
+    Chat,
+  },
+  mixins: [MMCCMixin],
+}
+</script>
 
 <style lang="scss">
 /* THIS IS THE BACKGROUND CLASS */
