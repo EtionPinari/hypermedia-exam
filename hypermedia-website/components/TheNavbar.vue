@@ -1,36 +1,21 @@
 <template>
   <nav>
-    <div class="max-w-6xl">
+    <div class="max-w-6xl xl:max-w-7xl">
       <div class="flex justify-between">
-        <div class="flex">
-          <nuxt-link to="/"><logo id="logo" /></nuxt-link>
-          <div>
-            <a href="#" class="flex items-center py-5">
-              <span class="font-bold">Hatgemini</span>
-            </a>
-          </div>
-
-          <div class="hidden md:flex items-center">
-            <div class="flex xl:space-x-4">
-              <nuxt-link to="/allAreas">
-                <p>Areas</p>
-              </nuxt-link>
-              <nuxt-link to="/articles">
-                <p>Articles</p>
-              </nuxt-link>
-              <nuxt-link to="/allEmployees">
-                <p @click="resetCounter()">Experts</p>
-              </nuxt-link>
-              <nuxt-link to="/allServices">
-                <p>Services</p>
-              </nuxt-link>
-              <nuxt-link to="/contacts">
-                <p>Contact us</p>
-              </nuxt-link>
-              <nuxt-link to="/about">
-                <p>About us</p>
-              </nuxt-link>
-            </div>
+        <nuxt-link to="/"><logo id="logo" /></nuxt-link>
+        <div class="flex py-8"></div>
+        <div class="hidden md:flex items-center mr-12">
+          <div
+            class="flex space-x-8 lg:space-x-20 xl:space-x-28 2xl:space-x-24"
+          >
+            <nuxt-link to="/allAreas"> Areas </nuxt-link>
+            <nuxt-link to="/articles">Articles</nuxt-link>
+            <nuxt-link to="/allEmployees"
+              ><p @click="resetCounter()">Experts</p></nuxt-link
+            >
+            <nuxt-link to="/allServices">Services</nuxt-link>
+            <nuxt-link to="/contacts">Contact us</nuxt-link>
+            <nuxt-link to="/about">About us</nuxt-link>
           </div>
         </div>
 
@@ -59,22 +44,22 @@
     <!-- mobile menu -->
     <div v-if="showMenu" class="mobile-menu md:hidden">
       <nuxt-link to="/allAreas" class="block py-2 px-4 text-sm">
-        <p>Areas</p>
+        Areas
       </nuxt-link>
       <nuxt-link to="/articles" class="block py-2 px-4 text-sm">
-        <p>Articles</p>
+        Articles
       </nuxt-link>
       <nuxt-link to="/allEmployees" class="block py-2 px-4 text-sm">
         <p @click="resetCounter()">Experts</p>
       </nuxt-link>
       <nuxt-link to="/allServices" class="block py-2 px-4 text-sm">
-        <p>Services</p>
+        Services
       </nuxt-link>
       <nuxt-link to="/contacts" class="block py-2 px-4 text-sm">
-        <p>Contact us</p>
+        Contact us
       </nuxt-link>
       <nuxt-link to="/about" class="block py-2 px-4 text-sm">
-        <p>About us</p>
+        About us
       </nuxt-link>
     </div>
   </nav>
