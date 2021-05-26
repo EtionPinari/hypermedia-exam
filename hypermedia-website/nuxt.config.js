@@ -5,7 +5,7 @@ export default {
   env: {
     // 'https://NAME.herokuapp.com  //production
     BASE_URL: '', // development
-    configurationId: '6ab8eced-846e-4a8f-b76e-1481bbf0ca0a', // fill the field
+    configurationId: '50fd49e9-a616-49d4-8cc3-a97df3864e7d', // fill the field
   },
   serverMiddleware: [
     {

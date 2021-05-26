@@ -81,9 +81,9 @@ export default {
   border: 1px solid black;
   border-radius: 4px;
   height: 500px;
-  width: 300px;
+  width: 400px;
   position: absolute;
-  bottom: 80px;
+  bottom: 61px;
   right: 0px;
   background-color: rgba(240, 240, 240, 0.4);
 }
@@ -104,15 +104,16 @@ export default {
   padding: 5px 10px;
   margin: 4px;
   width: auto;
-  background: #f3f3f3;
+  background: rgba(250, 250, 250, 0.9);
   color: black;
   border: 1px solid black;
   border-radius: 4px;
 }
 .message-content.sender {
-  background: black;
+  background: rgba(50, 50, 150, 0.9);
   color: white;
   border: 1px solid black;
+  max-width: 70%;
 }
 input {
   width: 100%;

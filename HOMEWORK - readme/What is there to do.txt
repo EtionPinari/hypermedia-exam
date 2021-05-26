@@ -1,0 +1,44 @@
+IMPORTANT:
+	The main div that contains all content should be called class = "container"
+	We can focus first on the content and lastly on the css. Let's define firstly the components
+	Try putting <style scoped> everywhere except for the layout/default.vue so we do not have css rules that conflict.
+	In ~/assets/scss/colors.scss there are two (random and to be changed) colors which we could use in css rules so they can be consistent throughout all the website.
+		To use them just type in your css rule "   .my-class { background-color : $main-bg-color}  ". We will have one point of entrance to change all colors of the website if we want.
+
+	>>>> Run this command: npm install git+https://gitlab.com/i3lab/mmcc/frontend/mmcc-vue
+
+	/**********************************************************************************/
+	/										   /
+	/			INITIALIZING THE PROJECT				   /
+	/										   /
+	/**********************************************************************************/
+		For the project to work you need to
+			1-"npm install express"
+			2-"npm install sequelize"
+			3- 3.1) CREATE A NEW FILE IN THE FOLDER /server CALLED 'personalDB.js'. IN THIS FILE WRITE THE FOLLOWING CODE: 
+		{export const databasePassword = 'yourPostgresPassword'}
+			   3.2) to initialize the database you should go to the file 'db-conn.js' and remove the comments from the code:
+				"
+ 					  // await seedDatabase()
+				"
+			    3.3) Before running the website, go to your postgres server (pgAdmin or localhost://50000 ) and create a database called 'hypermedia-test'.
+				 After this, run the website ( through the command npm run dev ) and after the run, comment the above mentioned lines, or otherwise your database will be spammed with irrelevant tuples.
+
+THERE IS TO DEFINE:
+	//		JOB													//	AUTHOR
+	A NAVBAR COMPONENT WHICH WOULD CONTAINS ALL LINKS TO **SERVICES, AREAS, EXPERTS, PUBLICATIONS (called articles)**	//	INSERT YOUR NAME HERE
+
+*	THE EXPERT's page which uses the personProfile component (and the component's css)					//	ETION
+*	THE RELATIONSHIPS ON THE DATABASE between person AND article								//	ETION
+*	THE SERVICES'S PAGE and its component											//	MICHAEL
+*	THE AREA's PAGE AND its component											//	LISA
+*	ADD TUPLES IN ALL TABLES												// 	MICHAEL, LISA, ETION, PARDEEP
+	HOW THE HOMEPAGE LOOKS (X)												//	INSERT YOUR NAME HERE
+	GLOBAL CSS														//	INSERT YOUR NAME HERE
+	OUR LOGO														//	INSERT YOUR NAME HERE
+	FOOTER COMPONENT													//	PARDEEP
+	NAVBAR COMPONENT													//	PARDEEP
+
+
+all jobs with * can already be designed.
+			
