@@ -5,7 +5,7 @@ IMPORTANT:
 	In ~/assets/scss/colors.scss there are two (random and to be changed) colors which we could use in css rules so they can be consistent throughout all the website.
 		To use them just type in your css rule "   .my-class { background-color : $main-bg-color}  ". We will have one point of entrance to change all colors of the website if we want.
 
-
+	>>>> Run this command: npm install git+https://gitlab.com/i3lab/mmcc/frontend/mmcc-vue
 
 	/**********************************************************************************/
 	/										   /
