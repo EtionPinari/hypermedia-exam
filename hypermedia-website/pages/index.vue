@@ -1,10 +1,5 @@
 <template>
   <div>
-    <div id="center">
-      <div id="logoz">
-        <Logo />
-      </div>
-    </div>
     <h1
       class="title lg:text-6xl place-content-center lg:my-12 md:text-xl md:my-8 sm:text-lg sm:my-6"
     >
@@ -51,10 +46,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-#logoz {
-  width: 33%;
-  margin: auto 30%;
-}
+
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
