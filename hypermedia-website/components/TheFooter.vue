@@ -55,7 +55,7 @@ export default {
 <style lang="scss" scoped>
 footer {
   color: black;
-  background-color: white;
+  background-color: $footer-color-darkens;
   align-items: center;
   padding-bottom: 10px;
 }
@@ -79,7 +79,6 @@ li {
 a {
   font-size: 14px;
   font-weight: 500;
-  color: black;
 }
 
 i {
