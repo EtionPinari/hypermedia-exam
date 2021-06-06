@@ -12,6 +12,10 @@
     "build:css": "tailwind build assets/t-css/tailwindInit.css -o assets/t-css/tailwinds.css"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
     "@nuxtjs/axios": "^5.13.1",
     "axios": "^0.21.1",
     "core-js": "^3.9.1",

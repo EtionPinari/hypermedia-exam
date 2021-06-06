@@ -52,6 +52,7 @@ html {
 
 .center {
   width: 80%;
+  margin: auto;
 }
 /* If you want to use navigation buttons they will use this style */
 .nav-button {

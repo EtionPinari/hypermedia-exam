@@ -5,26 +5,34 @@
     </ul>
     <ul class="flex-row">
       <li href="#">
-        <i class="fab fa-facebook">
-          <font-awesome-icon :icon="['fab', 'facebook']" />
-        </i>
+        <a href="https://www.facebook.com/hatgeminixyz" target="_blank">
+          <i class="fab fa-facebook">
+            <font-awesome-icon :icon="['fab', 'facebook']" />
+          </i>
+        </a>
       </li>
 
       <li href="#">
-        <i class="fab fa-twitter">
-          <font-awesome-icon :icon="['fab', 'twitter']" />
-        </i>
+        <a href="https://www.twitter.com/hatgemini" target="_blank">
+          <i class="fab fa-twitter">
+            <font-awesome-icon :icon="['fab', 'twitter']" />
+          </i>
+        </a>
       </li>
       <li href="#">
-        <i class="fab fa-instagram">
-          <font-awesome-icon :icon="['fab', 'instagram']" />
-        </i>
+        <a href="https://www.instagram.com/hatgemini" target="_blank">
+          <i class="fab fa-instagram">
+            <font-awesome-icon :icon="['fab', 'instagram']" />
+          </i>
+        </a>
       </li>
 
       <li href="#">
-        <i class="fab fa-instagram">
-          <font-awesome-icon :icon="['fab', 'linkedin']" />
-        </i>
+        <a href="https://www.linkedin.com/hatgemini" target="_blank">
+          <i class="fab fa-instagram">
+            <font-awesome-icon :icon="['fab', 'linkedin']" />
+          </i>
+        </a>
       </li>
     </ul>
     <p>All rights reserved by Hatgemini. Copyright © 2021</p>
@@ -58,6 +66,7 @@ footer {
   background-color: $footer-color-darkens;
   align-items: center;
   padding-bottom: 10px;
+  margin-top: 4vh;
 }
 
 .logo {

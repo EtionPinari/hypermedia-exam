@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h2>These are all the employees of our company:</h2>
+      <h2>These are all the employees of our staff:</h2>
       <div class="all-people-container">
         <div
           v-for="(person, personIndex) of people"
@@ -105,10 +105,9 @@ export default {
   }
   .nav-button {
     width: 5vw;
-    height: 2vw;
+    height: 3.3vh;
     text-align: center;
-    padding: 0.3vw 0;
-    margin: auto 1vw;
+    margin: auto;
   }
 }
 /* This is the container of all people, and shows all employees in a row */

@@ -11,7 +11,7 @@
             <nuxt-link to="/allAreas"> Areas </nuxt-link>
             <nuxt-link to="/articles">Articles</nuxt-link>
             <nuxt-link to="/allEmployees"
-              ><p @click="resetCounter()">Experts</p></nuxt-link
+              ><p @click="resetCounter()">Our Staff</p></nuxt-link
             >
             <nuxt-link to="/allServices">Services</nuxt-link>
             <nuxt-link to="/contacts">Contact us</nuxt-link>
