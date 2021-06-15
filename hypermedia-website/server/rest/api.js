@@ -21,6 +21,11 @@ async function init() {
     ServicesAreas,
   } = db._tables
 
+  // API to get all the areas
+  app.get('/areas', async (req, res) => {
+    const areas = await Area.findAll()
+    return res.json(areas)
+  })
   // API to get all the articles
   app.get('/articles', async (req, res) => {
     const articles = await Article.findAll()
@@ -75,6 +80,15 @@ async function init() {
       include: { model: Article },
     })
     return res.json(person)
+  })
+
+  app.get('/area/:id', async (req, res) => {
+    const { id } = req.params
+    const area = await Area.findOne({
+      where: { id },
+      include: { model: Service },
+    })
+    return res.json(area)
   })
   // Finds ALL PEOPLE that work in :AREA
   app.get('/employeeName/:area', async (req, res) => {

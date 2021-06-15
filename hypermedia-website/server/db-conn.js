@@ -202,6 +202,21 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   Etion.addPerson(8)
   Etion.addPerson(7)
 
+  // Etion's area
+  const Lisa = await Area.create({
+    title: `Energy and Utilities`,
+    image: `https://avansys-usa.com/wp-content/uploads/2012/05/Energy_EN-Header.jpg`,
+    details:
+      `Energy and utility companies face a level of disruption not seen in decades. New, cash-rich competitors` +
+      `are disrupting the market. Renewables prices continue to ratchet downward. New energy-storage technologies` +
+      `are rapidly becoming industrialized. Meanwhile, technology – and opportunity – are moving to the edge. `,
+    overview: `Area when you can learn utilities and energy and how it affects people.`,
+  })
+
+  Lisa.addPerson(1)
+  Lisa.addPerson(2)
+  Lisa.addPerson(3)
+
   const EtionService1 = await Service.create({
     title: `Introducing Hatgimini's STIDIA gaming service`,
     image: `https://www.gstatic.com/stadia/gamers/landing_page/assets/v2_play_anywhere_hitman_2x.png`,
@@ -246,8 +261,49 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
     overview: `Gain flexibility, operating efficiency, and complete control of your theatrical distribution`,
   })
 
+  const LisaService1 = await Service.create({
+    title: `Next-Gen AMI`,
+    image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRY6bXJ7EXFKGuIcWwTs2ThwDiwTgnHlyvQQ&usqp=CAU`,
+    details:
+      `Deploying a next-generation AMI solution that will serve as the foundation` +
+      `for energy transition efforts and enable digital and industry technologies is a priority for many` +
+      `utilities. Without further investment, organizations may  not fully realize the advanced benefits from` +
+      `first wave deployments.` +
+      `Capgemini helps utility organizations address these issues and prepare for the future with Next-Gen AMI,` +
+      ` a future resilient, integrated system of smart meters, communication services, modern applications and ` +
+      `data management technologies. Building on the original promise of the initial wave, we work with clients` +
+      `to plan, design, deploy and operate a next-generation AMI that will enable modern technologies, define new ` +
+      `business benefits and address the challenges of brownfield implementation. For utilities that are ` +
+      `planning or have recently implemented their initial AMI deployment, Next-Gen AMI enhances the value` +
+      `of AMI with technology modernization and experience from the initial wave.`,
+    overview: `Unlocking the service, efficiency and security opportunities of a next-generation advanced metering infrastructure`,
+  })
+
+  const LisaService2 = await Service.create({
+    title: `u2es Transformation`,
+    image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpU5I7ras5D43SiL-e2eQTx89MwH_gP-9a1g&usqp=CAU`,
+    details: `Our u2es Transformation strategy guides your utilities company through your transition 
+     into an energy services company. u2es defines a transformation strategy that is based on three 
+     pillars of success: Customer Engagement, Operational Excellence and New Business Models.
+      Leveraging the results of our rigorous assessment, we create a business case and define a detailed 
+      roadmap that highlights the following:
+      Your specific needs across the value chain
+      A future market position for your company
+      A tailored transformation strategy
+      Possible technologies and business partners for implementation
+      Benefits:
+      Improved customer satisfaction
+      Stronger new customer and strategic relationships
+      Increased profitability and operational efficiency
+      Compelling new business models
+      More effective market positioning and revenue streams`,
+    overview: `Transform your utility company into an energy services company with u2es Transformation, a value-based program that leverages emerging technologies to deliver proven benefits and positions your company as a leader for the future.`,
+  })
+
   EtionService1.addArea(Etion)
   EtionService2.addArea(Etion)
+  LisaService1.addArea(Lisa)
+  LisaService2.addArea(Lisa)
 
   // Adding the first comment to the first article
   await firstArticle.addComment(comment1.id)
@@ -320,7 +376,7 @@ async function initializeDatabase() {
   // Synchronize Sequelize with the actual database. force = true removes all current tuples in db
   await db.sync({ force: false })
   // Call the function to insert some fake data
-  // await seedDatabase()
+  //await seedDatabase()
 
   return db
 }

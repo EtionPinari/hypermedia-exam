@@ -1,10 +1,9 @@
 <template>
-  <div class="PersonProfile person">
-    <div class="card" @click="goToArticle(`/employee/${id}`)">
-      <img :src="image" class="facepreview" />
+  <div class="AreaPreview area">
+    <div class="card" @click="goToArea(`/area/${id}`)">
+      <img :src="image" class="areapreview" />
       <div class="content2">
-        <h3 class="lg:text-xl sm:text-base">{{ name + ` ` + surname }}</h3>
-        <h5 class="lg:text-lg sm:text-xs">{{ area.title }}</h5>
+        <h3 class="lg:text-xl sm:text-base">{{ title }}</h3>
       </div>
     </div>
   </div>
@@ -14,24 +13,14 @@
 export default {
   props: {
     id: { type: Number, default: () => 0 },
-    name: { type: String, default: () => '' }, //
-    surname: { type: String, default: () => '' }, //
+    title: { type: String, default: () => '' }, //
     image: { type: String, default: () => '' }, //
-    content: { type: String, default: () => '' },
-    area: {
-      type: Object,
-      default: () => {
-        function Object() {
-          return { title: 'Hatgemini worker' }
-        }
-        return Object()
-      },
-    }, //
-    summary: { type: String, default: () => '' },
-    articles: { type: String, default: () => '' },
+    overview: { type: String, default: () => '' }, //
+    details: { type: String, default: () => '' }, //
+    services: { type: String, default: () => '' },
   },
   methods: {
-    goToArticle(path) {
+    goToArea(path) {
       this.$router.push({ path })
     },
   },
@@ -60,15 +49,15 @@ h3 {
   width: inherit;
 }
 @media only screen and (min-width: 601px) {
-  .PersonProfile,
-  .person {
+  .AreaPreview,
+  .area {
     cursor: pointer;
     width: 70%;
   }
 }
 @media only screen and (max-width: 600px) {
-  .PersonProfile,
-  .person {
+  .AreaPreview,
+  .area {
     cursor: pointer;
     width: 70%;
   }

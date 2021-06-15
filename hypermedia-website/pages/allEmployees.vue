@@ -1,7 +1,19 @@
 <template>
   <div>
     <div>
-      <h2>These are all the employees of our company:</h2>
+      <header
+        class="titleImage"
+        :style="{
+          'background-image': `url(https://www.bamboohr.com/blog/wp-content/uploads/Employee_Development_Plans_4_Winning_Steps_to_Engage_Employees700x525.png)`,
+        }"
+      >
+        <div class="display-middle center">
+          <span class="text-white" style="font-size: 40px">
+            All our Employees</span
+          >
+        </div>
+      </header>
+
       <div class="all-people-container">
         <div
           v-for="(person, personIndex) of people"
@@ -94,13 +106,13 @@ export default {
 /* All children can only take up to 50% of the total space and always stay in the center position */
 @media only screen and (max-width: 600px) {
   .person {
-    flex: 1 0 50%;
+    flex: 1 0 90%;
     text-align: -webkit-center;
   }
 }
 @media only screen and (min-width: 601px) {
   .person {
-    flex: 1 0 33%;
+    flex: 1 0 30%;
     text-align: -webkit-center;
   }
   .nav-button {
@@ -119,6 +131,24 @@ export default {
   justify-content: space-around;
   margin-left: 1.5vw;
   margin-right: 1.5vw;
+}
+
+.titleImage {
+  background-position: center;
+  background-size: cover;
+  min-height: 300px;
+  filter: grayscale(60%);
+}
+.display-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.center {
+  text-align: center !important;
 }
 h2 {
   margin: 1vw;
