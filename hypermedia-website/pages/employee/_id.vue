@@ -27,7 +27,9 @@
       </div>
     </section>
     <!-- All his publications -->
-    <h3>Publications</h3>
+    <h3 v-if="person.articles.length !== 0">
+      All {{ person.name }}'s articles
+    </h3>
     <h4 v-if="person.articles.length === 0">
       {{ person.name + ' ' + person.surname }} has no publications.
     </h4>

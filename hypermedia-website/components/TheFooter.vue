@@ -1,41 +1,54 @@
 <template>
   <footer>
-    <div class="footer-content">
-      <div class="footer-section about">
-        <h1>Hatgemini</h1>
-        <logo class="logo" />
-        <p>
-          Hatgemini is your Innovation Partner anywhere around the world.
-          Headquartered in Milan, with business operations in more than 50
-          cities, we emphasize long-term commitment and combine global reach and
-          local intimacy to provide premier professional services from
-          consulting, system development to business IT outsourcing. Our goal is
-          to provide simplest, most efficient solution to any problem our
-          clients require.
-        </p>
-      </div>
-      <div class="footer-section links">
-        <h2>Quick links</h2>
-        <br />
-        <ul>
-          <nuxt-link to="/about">
-            <p>About Us</p>
-          </nuxt-link>
-          <nuxt-link to="/contacts">
-            <p>Contact Us</p>
-          </nuxt-link>
-        </ul>
-      </div>
-    </div>
-    <hr />
-    <div class="footer-bottom">
-      All rights reserved by Hatgemini. Copyright © 2021
-    </div>
+    <ul class="flex-row">
+      <li><logo class="logo" /></li>
+    </ul>
+    <ul class="flex-row">
+      <li href="#">
+        <a href="https://www.facebook.com/hatgeminixyz" target="_blank">
+          <i class="fab fa-facebook">
+            <font-awesome-icon :icon="['fab', 'facebook']" />
+          </i>
+        </a>
+      </li>
+
+      <li href="#">
+        <a href="https://www.twitter.com/hatgemini" target="_blank">
+          <i class="fab fa-twitter">
+            <font-awesome-icon :icon="['fab', 'twitter']" />
+          </i>
+        </a>
+      </li>
+      <li href="#">
+        <a href="https://www.instagram.com/hatgemini" target="_blank">
+          <i class="fab fa-instagram">
+            <font-awesome-icon :icon="['fab', 'instagram']" />
+          </i>
+        </a>
+      </li>
+
+      <li href="#">
+        <a href="https://www.linkedin.com/hatgemini" target="_blank">
+          <i class="fab fa-instagram">
+            <font-awesome-icon :icon="['fab', 'linkedin']" />
+          </i>
+        </a>
+      </li>
+    </ul>
+    <p>All rights reserved by Hatgemini. Copyright © 2021</p>
   </footer>
 </template>
 
 <script>
+import Vue from 'vue'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Logo from './Logo.vue'
+library.add(fas, fab)
+Vue.component('FontAwesomeIcon', FontAwesomeIcon)
+
 export default {
   components: { Logo },
   methods: {
@@ -49,72 +62,40 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-  background-color: white;
-  height: 300px;
-  position: relative;
-  margin-top: 5vh;
-  height: fit-content;
-}
-footer .footer-content {
-  display: flex;
-  height: fit-content;
-}
-
-footer .footer-content .footer-section {
-  flex: 1;
-  padding: 25px;
-}
-
-footer .footer-bottom {
-  height: 50px;
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  padding-top: 20px;
-}
-
-footer .footer-content .links ul a {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.1em;
-  color: rgb(46, 139, 201);
-  text-align: left;
-  margin-left: 4vw;
-}
-footer .footer-content .links ul a:hover {
-  color: rgb(44, 10, 117);
-}
-
-p {
-  margin: 30px;
-  font-size: 18px;
-  text-align: left;
+  color: black;
+  background-color: $footer-color-darkens;
+  align-items: center;
+  padding-bottom: 10px;
+  margin-top: 4vh;
 }
 
 .logo {
-  height: 60px;
-  float: left;
-  margin-top: -5.5vh;
-  margin-left: 30px;
+  margin-top: 20px;
 }
 
-h2 {
-  margin-top: 8px;
-  text-align: left;
-  margin-left: 8vw;
+ul {
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-h1 {
-  text-align: left;
-  margin-left: 120px;
+li {
+  display: inline-block;
+  padding: 0 15px;
+  margin-bottom: 16px;
 }
 
-hr {
-  width: 90%;
-  height: 1px;
-  margin-left: 5%;
-  padding-bottom: 35px;
+a {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+i {
+  cursor: pointer;
+  font-size: 30px;
+}
+
+p {
+  text-align: center;
 }
 </style>

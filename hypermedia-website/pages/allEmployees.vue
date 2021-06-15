@@ -1,19 +1,7 @@
 <template>
   <div>
     <div>
-      <header
-        class="titleImage"
-        :style="{
-          'background-image': `url(https://www.bamboohr.com/blog/wp-content/uploads/Employee_Development_Plans_4_Winning_Steps_to_Engage_Employees700x525.png)`,
-        }"
-      >
-        <div class="display-middle center">
-          <span class="text-white" style="font-size: 40px">
-            All our Employees</span
-          >
-        </div>
-      </header>
-
+      <h2>These are all the employees of our staff:</h2>
       <div class="all-people-container">
         <div
           v-for="(person, personIndex) of people"
@@ -117,10 +105,9 @@ export default {
   }
   .nav-button {
     width: 5vw;
-    height: 2vw;
+    height: 3.3vh;
     text-align: center;
-    padding: 0.3vw 0;
-    margin: auto 1vw;
+    margin: auto;
   }
 }
 /* This is the container of all people, and shows all employees in a row */

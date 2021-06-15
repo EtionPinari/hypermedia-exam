@@ -6,12 +6,12 @@
         <div class="flex py-8"></div>
         <div class="hidden md:flex items-center mr-12">
           <div
-            class="flex space-x-8 lg:space-x-20 xl:space-x-28 2xl:space-x-24"
+            class="flex space-x-4 lg:space-x-16 xl:space-x-28 2xl:space-x-24"
           >
             <nuxt-link to="/allAreas"> Areas </nuxt-link>
             <nuxt-link to="/articles">Articles</nuxt-link>
             <nuxt-link to="/allEmployees"
-              ><p @click="resetCounter()">Experts</p></nuxt-link
+              ><p @click="resetCounter()">Our Staff</p></nuxt-link
             >
             <nuxt-link to="/allServices">Services</nuxt-link>
             <nuxt-link to="/contacts">Contact us</nuxt-link>
@@ -88,7 +88,6 @@ nav {
   justify-content: space-around;
   top: 0%;
   position: sticky;
-  margin-top: 5px;
   z-index: 9;
   background-color: white;
   height: 65px;

@@ -43,25 +43,16 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-@media only screen and (min-width: 601px) {
-  .container {
-    margin: 0.5vw 8% 0.5vw 8%;
-  }
-}
-@media only screen and (max-width: 601px) {
-  .container {
-    margin: 0.5vw 0;
-  }
-}
 
 .container {
   background-color: $main-bg-color;
   text-align: center;
+  margin: 0 auto;
 }
 
 .center {
-  margin: 0 auto;
   width: 80%;
+  margin: auto;
 }
 /* If you want to use navigation buttons they will use this style */
 .nav-button {
