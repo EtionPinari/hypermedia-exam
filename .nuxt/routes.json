@@ -1,0 +1,68 @@
+[
+  {
+    "name": "about",
+    "path": "/about",
+    "component": "C:\\\\Users\\\\Etion\\\\Downloads\\\\Masters\\\\2nd semester\\\\Hypermedia Applications (Web and Multimedia)\\\\Project\\\\hypermedia-exam\\\\pages\\\\about.vue",
+    "chunkName": "pages/about"
+  },
+  {
+    "name": "allAreas",
+    "path": "/allAreas",
+    "component": "C:\\\\Users\\\\Etion\\\\Downloads\\\\Masters\\\\2nd semester\\\\Hypermedia Applications (Web and Multimedia)\\\\Project\\\\hypermedia-exam\\\\pages\\\\allAreas.vue",
+    "chunkName": "pages/allAreas"
+  },
+  {
+    "name": "allEmployees",
+    "path": "/allEmployees",
+    "component": "C:\\\\Users\\\\Etion\\\\Downloads\\\\Masters\\\\2nd semester\\\\Hypermedia Applications (Web and Multimedia)\\\\Project\\\\hypermedia-exam\\\\pages\\\\allEmployees.vue",
+    "chunkName": "pages/allEmployees"
+  },
+  {
+    "name": "allServices",
+    "path": "/allServices",
+    "component": "C:\\\\Users\\\\Etion\\\\Downloads\\\\Masters\\\\2nd semester\\\\Hypermedia Applications (Web and Multimedia)\\\\Project\\\\hypermedia-exam\\\\pages\\\\allServices.vue",
+    "chunkName": "pages/allServices"
+  },
+  {
+    "name": "articles",
+    "path": "/articles",
+    "component": "C:\\\\Users\\\\Etion\\\\Downloads\\\\Masters\\\\2nd semester\\\\Hypermedia Applications (Web and Multimedia)\\\\Project\\\\hypermedia-exam\\\\pages\\\\articles.vue",
+    "chunkName": "pages/articles"
+  },
+  {
+    "name": "contacts",
+    "path": "/contacts",
+    "component": "C:\\\\Users\\\\Etion\\\\Downloads\\\\Masters\\\\2nd semester\\\\Hypermedia Applications (Web and Multimedia)\\\\Project\\\\hypermedia-exam\\\\pages\\\\contacts.vue",
+    "chunkName": "pages/contacts"
+  },
+  {
+    "name": "area-id",
+    "path": "/area/:id?",
+    "component": "C:\\\\Users\\\\Etion\\\\Downloads\\\\Masters\\\\2nd semester\\\\Hypermedia Applications (Web and Multimedia)\\\\Project\\\\hypermedia-exam\\\\pages\\\\area\\\\_id.vue",
+    "chunkName": "pages/area/_id"
+  },
+  {
+    "name": "blog-id",
+    "path": "/blog/:id?",
+    "component": "C:\\\\Users\\\\Etion\\\\Downloads\\\\Masters\\\\2nd semester\\\\Hypermedia Applications (Web and Multimedia)\\\\Project\\\\hypermedia-exam\\\\pages\\\\blog\\\\_id.vue",
+    "chunkName": "pages/blog/_id"
+  },
+  {
+    "name": "employee-id",
+    "path": "/employee/:id?",
+    "component": "C:\\\\Users\\\\Etion\\\\Downloads\\\\Masters\\\\2nd semester\\\\Hypermedia Applications (Web and Multimedia)\\\\Project\\\\hypermedia-exam\\\\pages\\\\employee\\\\_id.vue",
+    "chunkName": "pages/employee/_id"
+  },
+  {
+    "name": "employeeName-area",
+    "path": "/employeeName/:area?",
+    "component": "C:\\\\Users\\\\Etion\\\\Downloads\\\\Masters\\\\2nd semester\\\\Hypermedia Applications (Web and Multimedia)\\\\Project\\\\hypermedia-exam\\\\pages\\\\employeeName\\\\_area.vue",
+    "chunkName": "pages/employeeName/_area"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\Etion\\\\Downloads\\\\Masters\\\\2nd semester\\\\Hypermedia Applications (Web and Multimedia)\\\\Project\\\\hypermedia-exam\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
+  }
+]

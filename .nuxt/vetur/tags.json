@@ -1,0 +1,29 @@
+{
+  "AreaPreview": {
+    "description": "Auto imported from components/AreaPreview.vue"
+  },
+  "ArticleMini": {
+    "description": "Auto imported from components/ArticleMini.vue"
+  },
+  "Chat": {
+    "description": "Auto imported from components/Chat.vue"
+  },
+  "Logo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "PersonProfile": {
+    "description": "Auto imported from components/PersonProfile.vue"
+  },
+  "RedirectButton": {
+    "description": "Auto imported from components/redirectButton.vue"
+  },
+  "TheFooter": {
+    "description": "Auto imported from components/TheFooter.vue"
+  },
+  "TheNavbar": {
+    "description": "Auto imported from components/TheNavbar.vue"
+  },
+  "TemporaryComponentsUnderConstruction": {
+    "description": "Auto imported from components/temporaryComponents/underConstruction.vue"
+  }
+}
