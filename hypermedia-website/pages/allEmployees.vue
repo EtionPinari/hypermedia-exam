@@ -33,7 +33,7 @@
       </div>
       <div class="control-bar">
         <div
-          v-if="$data.next > 0"
+          v-if="showPreviousButton()"
           class="nav-button sm:w-32"
           @click="getPrevious()"
         >
@@ -76,6 +76,12 @@ export default {
         if (personIndex >= this.$store.state.counter * 6) {
           return true
         }
+      }
+      return false
+    },
+    showPreviousButton() {
+      if (this.$store.state.counter > 0) {
+        return true
       }
       return false
     },
