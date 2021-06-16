@@ -8,6 +8,7 @@ NAMES
     <div class="all-people-container">
       <div v-for="(person, personIndex) of person" :key="'art-' + personIndex">
         <person-profile
+          :id="person.id"
           :name="person.name"
           :surname="person.surname"
           :summary="person.summary"
