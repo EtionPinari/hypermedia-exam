@@ -1,10 +1,7 @@
 {
+    
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "eslint.validate": ["javascript"],
-    "folders": [],
-    "settings": {},
-    "editor.formatOnSave": true,
-      
-   }
+        "source.fixAll.eslint": true
+      },
+      "eslint.validate": ["javascript"]
+}
