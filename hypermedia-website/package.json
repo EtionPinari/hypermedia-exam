@@ -1,0 +1,49 @@
+{
+  "name": "hypermedia-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint": "npm run lint:js",
+    "build:css": "tailwind build assets/t-css/tailwindInit.css -o assets/t-css/tailwinds.css"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@nuxtjs/axios": "^5.13.1",
+    "axios": "^0.21.1",
+    "core-js": "^3.9.1",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "mmcc": "git+https://gitlab.com/i3lab/mmcc/frontend/mmcc-vue.git",
+    "net": "^1.0.2",
+    "nuxt": "^2.15.3",
+    "pg": "^8.6.0",
+    "sequelize": "^6.6.2",
+    "vue-mmcc": "0.0.14"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^6.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/tailwindcss": "^4.1.2",
+    "autoprefixer": "^9.8.6",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.7.0",
+    "node-sass": "^5.0.0",
+    "postcss": "^7.0.35",
+    "prettier": "^2.2.1",
+    "sass-loader": "^10",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2"
+  }
+}
