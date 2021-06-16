@@ -1,4 +1,0 @@
-https://tailwindcss.com/docs/installation#post-css-7-compatibility-build
-(optional) install extension html css support
-Run this command: 
-npm install -D @nuxtjs/tailwindcss tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
