@@ -8,8 +8,8 @@ export default {
   },
   serverMiddleware: [
     {
-      path: '/api',
-      handler: '~/server/rest/api.js',
+      path: '@/api',
+      handler: '@/server/rest/api.js',
     },
   ],
   head: {
@@ -26,10 +26,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~assets/scss/colors.scss', '~assets/t-css/tailwinds.css'],
+  css: ['@/assets/scss/colors.scss', '~assets/t-css/tailwinds.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/mmcc.js'],
+  plugins: ['@/plugins/mmcc.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -44,7 +44,7 @@ export default {
   modules: [`@nuxtjs/axios`, '@nuxtjs/style-resources'],
 
   styleResources: {
-    scss: ['./assets/scss/*.scss'],
+    scss: ['@/assets/scss/*.scss'],
   },
 
   axios: {},
