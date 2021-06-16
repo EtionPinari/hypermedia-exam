@@ -9,7 +9,8 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js",
-    "build:css": "tailwind build assets/t-css/tailwindInit.css -o assets/t-css/tailwinds.css"
+    "build:css": "tailwind build assets/t-css/tailwindInit.css -o assets/t-css/tailwinds.css",
+    "heroku-postbuiild": "npm run build"
   },
   "engines":{
     "npm":"6.14.6",
