@@ -1,19 +1,19 @@
 import axios from 'axios'
-// import { databasePassword } from '../server/personalDB.js'
+import { databasePassword } from '../server/personalDB.js'
 const { Sequelize, DataTypes } = require('sequelize')
 
-// const password = databasePassword
+const password = databasePassword
 // Development
-// const db = new Sequelize(
-//   'postgres://postgres:' + password + '@localhost:5432/hypermedia-test'
-// )
+const db = new Sequelize(
+  'postgres://postgres:' + password + '@localhost:5432/hypermedia-test'
+)
 // Production
-const pg = require('pg')
-pg.defaults.ssl = true
-const db = new Sequelize(process.env.DATABASE_URL, {
-  ssl: true,
-  dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
-})
+// const pg = require('pg')
+// pg.defaults.ssl = true
+// const db = new Sequelize(process.env.DATABASE_URL, {
+//   ssl: true,
+//   dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
+// })
 
 /**
  * Function to define the structure of the database
