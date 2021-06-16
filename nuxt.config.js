@@ -8,7 +8,7 @@ export default {
   },
   serverMiddleware: [
     {
-      path: '@/api',
+      path: '/api',
       handler: '@/server/rest/api.js',
     },
   ],
