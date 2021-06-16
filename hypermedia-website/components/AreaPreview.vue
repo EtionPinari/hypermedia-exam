@@ -48,6 +48,10 @@ h3 {
   height: 2.9em;
   width: inherit;
 }
+.areapreview {
+  height: 200px;
+  width: 100%;
+}
 @media only screen and (min-width: 601px) {
   .AreaPreview,
   .area {

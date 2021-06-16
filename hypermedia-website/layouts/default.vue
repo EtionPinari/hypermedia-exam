@@ -36,7 +36,19 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
+header > img {
+  padding: 1vh;
+}
 
+.titleImage {
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  filter: grayscale(60%);
+  object-fit: cover;
+  cursor: default;
+}
 *,
 *::before,
 *::after {
@@ -81,12 +93,6 @@ html {
 }
 .AreaPreview:hover {
   background-color: rgba(0, 0, 0, 0.3);
-}
-.titleImage {
-  background-position: center;
-  background-size: cover;
-  min-height: 300px;
-  filter: grayscale(30%);
 }
 .display-middle {
   position: absolute;

@@ -43,6 +43,7 @@ export default {
 .card {
   padding: 0.3vw 0.5vw;
   align-items: center;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,14 +64,27 @@ h3 {
   .PersonProfile,
   .person {
     cursor: pointer;
-    width: 70%;
+    width: 15vw;
+  }
+  .facepreview {
+    width: 13vw;
+    height: 13vw;
   }
 }
 @media only screen and (max-width: 600px) {
+  .facepreview {
+    width: 120px;
+    height: auto;
+  }
   .PersonProfile,
   .person {
     cursor: pointer;
-    width: 70%;
+    width: 120px;
+    height: auto;
   }
+}
+.facepreview {
+  border-radius: 15%;
+  border: solid 0.3em $main-border-color;
 }
 </style>

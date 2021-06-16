@@ -1,11 +1,10 @@
 <template>
   <div>
-    <header
-      class="titleImage"
-      :style="{
-        'background-image': `url(https://b6x0l214gh21wkvwf1simsxr-wpengine.netdna-ssl.com/wp-content/uploads/2019/05/kas_resouce-webinar_selling-msp-services-network-assessments-sales-tool.jpg)`,
-      }"
-    >
+    <header class="titleImage">
+      <img
+        class="titleImage"
+        src="https://b6x0l214gh21wkvwf1simsxr-wpengine.netdna-ssl.com/wp-content/uploads/2019/05/kas_resouce-webinar_selling-msp-services-network-assessments-sales-tool.jpg"
+      />
       <div class="display-middle center">
         <span class="text-white" style="font-size: 40px"> All our Areas</span>
       </div>
@@ -119,6 +118,7 @@ export default {
     margin: auto 1vw;
   }
 }
+
 /* This is the container of all people, and shows all employees in a row */
 .all-areas-container {
   display: flex;
@@ -129,12 +129,6 @@ export default {
   margin-right: 1.5vw;
 }
 
-.titleImage {
-  background-position: center;
-  background-size: cover;
-  min-height: 300px;
-  filter: grayscale(60%);
-}
 .display-middle {
   position: absolute;
   top: 50%;

@@ -1,7 +1,17 @@
 <template>
   <div>
     <div>
-      <h2>These are all the employees of our staff:</h2>
+      <header class="titleImage">
+        <img
+          class="titleImage"
+          src="https://www.bamboohr.com/blog/wp-content/uploads/Employee_Development_Plans_4_Winning_Steps_to_Engage_Employees700x525.png"
+        />
+        <div class="display-middle center">
+          <span class="text-white" style="font-size: 40px; margin: auto">
+            All our Employees
+          </span>
+        </div>
+      </header>
       <div class="all-people-container">
         <div
           v-for="(person, personIndex) of people"
@@ -120,12 +130,6 @@ export default {
   margin-right: 1.5vw;
 }
 
-.titleImage {
-  background-position: center;
-  background-size: cover;
-  min-height: 300px;
-  filter: grayscale(60%);
-}
 .display-middle {
   position: absolute;
   top: 50%;

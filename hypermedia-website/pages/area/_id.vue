@@ -114,7 +114,6 @@ hr {
 }
 .sand {
   color: #000 !important;
-  background-color: #c7dce4 !important;
 }
 .greyscale {
   filter: grayscale(70%);

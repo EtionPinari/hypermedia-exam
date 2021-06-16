@@ -3,6 +3,7 @@ NAMES
 
 <template>
   <div>
+    <RedirectButton />
     <h3>All people that work in area {{ areaName }}</h3>
     <div class="all-people-container">
       <div v-for="(person, personIndex) of person" :key="'art-' + personIndex">
@@ -19,8 +20,9 @@ NAMES
 
 <script>
 import PersonProfile from '../../components/PersonProfile.vue'
+import RedirectButton from '~/components/redirectButton.vue'
 export default {
-  components: { PersonProfile },
+  components: { PersonProfile, RedirectButton },
   async asyncData({ $axios, route }) {
     // const { id } = route.params
     const areaName = route.params.area

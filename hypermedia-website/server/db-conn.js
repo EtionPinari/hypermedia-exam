@@ -231,7 +231,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   })
   const EtionService2 = await Service.create({
     title: `Digital Entertainment Exchange (DEX)`,
-    image: `https://www.gstatic.com/stadia/gamers/landing_page/assets/v2_play_anywhere_hitman_2x.png`,
+    image: `https://www.capgemini.com/be-en/wp-content/uploads/sites/17/2019/12/Cap-for-web-03.jpg?w=960`,
     details:
       `DEX is a sophisticated reporting tool that incorporates best practices to analyze sales and performance while reducing costs. Grow your business and stay one step ahead.` +
       `Global box office revenue is forecast to hit $50 billion by 2020, with China, India, and the United States representing the largest markets. Movies play a key role in the entertainment experience, but as customers want more content on demand, the market needs to adapt.
@@ -376,7 +376,7 @@ async function initializeDatabase() {
   // Synchronize Sequelize with the actual database. force = true removes all current tuples in db
   await db.sync({ force: false })
   // Call the function to insert some fake data
-  //await seedDatabase()
+  // await seedDatabase()
 
   return db
 }
