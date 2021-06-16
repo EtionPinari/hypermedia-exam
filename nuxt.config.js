@@ -3,8 +3,7 @@ export default {
   ssr: true,
   target: 'server',
   env: {
-    // 'https://NAME.herokuapp.com  //production
-    BASE_URL: '', // development
+    BASE_URL: 'https://hatgemini.herokuapp.com', // production
     configurationId: '50fd49e9-a616-49d4-8cc3-a97df3864e7d', // fill the field
   },
   serverMiddleware: [
