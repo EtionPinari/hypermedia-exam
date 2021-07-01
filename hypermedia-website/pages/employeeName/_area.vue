@@ -13,6 +13,7 @@ NAMES
           :surname="person.surname"
           :summary="person.summary"
           :image="person.image"
+          :area="person.areas[0]"
         />
       </div>
     </div>

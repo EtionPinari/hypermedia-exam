@@ -54,6 +54,8 @@ function defineDatabaseStructure() {
   // No attributes because it only contains the keys to and from people and area (Person1 <-> Area1)
   const PeopleAreas = db.define('people_areas', {})
   const ServicesAreas = db.define('services_areas', {})
+  const ArticleAreas = db.define('article_areas', {})
+
   const Area = db.define('area', {
     title: DataTypes.STRING,
     image: DataTypes.STRING,
@@ -68,13 +70,21 @@ function defineDatabaseStructure() {
   })
   // Creating the 1 -> N association between Article and Comment
   // More on association: https://sequelize.org/master/manual/assocs.html
+  // Comment was never implemented
   Article.hasMany(Comment, { foreignKey: 'article_id' })
+  // One to many Relationships
   Person.hasMany(Article, { foreignKey: 'person_id' })
   Article.belongsTo(Person)
+  Area.hasMany(Article, { foreignKey: 'area_id' })
+  Article.belongsTo(Area)
+  Service.belongsTo(Person)
+  Person.hasMany(Service, { foreignKey: 'person_id' })
+  // Many to many Relationships
   Person.belongsToMany(Area, { through: PeopleAreas })
   Area.belongsToMany(Person, { through: PeopleAreas })
   Service.belongsToMany(Area, { through: ServicesAreas })
   Area.belongsToMany(Service, { through: ServicesAreas })
+
   db._tables = {
     Area,
     Article,
@@ -83,6 +93,7 @@ function defineDatabaseStructure() {
     PeopleAreas,
     Service,
     ServicesAreas,
+    ArticleAreas,
   }
 }
 
@@ -90,10 +101,10 @@ function defineDatabaseStructure() {
  * Function to insert some fake info in the database
  */
 async function insertFakeData() {
-  const { Area, Article, Comment, Service } = db._tables
+  const { Area, Article, Service } = db._tables
 
-  // ETION's ARTICLES
-  const art1 = await Article.create({
+  // Add ARTICLES (3) here
+  const EtionArticle1 = await Article.create({
     title: 'How video game play may provide learning, health, social benefits',
     summary: `Playing video games, including violent shooter games, may boost children's learning, health and social skills, according to a review of research in American Psychologist.`,
     content: `The study comes out as debate continues among psychologists and other health professionals regarding the effects of violent media on youth. An APA task force is conducting a comprehensive review of research on violence in video games and interactive media and will release its findings later this year.
@@ -110,7 +121,7 @@ async function insertFakeData() {
     image:
       'https://www.wanderglobe.org/wp-content/uploads/2018/08/5-Video-Games-That-your-Kids-Should-Play.jpg',
   })
-  const art2 = await Article.create({
+  const EtionArticle2 = await Article.create({
     title: 'Why is kids’ video game Roblox worth $38 billion?',
     summary: `When the children’s digital game Roblox launched on the New York Stock Exchange last week, the company’s share price rapidly took off. By the end of the day, it was valued at US$38 billion.
     How can a game for kids be worth so much?
@@ -130,7 +141,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
 `,
     image: 'https://wallpapercave.com/wp/wp1815435.png',
   })
-  const art3 = await Article.create({
+  const EtionArticle3 = await Article.create({
     title: 'How online gaming has become a social lifeline',
     summary:
       'Gamers have known for a long time something that everyone else is starting to figure out: there’s community connection on the other side of a screen',
@@ -148,45 +159,55 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       Gaming has skyrocketed during the pandemic, reaching people who’d play every now and then, or even those who had previously snubbed it entirely. In the US alone, four out of five consumers in one survey played video games in the last six months, according to a new study by NPD, an American business-research firm. And at a time in which many industries are in dire straits, sales in gaming are booming. Global revenue is expected to jump 20% this year to $175bn (£130bn).`,
     image: 'https://ychef.files.bbci.co.uk/1280x720/p091j3dx.webp',
   })
+  const LisaArticle1 = await Article.create({
+    title: `Accelerate Hydrogen: e-weekly launched on sector set to 'rewrite global energy map'
+    `,
+    summary: `Recharge and sister NHST title Upstream publish the first issue of new e-newsletter that will 'separate hype from the hard truths' in the rapidly evolving global H2 market`,
+    content: `<p>NHST Media Group titles <i>Recharge</i> and <i>Upstream</i> have launched a new weekly e-newsletter to cover the rapidly evolving global hydrogen market.</p>
+    <p>The second in our <i>Accelerate</i> energy transition e-newsletter series, <i>Accelerate Hydrogen</i> will report on the sector seen as set to “rewrite the global energy map” as governments and industry gear up strategies to reach carbon-neutrality by mid-century.</p>
+    <p>“We have been covering the hydrogen market closely for a number of years now, but the step-up in industrial and governmental interest in the sector that we have seen in the past 12 months has been extraordinary,” said <i>Recharge</i> Editor-in-Chief Darius Snieckus.</p>
+    <p>“For a sense of the speed of progress in this space: a few years ago, analysts were talking about green – renewables-based – hydrogen become cost-competitive with blue – gas-fed, with carbon capture – by 2035, by last year it became 2030 and now some are forecasting the cost crossover will happen before then.</p>
+    <p>“Another clear indicator is in the size of projects now being developed, <a href="https://www.rechargenews.com/energy-transition/global-green-hydrogen-pipeline-exceeds-200gw-heres-the-24-largest-gigawatt-scale-projects/2-1-933755"><b>with over 20 multi-billion-dollar giga-scale green hydrogen schemes</b></a> moving forward at last count,” Snieckus added. </p>
+    <p>“What’s often missing from the hydrogen discussion is context in what is a highly complex emerging industry. When is hydrogen the most cost-effective solution, and when is it a bad idea? Should we only use renewables-powered green hydrogen or welcome the ‘low-carbon’ blue variety? Is it possible to produce all the hydrogen we need from wind and solar power when the world desperately needs massive volumes of renewable energy to decarbonise the power sector?</p>
+    <p>Plus, we have exclusive news of a potential <b><a href="https://www.rechargenews.com/energy-transition/-our-plasma-electrolysers-will-cut-the-cost-of-green-hydrogen-by-a-factor-of-three-/2-1-1032895">market-changing electrolyser technology</a></b> that could cut the cost of green hydrogen by a factor of three; an exclusive long-read on <b><a href="https://www.rechargenews.com/energy-transition/-our-plasma-electrolysers-will-cut-the-cost-of-green-hydrogen-by-a-factor-of-three-/2-1-1032895">a 3GW floating wind and hydrogen megaproject</a></b> that could slash offshore oil production emissions in the UK North Sea ‘by half’, and much more.</p>`,
+    image:
+      'https://images-global.nhst.tech/image/eGE5QkRsL2NYT1BFZHhsTnJsQ1RKVm5CRjYyTlhtdDNUZUw4MDhaVjBFMD0=/nhst/binary/e00c333d3f0ffc422445eac244228087?image_version=640',
+  })
+  const LisaArticle2 = await Article.create({
+    title:
+      'Concentrated Solar Power should be considered given the need for manageable energy and storage',
+    summary: `José Barragán is the Vice President of Renewables Technical Services at ACWA Power and Hatgemini is honored to have a talk about energy consumption with him.`,
+    content: `<p>Mr. José Barragán is the Vice President of Renewables Technical Services at ACWA Power. Founded in 2004 in Saudi Arabia, ACWA Power is a developer, investor, and operator of power generation and desalinated water production plants and is currently present in 13 countries in the Middle East, Africa, Central Asia, and Southeast Asia. It has 64 assets in operation, construction, or advanced development, producing close to 42GWof power and&nbsp;6.4&nbsp;million m<sup>3</sup>&nbsp;/day of desalinated water.&nbsp;ACWA Power&nbsp;is accelerating energy transition globally and is the most active in the Concentrating Solar Power (CSP) sector.</p>
+    <p>The company holds more than 560 MW of CSP in Operation, located in South Africa and Morocco,&nbsp;and another 800 MW under construction in Dubai (UAE) and South&nbsp;Africa.&nbsp;Recently, ACWA Power announced the financial closure of a new CSP plant, Redstone, in South Africa. Mr. Barragan, who has actively participated in this project, kindly accepted to respond to our following questions:</p>
+    <p><strong>1.Mr. Barragán, could you please explain how Redstone works? What is the technology? Is there any difference with the last CSP that came online in Chile Cerro Dominador?</strong></p>
+    <p>The Redstone project is based on central tower technology with molten salts. The plant uses two molten salts tanks, one kept cold at 300 degrees C and one kept hot at 565 degrees C. The molten salt is pumped from the cold tank to the hot tank going through the solar receiver. The solar receiver is located at the top of a central tower where solar radiation is concentrated by a &nbsp;solar field with more than 41000 heliostats (25 m2 each). The molten salts are heated up to 565 degrees in the receiver panels (600 MWth net absorbed power) and stored in the hot tank (12 h capacity). &nbsp;Independently, the molten salts are pumped from the hot tank to the cold tank going through a steam generator system (SGS). In the SGS, the feed-water coming from a rankine steam cycle is heated up and converted to superheated and reheated steam and feeds a steam turbine which is connected to an electrical generator producing 115 MWe gross power. This power can be dispatched whenever needed, as long as there is sufficient energy content in the hot tank. Conceptually, this technology is the same as in the Moroccan Noor 3 project, the Chilean Cerro Dominador project, and the tower unit in the UAE DEWA CSP (Noor Energy 1) project. The main particularity of the Redstone project is that the strategy of operation which aims to maximise the plant load factor during the peak time from 4.30 pm to 9.30 pm when a higher tariff is applicable. The plant is expected to be dispatchable from 5 am to 10 pm as the PPA. Therefore, the plant will not be operated on a baseload 24h basis as the Cerro Dominador project in Chile even though it is capable of doing so.</p>
+    <p><strong>2.The project was announced a few years ago, however, the financial closure only came recently. What is the reason for this delay? Is due to any technical challenge? Or, on the contrary, is due to an external factor?</strong></p>
+    <p>It has taken time to launch the execution of Redstone and both ACWA Power and our partners made tremendous efforts to financially close the project despite the challenges faced. There were a number of reasons that contributed to the delays; however, these were not related to the CSP technology itself. Due to the perseverance of ACWA Power and our partners, we were able to achieve the financial close of the project. This milestone would not have been possible without the continued support of various entities involved and we truly appreciate their active collaboration in this venture.</p>
+    <p><strong>3.In Spain, the Government has announced 5 GW of new CSP until 2030, with the first auction already in 2021. How does ACWA Power perceive the Spanish market, in which they are not present?</strong></p>
+    <p>At ACWA Power our focus remains on reliably and responsibly delivering power and desalinated water at a low cost in the countries we operate in. We are currently&nbsp;present in 13 countries and will continue to seek opportunities for growth.</p>`,
+    image:
+      'https://www.evwind.es/wp-content/uploads/2020/01/Dubai-concentrated-solar-power-672x372.jpg',
+  })
+
+  const LisaArticle3 = await Article.create({
+    title: 'Energy bars on the rise',
+    summary:
+      'Hatgemini takes a look at the rapidly growing and evolving energy bar market in the latest edition of our Innovation Spotlight feature',
+    content: `<p>So-called “energy bars”, i.e. products with health and nutritional benefits, are one of the fastest-growing segments within the snack bar market. Health-conscious consumers are the main growth driver, as they are increasingly on the lookout for all-natural, sustainable products that support their well-being.</p>
+    <p>Especially in times of global pandemic, with people all around the globe having more time for themselves, a great share of consumers is rethinking their approach to health, nutrition, and sustainability. Bar producers are following suit with expanded portfolios that boost the traditional bar market – with many varieties of shapes, tastes, and packaging styles.</p>
+    <p>Manufacturers of all sizes – from start-ups and small enterprises to large companies and multinational corporations – are benefitting from the current trend. However, the production of health and nutrition bars differs from conventional chocolate and snack bars production in a number of ways, which has a significant impact on the manufacturing, handling, and packaging process:</p>
+    <ul><li>Bars with natural ingredients can spoil more easily; consequently, health and nutrition bar packaging needs to offer better protection than for conventional bars</li>
+	<li>Using natural ingredients like nuts and dried fruits means product sizes can vary from bar to bar, which poses a particular challenge for product feeding and handling</li>
+	<li>Allergen-free products are subject to stringent hygienic standards. Combined with their oftentimes sticky consistency, this calls for extensive cleaning and maintenance processes.</li>
+</ul><p>Learn more: <a href="http://info.syntegon.com/production-and-packaging-of-health-bars" target="_blank">http://info.syntegon.com/packaging-of-energy-bars</a></p>
+    `,
+    image:
+      'https://packagingeurope.com/downloads/9795/download/syntegon2-01.07.jpg?cb=59f8b57186b5794f644e4162e188bf1f',
+  })
+  // redundant
   const Author = await seedPerson()
 
-  await art1.setPerson(Author.id)
-  await art2.setPerson(Author.id)
-  await art3.setPerson(Author.id)
-
-  // EXAMPLES
-  const firstArticle = await Article.create({
-    title: 'Such good article',
-    summary: 'This is the summary of the first good article',
-    content: 'The content of the first article',
-    image:
-      'https://www.meme-arsenal.com/memes/98c0fb217e3b35d20518647668cea5dc.jpg',
-  })
-  await firstArticle.setPerson(1)
-  const secondArticle = await Article.create({
-    title: 'Why Fallout 76 is broken',
-    summary: '..no really... why?',
-    content:
-      'After more than 50 hours plundering the irradiated wasteland of Fallout 76, the greatest mystery still lingering is who this mutated take on Fallout is intended for. Like many of Vault-Tec’s underground bunkers, Bethesda’s multiplayer riff on its post-nuclear RPG series is an experiment gone awry. There are bright spots entangled in this mass of frustratingly buggy and sometimes conflicting systems, but what fun I was able to salvage from the expansive but underpopulated West Virginia map was consistently overshadowed by the monotony of its gathering and crafting treadmill.\nOn the surface, Fallout 76 is another dose of Bethesda’s tried-and-true open-world RPG formula on a larger-than-ever map that’s begging to be explored. As you emerge from Vault 76 you’ll start in a relatively peaceful forest and venture out into more dangerous pockets of the irradiated wasteland. My favorite is traveling the lengths of the Cranberry Bog, where the pinkish-red fields are seemingly inviting from afar but turn out to be full of a snaking system of trenches and alien forests that hide the worst horrors of the wasteland, but there are many more.',
-    image:
-      'https://www.meme-arsenal.com/memes/925f3e6e213ebe0bc196d379a7281ee8.jpg',
-  })
-  secondArticle.setPerson(2)
-  const ThirdArticle = await Article.create({
-    title: 'Such great article',
-    summary: 'This is the summary of the third good article',
-    content: 'The content of the third article',
-    image:
-      'https://www.bmw.it/content/dam/bmw/common/home/teaser/bmw-i4-mini-hometeaser-1680x756.jpg.asset.1615561624175.jpgtps://pbs.twimg.com/media/CB6OrVUUAAAU4eQ.jpg',
-  })
-  ThirdArticle.setPerson(3)
-  const comment1 = await Comment.create({
-    content: 'Great article! Keep posting',
-  })
-  const comment2 = await Comment.create({
-    content: 'Such Doge.',
-  })
-  // Etion's area
+  // Add you AREA here
   const Etion = await Area.create({
     title: `Gaming and Entertainment`,
     image: `https://www.translationsuniverse.com/images/video-game-streaming-subscription.jpg`,
@@ -196,13 +217,6 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       ` These and many more articles in the following links: `,
     overview: `Area when you can learn more about games' design and how it affects people.`,
   })
-  // Sorry for being ego-centric
-  // This method adds the people with id 9-8-7 to my area (titled: gaming)
-  Etion.addPerson(9)
-  Etion.addPerson(8)
-  Etion.addPerson(7)
-
-  // Etion's area
   const Lisa = await Area.create({
     title: `Energy and Utilities`,
     image: `https://avansys-usa.com/wp-content/uploads/2012/05/Energy_EN-Header.jpg`,
@@ -212,11 +226,16 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       `are rapidly becoming industrialized. Meanwhile, technology – and opportunity – are moving to the edge. `,
     overview: `Area when you can learn utilities and energy and how it affects people.`,
   })
-
+  // This method adds relationships between people with id 12-11-10 (or 1-2-3 for Lisa) to a certain area
+  // Example Person with id 1 is now part of area Energy & Utilities
   Lisa.addPerson(1)
   Lisa.addPerson(2)
   Lisa.addPerson(3)
 
+  Etion.addPerson(12)
+  Etion.addPerson(11)
+  Etion.addPerson(10)
+  // Add your SERVICES (2) here
   const EtionService1 = await Service.create({
     title: `Introducing Hatgimini's STIDIA gaming service`,
     image: `https://www.gstatic.com/stadia/gamers/landing_page/assets/v2_play_anywhere_hitman_2x.png`,
@@ -299,16 +318,35 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       More effective market positioning and revenue streams`,
     overview: `Transform your utility company into an energy services company with u2es Transformation, a value-based program that leverages emerging technologies to deliver proven benefits and positions your company as a leader for the future.`,
   })
+  // People are automatically generated, you do not need to add them manually
+  // ID's of people to use: LISA: 1-2-3 PARDEEP 4-5-6 MICHAEL 7-8-9 ETION 10-11-12
+  // Add relation between Service and Area
+  await EtionService1.addArea(Etion)
+  await EtionService2.addArea(Etion)
+  await LisaService1.addArea(Lisa)
+  await LisaService2.addArea(Lisa)
 
-  EtionService1.addArea(Etion)
-  EtionService2.addArea(Etion)
-  LisaService1.addArea(Lisa)
-  LisaService2.addArea(Lisa)
+  // Add relationship between Service and Person who created it
+  await EtionService1.setPerson(12)
+  await EtionService2.setPerson(11)
+  await LisaService1.setPerson(1)
+  await LisaService2.setPerson(2)
 
-  // Adding the first comment to the first article
-  await firstArticle.addComment(comment1.id)
-  // Adding the second comment to the first article
-  await firstArticle.addComment(comment2.id)
+  // Add relationship between Article and Person who created it (Author.id = 12)
+  await EtionArticle1.setPerson(Author.id)
+  await EtionArticle2.setPerson(Author.id)
+  await EtionArticle3.setPerson(Author.id)
+  await LisaArticle1.setPerson(1)
+  await LisaArticle2.setPerson(2)
+  await LisaArticle3.setPerson(1)
+
+  // Add relationship between Article and Area which it refers to
+  await EtionArticle1.setArea(Etion.id)
+  await EtionArticle2.setArea(Etion.id)
+  await EtionArticle3.setArea(Etion.id)
+  await LisaArticle1.setArea(Lisa.id)
+  await LisaArticle2.setArea(Lisa.id)
+  await LisaArticle3.setArea(Lisa.id)
 }
 
 async function seedPerson() {
@@ -364,7 +402,7 @@ async function seedPerson() {
 
 // eslint-disable-next-line no-unused-vars
 async function seedDatabase() {
-  for (let i = 0; i < 8; i++) await seedPerson()
+  for (let i = 0; i < 11; i++) await seedPerson()
   await insertFakeData()
 }
 /**

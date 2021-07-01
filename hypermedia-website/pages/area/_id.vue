@@ -49,6 +49,7 @@
           class="service"
         >
           <div class="content">
+            <!-- To change from article-mini to the component Michael is going to create -->
             <article-mini
               :id="service.id"
               :title="service.title"

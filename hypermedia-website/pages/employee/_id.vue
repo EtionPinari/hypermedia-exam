@@ -31,7 +31,7 @@
       All {{ person.name }}'s articles
     </h3>
     <h4 v-if="person.articles.length === 0">
-      {{ person.name + ' ' + person.surname }} has no publications.
+      {{ person.name + ' ' + person.surname }} has no articles.
     </h4>
     <section class="publications">
       <div

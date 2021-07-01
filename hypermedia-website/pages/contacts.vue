@@ -1,11 +1,7 @@
 <template>
   <div>
-    Here you find our contacts: Lorem ipsum dolor sit amet consectetur
-    adipisicing elit. Numquam nulla consequatur aliquid quos facilis nobis
-    perspiciatis qui corporis modi reiciendis neque eum praesentium sunt,
-    excepturi, sit, iste necessitatibus cupiditate quod.<br />
+    Here you find our contacts:<br />
     Our contact number is : 800-800-8000<br />
-    Follow us on: Lorem Lorem Lorem<br />
     <form id="contact-form" type="reset" value="reset">
       <label
         class="lbl lg:text-xl lg:my-8 md:text-lg md:my-4 sm:text-base sm:my-2"
@@ -64,7 +60,7 @@ export default {
 form {
   width: 80%;
   margin: auto;
-  background-color: $comment-background-color;
+  background-color: rgba(0, 250, 250, 0.025);
 }
 #fname,
 #lname,

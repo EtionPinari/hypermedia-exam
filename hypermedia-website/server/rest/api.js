@@ -82,6 +82,14 @@ async function init() {
     return res.json(person)
   })
 
+  app.get('/service/:id', async (req, res) => {
+    const { id } = req.params
+    const service = await Service.findOne({
+      where: { id },
+    })
+    return res.json(service)
+  })
+
   app.get('/area/:id', async (req, res) => {
     const { id } = req.params
     const area = await Area.findOne({
@@ -108,6 +116,7 @@ async function init() {
       peopleResult.push(
         await Person.findOne({
           where: { id: ourPeople[i].dataValues.personId },
+          include: { model: Area },
         })
       )
     }
@@ -115,8 +124,8 @@ async function init() {
   })
 
   // Call this to get a service of an area
-  // Careful: address is SERVICE (no final s)
-  app.get('/service/:area', async (req, res) => {
+  // Careful: address is SERVICES
+  app.get('/services/:area', async (req, res) => {
     const { area } = req.params
     // find our area so we can fetch its ID
     const ourArea = await Area.findOne({
@@ -125,7 +134,7 @@ async function init() {
     // find all tuples in ServiceAreas (equivalently find all service's ids:) that belong to area with id ourArea.id
     const ourServices = await ServicesAreas.findAll({
       attributes: ['serviceId'],
-      where: { areaId: ourArea.id },
+      where: { area_id: ourArea.id },
     })
     const servicesResult = []
     for (let i = 0; i < ourServices.length; i++) {
@@ -138,6 +147,22 @@ async function init() {
     return res.json(servicesResult)
   })
 
+  app.get('/articles/:area', async (req, res) => {
+    // print('All area attributes ' + Area.attributes)
+    const { area } = req.params
+    const ourArea = await Area.findOne({
+      where: {
+        title: area,
+      },
+    })
+    // print('THIS IS: ' + ourArea)
+    const articles = await Article.findAll({
+      where: {
+        area_id: ourArea.id,
+      },
+    })
+    return res.json(articles)
+  })
   // This one is just an example
   app.get('/ad', (req, res) => {
     return res.json({
