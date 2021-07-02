@@ -67,6 +67,7 @@ footer {
   align-items: center;
   padding-bottom: 10px;
   margin-top: 4vh;
+  margin-bottom: 40vh;
 }
 
 .logo {
