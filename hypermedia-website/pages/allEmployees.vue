@@ -120,8 +120,8 @@ export default {
     text-align: -webkit-center;
   }
   .nav-button {
-    width: 5vw;
-    height: 3.3vh;
+    width: 8vw;
+    height: 4vh;
     text-align: center;
     margin: auto;
   }

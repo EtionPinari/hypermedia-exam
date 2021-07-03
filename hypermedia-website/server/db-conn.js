@@ -160,8 +160,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
     image: 'https://ychef.files.bbci.co.uk/1280x720/p091j3dx.webp',
   })
   const LisaArticle1 = await Article.create({
-    title: `Accelerate Hydrogen: e-weekly launched on sector set to 'rewrite global energy map'
-    `,
+    title: `Accelerate Hydrogen: how to 'rewrite global energy map'`,
     summary: `Recharge and sister NHST title Upstream publish the first issue of new e-newsletter that will 'separate hype from the hard truths' in the rapidly evolving global H2 market`,
     content: `<p>NHST Media Group titles <i>Recharge</i> and <i>Upstream</i> have launched a new weekly e-newsletter to cover the rapidly evolving global hydrogen market.</p>
     <p>The second in our <i>Accelerate</i> energy transition e-newsletter series, <i>Accelerate Hydrogen</i> will report on the sector seen as set to “rewrite the global energy map” as governments and industry gear up strategies to reach carbon-neutrality by mid-century.</p>
