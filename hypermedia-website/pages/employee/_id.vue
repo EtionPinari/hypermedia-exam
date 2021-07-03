@@ -48,9 +48,30 @@
           ></article-mini>
         </div>
         <div class="date">
-          Published the: {{ new Date(article.createdAt).getDate() }}/{{
+          Published {{ new Date(article.createdAt).getDate() }}/{{
             new Date(article.createdAt).getMonth()
           }}/{{ new Date(article.createdAt).getFullYear() }}
+        </div>
+      </div>
+    </section>
+
+    <section class="area-of-work publications">
+      <h3 v-if="person.areas.length !== 0">
+        {{ person.name }} works in this area:
+      </h3>
+      <div
+        v-for="(area, areaIndex) of person.areas"
+        :key="'Area-' + areaIndex"
+        class="publication"
+      >
+        <div class="content">
+          <area-preview
+            :id="area.id"
+            :title="area.title"
+            :details="area.details"
+            :image="area.image"
+            :overview="area.overview"
+          />
         </div>
       </div>
     </section>
@@ -59,9 +80,10 @@
 
 <script>
 import ArticleMini from '../../components/ArticleMini.vue'
+import AreaPreview from '../../components/AreaPreview.vue'
 import redirectButton from '~/components/redirectButton.vue'
 export default {
-  components: { ArticleMini, redirectButton },
+  components: { ArticleMini, redirectButton, AreaPreview },
   async asyncData({ $axios, route }) {
     // const { id } = route.params
     const { data } = await $axios.get(
@@ -80,6 +102,7 @@ hr {
   border: 1px solid rgba(0, 0, 0, 0.3);
   width: 90%;
   align-self: center;
+  margin: auto;
 }
 .article-mini {
   border: 0px;
@@ -95,10 +118,20 @@ hr {
   text-align: center;
 }
 
+.area-of-work > img {
+  // width: 145%;
+  max-width: 145%;
+}
+.area-of-work * {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
 .publications {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  // margin-bottom: 2vh;
 }
 @media only screen and (min-width: 601px) {
   .publication {
@@ -127,11 +160,11 @@ hr {
   margin: 3vh 0;
 }
 //short description with name and surname occupies 1/2 of the width
-
 #person #face {
   flex: 1;
   margin: auto 0;
 }
+
 @media only screen and (min-width: 600px) {
   //The face occupies 1/2 of the width
   #person #face {

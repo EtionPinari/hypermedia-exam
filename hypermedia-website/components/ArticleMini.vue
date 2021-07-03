@@ -83,7 +83,7 @@ p {
   cursor: pointer;
   /* flex: 2; */
   width: 100%;
-  // height: 200px;
+  height: 234px;
   max-width: 80%;
   min-height: 25vh;
   margin: 2.3vh auto;
