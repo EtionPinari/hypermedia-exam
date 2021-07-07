@@ -4,6 +4,12 @@
       <!-- here lay all the previews of articles, employess and services -->
       <!-- If you want to put content in here, delete all the text below :) -->
       <div id="ourCompany">
+        <article-mini
+          :id="articles[2].id"
+          :title="articles[2].title"
+          :summary="articles[2].summary"
+          :image="articles[2].image"
+        ></article-mini>
         Hatgemini was established in 1996 to provide information technology
         solutions for small to medium-sized businesses. Our mission from the
         very first day has been to cultivate professional relationships with our
@@ -33,26 +39,12 @@
             v-for="(person, index) of people.slice(0, 3)"
             :key="'person-' + index"
           >
-            <div class="grid-item">
-              <div class="card">
-                <img class="card-img" :src="person.image" />
-                <div class="card-content">
-                  <h1 class="card-header">
-                    {{ person.name }}
-                    {{ person.surname }}
-                  </h1>
-                  <p class="card-text">
-                    {{ person.biography }}
-                  </p>
-                  <button
-                    class="card-btn"
-                    @click="goToPath(`/employee/${person.id}`)"
-                  >
-                    More<span>&rarr;</span>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <home-page-card
+              :id="'/employee/' + person.id"
+              :title="person.name + ' ' + person.surname"
+              :summary="person.biography"
+              :image="person.image"
+            ></home-page-card>
           </div>
         </div>
 
@@ -62,21 +54,12 @@
             v-for="(area, index) of areas.slice(0, 3)"
             :key="'area-' + index"
           >
-            <div class="grid-item">
-              <div class="card">
-                <img class="card-img" :src="area.image" />
-                <div class="card-content">
-                  <h1 class="card-header">{{ area.title }}</h1>
-                  <p class="card-text">{{ area.overview }}</p>
-                  <button
-                    class="card-btn"
-                    @click="goToPath(`/area/${area.id}`)"
-                  >
-                    More <span>&rarr;</span>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <home-page-card
+              :id="'/area/' + area.id"
+              :title="area.title"
+              :summary="area.overview"
+              :image="area.image"
+            ></home-page-card>
           </div>
         </div>
         <h1 class="gridTitle">Most requested services</h1>
@@ -85,21 +68,12 @@
             v-for="(service, index) of services.slice(0, 3)"
             :key="'area-' + index"
           >
-            <div class="grid-item">
-              <div class="card">
-                <img class="card-img" :src="service.image" />
-                <div class="card-content">
-                  <h1 class="card-header">{{ service.title }}</h1>
-                  <p class="card-text">{{ service.overview }}</p>
-                  <button
-                    class="card-btn"
-                    @click="goToPath(`/services/${service.id}`)"
-                  >
-                    More <span>&rarr;</span>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <home-page-card
+              :id="'/service/' + service.id"
+              :title="service.title"
+              :summary="service.overview"
+              :image="service.image"
+            ></home-page-card>
           </div>
         </div>
       </div>
@@ -108,24 +82,23 @@
 </template>
 
 <script>
+import HomePageCard from '~/components/HomePageCard.vue'
+import ArticleMini from '~/components/ArticleMini.vue'
 export default {
-  components: {},
+  components: { ArticleMini, HomePageCard },
   async asyncData({ $axios }) {
-    const [people, areas, services] = await Promise.all([
+    const [people, areas, services, articles] = await Promise.all([
       $axios.get(`${process.env.BASE_URL}/api/people`),
       $axios.get(`${process.env.BASE_URL}/api/areas`),
       $axios.get(`${process.env.BASE_URL}/api/services`),
+      $axios.get(`${process.env.BASE_URL}/api/articles`),
     ])
     return {
       people: people.data,
       areas: areas.data,
       services: services.data,
+      articles: articles.data,
     }
-  },
-  methods: {
-    goToPath(path) {
-      this.$router.push({ path })
-    },
   },
 }
 </script>
@@ -193,80 +166,6 @@ html {
   overflow: hidden;
 }
 
-.grid-item {
-  width: 24rem;
-  background-color: #fff;
-  border-radius: 0.4rem;
-  overflow: hidden;
-  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.grid-item:hover {
-  transform: translateY(-0.5%);
-  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
-}
-
-.card-img {
-  display: block;
-  width: 100%;
-  height: 18rem;
-  object-fit: cover;
-}
-
-.card-content {
-  padding: 1rem;
-}
-
-.card-header {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #0d0d0d;
-  margin-bottom: 1.5rem;
-}
-
-.card-text {
-  letter-spacing: 0.1rem;
-  line-height: 1.5;
-  color: #3d3d3d;
-  margin-bottom: 2.5rem;
-  font-size: 1.2rem;
-  height: 9rem;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.card-btn {
-  display: block;
-  width: 100%;
-  padding: 1.5rem;
-  font-size: 2rem;
-  text-align: center;
-  color: #3363ff;
-  background-color: #d8e0fd;
-  border: none;
-  border-radius: 0.4rem;
-  transition: 0.2s;
-  cursor: pointer;
-  letter-spacing: 0.1rem;
-}
-
-.card-btn span {
-  margin-left: 1rem;
-  transition: 0.2s;
-}
-
-.card-btn:hover,
-.card-btn:active {
-  background-color: #c2cffc;
-}
-
-.card-btn:hover span,
-.card-btn:active span {
-  margin-left: 1.5rem;
-}
-
 @media only screen and (max-width: 60em) {
   body {
     padding: 3rem;
@@ -274,9 +173,6 @@ html {
 
   .grid {
     grid-gap: 1rem;
-  }
-  .grid-item {
-    width: 20rem;
   }
 }
 
@@ -287,9 +183,6 @@ html {
 
   .grid {
     grid-gap: 1rem;
-  }
-  .grid-item {
-    width: 20rem;
   }
 
   .ourEmployees {

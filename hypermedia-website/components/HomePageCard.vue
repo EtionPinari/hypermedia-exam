@@ -1,0 +1,122 @@
+<template>
+  <div class="grid-item">
+    <div class="card">
+      <img class="card-img" :src="image" />
+      <div class="card-content">
+        <h1 class="card-header">
+          {{ title }}
+        </h1>
+        <p class="card-text">
+          {{ summary }}
+        </p>
+        <button class="card-btn" @click="goToPath(`${id}`)">
+          More<span>&rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    id: { type: Number, default: () => 0 },
+    title: { type: String, default: () => '' },
+    image: { type: String, default: () => '' },
+    summary: { type: String, default: () => '' },
+  },
+  methods: {
+    goToPath(path) {
+      this.$router.push({ path })
+    },
+  },
+}
+</script>
+
+<style scoped>
+.grid-item {
+  width: 24rem;
+  background-color: #fff;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.grid-item:hover {
+  transform: translateY(-0.5%);
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
+}
+
+.card-img {
+  display: block;
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-header {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #0d0d0d;
+  margin-bottom: 1.5rem;
+}
+
+.card-text {
+  letter-spacing: 0.1rem;
+  line-height: 1.5;
+  color: #3d3d3d;
+  margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+  height: 9rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card-btn {
+  display: block;
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+  color: #3363ff;
+  background-color: #d8e0fd;
+  border: none;
+  border-radius: 0.4rem;
+  transition: 0.2s;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+}
+
+.card-btn span {
+  margin-left: 1rem;
+  transition: 0.2s;
+}
+
+.card-btn:hover,
+.card-btn:active {
+  background-color: #c2cffc;
+}
+
+.card-btn:hover span,
+.card-btn:active span {
+  margin-left: 1.5rem;
+}
+
+@media only screen and (max-width: 60em) {
+  .grid-item {
+    width: 20rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .grid-item {
+    width: 20rem;
+  }
+}
+</style>
