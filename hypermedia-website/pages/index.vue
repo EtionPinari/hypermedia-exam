@@ -26,56 +26,78 @@
         services. At Hatgemini, we guarantee rapid, reliable and robust
         information technology solutions that work.
       </div>
-      <div class="ourEmployees">
-        <h1 class="topEmployees">Our employess of the month</h1>
+      <div class="gridContainer">
+        <h1 class="gridTitle">Our employess of the month</h1>
         <div class="grid">
-          <div class="grid-item">
-            <div class="card">
-              <img
-                class="card-img"
-                src="https://b6x0l214gh21wkvwf1simsxr-wpengine.netdna-ssl.com/wp-content/uploads/2019/05/kas_resouce-webinar_selling-msp-services-network-assessments-sales-tool.jpg"
-                alt="Rome"
-              />
-              <div class="card-content">
-                <h1 class="card-header">Rome</h1>
-                <p class="card-text">
-                  Rome is known for its stunning <strong> architecture</strong>,
-                  with the Colleseum, Pantheon, and Trevi Fountain as the main
-                  attractions.
-                </p>
-                <button class="card-btn">Visit <span>&rarr;</span></button>
+          <div
+            v-for="(person, index) of people.slice(0, 3)"
+            :key="'person-' + index"
+          >
+            <div class="grid-item">
+              <div class="card">
+                <img class="card-img" :src="person.image" />
+                <div class="card-content">
+                  <h1 class="card-header">
+                    {{ person.name }}
+                    {{ person.surname }}
+                  </h1>
+                  <p class="card-text">
+                    {{ person.biography }}
+                  </p>
+                  <button
+                    class="card-btn"
+                    @click="goToPath(`/employee/${person.id}`)"
+                  >
+                    More<span>&rarr;</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="grid-item">
-            <div class="card">
-              <img
-                class="card-img"
-                src="https://www.bamboohr.com/blog/wp-content/uploads/Employee_Development_Plans_4_Winning_Steps_to_Engage_Employees700x525.png"
-                alt="Grand Canyon"
-              />
-              <div class="card-content">
-                <h1 class="card-header">Grand</h1>
-                <p class="card-text">
-                  One of the world's natural wonders, the iconic Grand Canyon
-                  draws oohs and aahs from visitors perched at the edge of its
-                  <strong>towering cliffs</strong>.
-                </p>
-                <button class="card-btn">Visit <span>&rarr;</span></button>
+        </div>
+
+        <h1 class="gridTitle">Most famous Areas</h1>
+        <div class="grid">
+          <div
+            v-for="(area, index) of areas.slice(0, 3)"
+            :key="'area-' + index"
+          >
+            <div class="grid-item">
+              <div class="card">
+                <img class="card-img" :src="area.image" />
+                <div class="card-content">
+                  <h1 class="card-header">{{ area.title }}</h1>
+                  <p class="card-text">{{ area.overview }}</p>
+                  <button
+                    class="card-btn"
+                    @click="goToPath(`/area/${area.id}`)"
+                  >
+                    More <span>&rarr;</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="grid-item">
-            <div class="card">
-              <img class="card-img" alt="Maldives" />
-              <div class="card-content">
-                <h1 class="card-header">Maldives</h1>
-                <p class="card-text">
-                  The Maldives are known for their
-                  <strong>natural environment</strong> including the blue ocean,
-                  white beaches, and clean air, attracting tourists.
-                </p>
-                <button class="card-btn">Visit <span>&rarr;</span></button>
+        </div>
+        <h1 class="gridTitle">Most requested services</h1>
+        <div class="grid">
+          <div
+            v-for="(service, index) of services.slice(0, 3)"
+            :key="'area-' + index"
+          >
+            <div class="grid-item">
+              <div class="card">
+                <img class="card-img" :src="service.image" />
+                <div class="card-content">
+                  <h1 class="card-header">{{ service.title }}</h1>
+                  <p class="card-text">{{ service.overview }}</p>
+                  <button
+                    class="card-btn"
+                    @click="goToPath(`/services/${service.id}`)"
+                  >
+                    More <span>&rarr;</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -88,6 +110,23 @@
 <script>
 export default {
   components: {},
+  async asyncData({ $axios }) {
+    const [people, areas, services] = await Promise.all([
+      $axios.get(`${process.env.BASE_URL}/api/people`),
+      $axios.get(`${process.env.BASE_URL}/api/areas`),
+      $axios.get(`${process.env.BASE_URL}/api/services`),
+    ])
+    return {
+      people: people.data,
+      areas: areas.data,
+      services: services.data,
+    }
+  },
+  methods: {
+    goToPath(path) {
+      this.$router.push({ path })
+    },
+  },
 }
 </script>
 
@@ -97,8 +136,7 @@ export default {
   align-items: center;
 }
 
-.ourEmployees {
-  background-color: white;
+.gridContainer {
   padding-top: 5px;
   width: 111.1%;
   margin-left: -5.5%;
@@ -139,7 +177,7 @@ html {
   text-align: left;
 }
 
-.topEmployees {
+.gridTitle {
   margin-top: 20px;
   text-align: center;
 }
@@ -147,15 +185,16 @@ html {
 .grid {
   display: grid;
   width: 90%;
-  grid-gap: 8rem;
+  grid-gap: 4rem;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   align-items: start;
   margin-top: 40px;
   margin: 5%;
+  overflow: hidden;
 }
 
 .grid-item {
-  width: 25rem;
+  width: 24rem;
   background-color: #fff;
   border-radius: 0.4rem;
   overflow: hidden;
@@ -172,16 +211,16 @@ html {
 .card-img {
   display: block;
   width: 100%;
-  height: 15rem;
+  height: 18rem;
   object-fit: cover;
 }
 
 .card-content {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .card-header {
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #0d0d0d;
   margin-bottom: 1.5rem;
@@ -192,6 +231,10 @@ html {
   line-height: 1.5;
   color: #3d3d3d;
   margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+  height: 9rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .card-btn {

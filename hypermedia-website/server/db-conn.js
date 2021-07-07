@@ -225,11 +225,21 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       `are rapidly becoming industrialized. Meanwhile, technology – and opportunity – are moving to the edge. `,
     overview: `Area when you can learn utilities and energy and how it affects people.`,
   })
+  const Deep = await Area.create({
+    title: `Electronics & High Tech`,
+    image: `https://image.freepik.com/premium-vector/high-tech-technology-geometric_29971-384.jpg`,
+    details: `The industry and world faces an onslaught of new challenges, increasing competition, and added levels of scrutiny with respect to data and privacy. Business models focused exclusively on product development and exploiting economies of scale are no longer viable in the current environment. Instead, businesses must transform products to drive deeper customer engagement by supplementing goods with high-value, relevant services that deliver a business outcome. This shift to “servitization” will help differentiate their offerings and protect the business from replication by competitors.`,
+    overview: `Area when you can learn more about electronics and high tech.`,
+  })
   // This method adds relationships between people with id 12-11-10 (or 1-2-3 for Lisa) to a certain area
   // Example Person with id 1 is now part of area Energy & Utilities
   Lisa.addPerson(1)
   Lisa.addPerson(2)
   Lisa.addPerson(3)
+
+  Deep.addPerson(4)
+  Deep.addPerson(5)
+  Deep.addPerson(6)
 
   Etion.addPerson(12)
   Etion.addPerson(11)
@@ -317,6 +327,39 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       More effective market positioning and revenue streams`,
     overview: `Transform your utility company into an energy services company with u2es Transformation, a value-based program that leverages emerging technologies to deliver proven benefits and positions your company as a leader for the future.`,
   })
+
+  const DeepService1 = await Service.create({
+    title: `Cyber Attack Simulation`,
+    image: `https://www.capgemini.com/ar-es/wp-content/uploads/sites/23/2017/08/cyber_attack_simulation-main.jpg`,
+    details: `The more you know about the threat’s your organization faces,
+     the less vulnerable you are to increasingly sophisticated cyber attacks.
+     Capgemini gives you that knowledge. A Cyber Attack Simulation exercise 
+     exposes both known and unknown vulnerabilities by putting enterprise 
+     defenses under the same duress as in the real and evolving threat landscape.
+     Leveraging our state-of-the-art Security Operations Center Lab, our proven
+     methodologies span multiple technologies and security control areas, from
+     physical security to personnel and procedural security controls, to system and application-level penetration`,
+    overview: `Despite investment in cyber security controls, the modern
+    enterprise is still being breached. A real-world attack simulation to
+    test your Process, Technology and Compliance can help you understand
+     your exposures to the security threats.
+    `,
+  })
+
+  const DeepService2 = await Service.create({
+    title: `Cybersecurity Consulting`,
+    image: `https://images.squarespace-cdn.com/content/v1/5a05e672fe54ef1b4ad127a0/1567007217706-ELMLZ1U0EGRFBLD5N0LQ/Cybersecurity-services.jpg`,
+    details: `Our cybersecurity consulting services give you insight into
+     your security management with assessments of your sensitive data, 
+     critical infrastructures and applications. We work with you to define
+     and implement the right strategy, target operating model and GRC structure.
+     We ensure your security design and operations support your strategic 
+     objectives and business continuity. By planning ahead with a cybersecurity
+     strategy as part of your digital transformation journey, you will be in a
+     more confident position to stay compliant and achieve cost savings. Our 
+     roadmap are built upon a very consistent framework (incl. market standards, human factor and economics).`,
+    overview: `Make Cybersecurity a Business Enabler in the Digital Enterprise`,
+  })
   // People are automatically generated, you do not need to add them manually
   // ID's of people to use: LISA: 1-2-3 PARDEEP 4-5-6 MICHAEL 7-8-9 ETION 10-11-12
   // Add relation between Service and Area
@@ -324,12 +367,16 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   await EtionService2.addArea(Etion)
   await LisaService1.addArea(Lisa)
   await LisaService2.addArea(Lisa)
+  await DeepService1.addArea(Deep)
+  await DeepService2.addArea(Deep)
 
   // Add relationship between Service and Person who created it
   await EtionService1.setPerson(12)
   await EtionService2.setPerson(11)
   await LisaService1.setPerson(1)
   await LisaService2.setPerson(2)
+  await DeepService1.setPerson(4)
+  await DeepService2.setPerson(5)
 
   // Add relationship between Article and Person who created it (Author.id = 12)
   await EtionArticle1.setPerson(Author.id)
