@@ -20,7 +20,7 @@
 <script>
 export default {
   props: {
-    id: { type: Number, default: () => 0 },
+    id: { type: String, default: () => '' },
     title: { type: String, default: () => '' },
     image: { type: String, default: () => '' },
     summary: { type: String, default: () => '' },
@@ -65,6 +65,7 @@ export default {
   font-weight: 500;
   color: #0d0d0d;
   margin-bottom: 1.5rem;
+  height: 2.4rem;
 }
 
 .card-text {
@@ -117,6 +118,18 @@ export default {
 @media only screen and (max-width: 320px) {
   .grid-item {
     width: 20rem;
+  }
+  .card-header {
+    height: 3rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .grid-item {
+    width: 20rem;
+  }
+  .card-header {
+    height: 3rem;
   }
 }
 </style>
