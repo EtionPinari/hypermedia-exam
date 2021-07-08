@@ -159,7 +159,7 @@ html {
   display: grid;
   width: 90%;
   grid-gap: 4rem;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   align-items: start;
   margin-top: 40px;
   margin: 5%;
