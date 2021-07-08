@@ -5,10 +5,10 @@
       <!-- If you want to put content in here, delete all the text below :) -->
       <div id="ourCompany">
         <article-mini
-          :id="articles[2].id"
-          :title="articles[2].title"
-          :summary="articles[2].summary"
-          :image="articles[2].image"
+          :id="articles[3].id"
+          :title="articles[3].title"
+          :summary="articles[3].summary"
+          :image="articles[3].image"
         ></article-mini>
         Hatgemini was established in 1996 to provide information technology
         solutions for small to medium-sized businesses. Our mission from the

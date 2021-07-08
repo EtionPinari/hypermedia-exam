@@ -203,6 +203,71 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
     image:
       'https://packagingeurope.com/downloads/9795/download/syntegon2-01.07.jpg?cb=59f8b57186b5794f644e4162e188bf1f',
   })
+  const DeepArticle1 = await Article.create({
+    title:
+      'Ensure your business is secure and quick to respond in the event of a breach.',
+    summary:
+      'malware doesn’t only threaten data security – it can also have a direct impact on sustainability initiatives and impede enterprise climate targets. There are numerous attacks that cause detrimental effects on the environment:',
+    content: `DDOS attacks
+    DDOS attacks consume extortionate amounts of energy. The attack often starts with that suspicious link or download that you accidently click on. Before you know it, you have a botnet on your hands, rapidly sending fake traffic to a server or website. As the network becomes flooded with malicious traffic, it’s no longer able to operate normally. The malware quickly captures workstations causing computers across the network to run at full capacity, firing more and more requests to the server. Eventually, the server goes into overdrive as it tries to handle the mass of data requests it’s receiving.   
+    From a business perspective, this means services and operations can grind to a halt. But from an energy perspective, it means consumption levels accelerate exponentially, undermining efficiency measures that may have been in place.
+    Production line sabotage
+    Cyber criminals are increasingly targeting production lines in an attempt to break into a company’s network. This can spell disaster for a factory, potentially rendering its entire production unfit for purpose. Malware can jeopardize the robust quality control procedures that ensure a product is being produced safely and meets standards.
+    For example, a factory producing automotive chemicals will have various digital checkpoints along the production line to ensure the product meets regulated levels. Malware can damage these checkpoints, making them unreliable and ineffective. This has a considerable knock-on effect: entire batches of product become unusable and must be discarded, the energy used becomes obsolete, and ultimately pollution and waste levels increase.
+    This was seen recently when one of the spirits brands suffered a ransomware attack. While the breach compromised the security of customer data, it also ground its factories to a halt. The drinks brand was unable to prove that its liquor met regulations and so had to discard batches of product.    
+    Sustainable infrastructure warfare
+    For organizations that operate in sustainable infrastructure, any attacks will have a direct and devastating effect on the environment – a fact that certainly does not escape attackers, particularly the growing number of state sponsored ones.
+    Take, for example, a water works company. A water works ensures that water is safe and prevents pollution from entering our rivers. It processes water to ensure it is clean and will monitor pollution levels at all times. If that system is compromised, then the water is no longer guaranteed to be clean or free of pollution, creating astronomical environmental, economic, and societal consequences.
+    By actively protecting infrastructure against malicious attacks, we are simultaneously protecting the environment – and the communities it supports.
+    An end-to-end solution
+    Given the widespread impact of a potential attack, organizations cannot afford any gaps in their cybersecurity. The most effective way to protect your business is through end-to-end encryption, which enables you to manage the full lifecycle of your security.
+    At Hapgemini, we split our end-to-end solution into three key areas:
+    Define your security objectives and procedures; ensure cybercriminals can’t get through the back door.
+    Protect your assets; implement the right security solutions for your business.
+    Defend the enterprise; detect and react in advance of cyberattacks.
+    By taking this approach, you can ensure your business is secure and quick to respond in the event of a breach. The sooner you act on malware, the faster you stop the spread of infection and avoid the associated risks. It’s this action that ensures cybersecurity can be an enabler for sustainability.
+    `,
+    image:
+      'https://www.onoratoinformatica.it/wp-content/uploads/2020/12/ransomware-virus-onorato.png',
+  })
+  const DeepArticle2 = await Article.create({
+    title:
+      'Is your cybersecurity insurance dynamic enough for today’s threat landscape?',
+    summary:
+      'To provide effective insurance, and claim their stake within this growing market, insurance providers must pivot their models to ensure that they can effectually assess cyber-risk.',
+    content: `Providing cover is not straightforward. Cyber-attacks are not one-size-fits-all, making them harder to quantify from an insurance standpoint. Moreover, new methods of attack are constantly emerging. With causes ranging from human error to ransomware to identity theft, insurers must design extensive and agile policies to ensure they are providing sufficient protection.
+    Traditionally, insurers have provided cover on a sum-insured basis or conducted physical – and also time-consuming – audits. For the fast-moving world of cybersecurity, this is inadequate, either being inaccurate at the point of underwriting or outdated once completed and resulting in risk levels that do not match what has been logged.
+    To provide effective insurance, and claim their stake within this growing market, insurance providers must pivot their models to ensure that they can effectually assess cyber-risk. To do this, they must offer competitive price policies, manage risk of the policy portfolio continuously, and also qualify legitimate claims and protect themselves from fraud.
+    HatGemini’s Global Cyber Insurance offer
+    HatGemini has developed a Global Cyber Insurance offer that gives insurers a competitive advantage in meeting and exceeding the needs of today’s organizations looking for cover. It combines our expertise in cyber risk management and compliance, threat intelligence, and the ability to assess a client’s external risk posture in near real-time.
+    We are unique in our ability to harness digital insights to assist policyholders in understanding and improving their security posture. We also help insurance providers manage their insured portfolio effectively. We do this by addressing challenges across the entire cyber insurance life-cycle: rapid risk assessments at the point of sale, tracking the risk posture of the policyholder throughout the insured period, and providing timely interventions to mitigate both the risk of a cyberattack and the likelihood of a claim being made.
+    Lower risk, higher profitability
+    Using our heritage in technology and innovation strategy, we use tools such as automation and real-time data analysis to provide effective and dynamic cover. We automate the security risk assessment, using data analytics to evaluate multiple risk vectors and information from historical breaches associated with the potential policyholder. This not only significantly reduces the length of the risk assessment; it improves accuracy too.
+    As part of the onboarding process we provide a score report to the policyholder, providing details of security risks they are exposed to and recommendations on how to address these risks.
+    Once the policy is live, we help insurers to stay aware of a policyholder’s changing risk profile, in real-time, allowing for timely interventions that prevent security breaches and subsequent claims. By proactively evaluating threats, HatGemini offers 24×7 notifications, security news and security alerts with comprehensive, actionable intelligence.
+    If and when breaches do occur, HatGemini helps to sift through the ambiguity of pay-outs and claims. We assist insurers with a claim period risk report, detailing the risk posture of the policyholder. We also help insurers to identify the root causes of a breach and give guidance in setting up forensic direction.
+    In today’s digital world, cybersecurity risks are inevitable and complex. But cybersecurity insurance doesn’t have to be. Just as cybercriminals are using more intelligent solutions and tools, so too should insurance providers – enabling them to stay one step ahead
+    Contact HatGemini today for additional details about our unique – and uniquely effective – services for cyber insurance carriers and policyholders.
+    `,
+    image:
+      'https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/NOVA24/2021/02/04/Nova24/ImmaginiWeb/Ritagli/AdobeStock_265280757-Cybersecurity-kk9B--1020x533@IlSole24Ore-Web.jpg',
+  })
+
+  const DeepArticle3 = await Article.create({
+    title: 'Testing the Security of your Applications',
+    summary: 'Applications are your business. Better secure them',
+    content: `With 73% of security breaches occurring at the application layer, identifying vulnerabilities has become a priority for organizations worldwide. Many organizations now depend on the rapid release of critical applications to remain competitive. Our Application Security Testing solution makes it simple and fast to initiate fundamental security controls, whether you have just a few applications or are looking to launch a comprehensive security program across your organization.
+    With Capgemini’s Application Security Testing service:
+    You simply purchase a subscription and our experts systematically test all your applications – Web-based, mobile, or business applications, proprietary or open source – prior to release.
+    You get a balanced mix of manual and automated testing depending on the level of service you need, using best-in-class tools and processes from Capgemini and world-class partners.
+    You receive actionable results via a single, intuitive dedicated portal. The portal gives you the ability to scan requests, review results, and view dashboards that help you understand your application security posture and build the most appropriate remediation strategy.
+    You can customize your dashboards in terms of business priorities or technical complexity.
+    You ensure objectivity by separating the testing process from development, and you get a whole new level of scalability and repeatability.
+    You get broader and more accurate coverage because we combine top-tier analyst tools, continuously updated threat intelligence, and expertise based on many years of testing experience to detect vulnerabilities – all delivered by security experts based in multiple geographies.
+    You have the flexibility to test wherever you undertake development activity, ensuring responsiveness to your time pressures and enabling faster
+    `,
+    image: 'https://miro.medium.com/max/750/1*wYU7HChNgP-Mt8iZvdiFxQ.jpeg',
+  })
   // redundant
   const Author = await seedPerson()
 
@@ -259,7 +324,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   })
   const EtionService2 = await Service.create({
     title: `Digital Entertainment Exchange (DEX)`,
-    image: `https://www.capgemini.com/be-en/wp-content/uploads/sites/17/2019/12/Cap-for-web-03.jpg?w=960`,
+    image: `https://www.HatGemini.com/be-en/wp-content/uploads/sites/17/2019/12/Cap-for-web-03.jpg?w=960`,
     details:
       `DEX is a sophisticated reporting tool that incorporates best practices to analyze sales and performance while reducing costs. Grow your business and stay one step ahead.` +
       `Global box office revenue is forecast to hit $50 billion by 2020, with China, India, and the United States representing the largest markets. Movies play a key role in the entertainment experience, but as customers want more content on demand, the market needs to adapt.
@@ -297,7 +362,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       `for energy transition efforts and enable digital and industry technologies is a priority for many` +
       `utilities. Without further investment, organizations may  not fully realize the advanced benefits from` +
       `first wave deployments.` +
-      `Capgemini helps utility organizations address these issues and prepare for the future with Next-Gen AMI,` +
+      `HatGemini helps utility organizations address these issues and prepare for the future with Next-Gen AMI,` +
       ` a future resilient, integrated system of smart meters, communication services, modern applications and ` +
       `data management technologies. Building on the original promise of the initial wave, we work with clients` +
       `to plan, design, deploy and operate a next-generation AMI that will enable modern technologies, define new ` +
@@ -330,10 +395,10 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
 
   const DeepService1 = await Service.create({
     title: `Cyber Attack Simulation`,
-    image: `https://www.capgemini.com/ar-es/wp-content/uploads/sites/23/2017/08/cyber_attack_simulation-main.jpg`,
+    image: `https://www.HatGemini.com/ar-es/wp-content/uploads/sites/23/2017/08/cyber_attack_simulation-main.jpg`,
     details: `The more you know about the threat’s your organization faces,
      the less vulnerable you are to increasingly sophisticated cyber attacks.
-     Capgemini gives you that knowledge. A Cyber Attack Simulation exercise 
+     HatGemini gives you that knowledge. A Cyber Attack Simulation exercise 
      exposes both known and unknown vulnerabilities by putting enterprise 
      defenses under the same duress as in the real and evolving threat landscape.
      Leveraging our state-of-the-art Security Operations Center Lab, our proven
@@ -385,6 +450,9 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   await LisaArticle1.setPerson(1)
   await LisaArticle2.setPerson(2)
   await LisaArticle3.setPerson(1)
+  await DeepArticle1.setPerson(4)
+  await DeepArticle2.setPerson(5)
+  await DeepArticle3.setPerson(6)
 
   // Add relationship between Article and Area which it refers to
   await EtionArticle1.setArea(Etion.id)
@@ -393,6 +461,9 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   await LisaArticle1.setArea(Lisa.id)
   await LisaArticle2.setArea(Lisa.id)
   await LisaArticle3.setArea(Lisa.id)
+  await DeepArticle1.setPerson(Deep.id)
+  await DeepArticle2.setPerson(Deep.id)
+  await DeepArticle3.setPerson(Deep.id)
 }
 
 async function seedPerson() {
