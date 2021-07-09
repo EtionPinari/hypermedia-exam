@@ -279,8 +279,18 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       `In our area you can see many articles detailing the newest trends and changes in the field Gaming and Entertainment, detailing the newest advancements in graphics and videogame design .` +
       ` What attracts a person and keeps him bounded for hours? What is the fine balance between too little reward and too much reward? What are some bad design examples in entertainment?` +
       ` These and many more articles in the following links: `,
-    overview: `Area when you can learn more about games' design and how it affects people.`,
+    overview: `Area where you can learn more about games' design and how it affects people.`,
   })
+
+
+  // Sorry for being ego-centric
+  // This method adds the people with id 9-8-7 to my area (titled: gaming)
+  Etion.addPerson(9)
+  Etion.addPerson(8)
+  Etion.addPerson(7)
+
+  // Lisa's area
+
   const Lisa = await Area.create({
     title: `Energy and Utilities`,
     image: `https://avansys-usa.com/wp-content/uploads/2012/05/Energy_EN-Header.jpg`,
@@ -288,7 +298,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       `Energy and utility companies face a level of disruption not seen in decades. New, cash-rich competitors` +
       `are disrupting the market. Renewables prices continue to ratchet downward. New energy-storage technologies` +
       `are rapidly becoming industrialized. Meanwhile, technology – and opportunity – are moving to the edge. `,
-    overview: `Area when you can learn utilities and energy and how it affects people.`,
+    overview: `Area where you can learn utilities and energy and how it affects people.`,
   })
   const Deep = await Area.create({
     title: `Electronics & High Tech`,
@@ -302,6 +312,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   Lisa.addPerson(2)
   Lisa.addPerson(3)
 
+
   Deep.addPerson(4)
   Deep.addPerson(5)
   Deep.addPerson(6)
@@ -310,6 +321,27 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   Etion.addPerson(11)
   Etion.addPerson(10)
   // Add your SERVICES (2) here
+
+  // Michael's area
+  const Michael = await Area.create({
+    title: `Banking & Capital Markets`,
+    image: `https://res-1.cloudinary.com/fieldfisher/image/upload/c_lfill,dpr_1,g_auto,h_194,w_344/f_auto,q_auto/v1/services/corporate/corporate_finance_stocksscreen_599773376_medium_v221ji`,
+    details:
+      `To transform, profit and grow, organizations need to create new customer engagement benchmarks, find new ways to generate revenue and` +
+      `continue to reduce expense. The world’s leading banks and capital market firms collaborate with Capgemini to reimagine their business models` +
+      `to meet the evolving demands from the market, customers, partners and the regulators.` +
+      `We put innovation at the center of everything we do and help organizations future-proof their businesses ` +
+      `by developing capabilities across these key five pillars of the Digital Enterprise of the Future: 
+      Orchestrating an Open Ecosystem, Becoming an Intelligent Bank, Driving Customer Centricity,
+      Enhancing Go-To-Market Agility and Ensuring Business Resilience.`,
+    overview: `Area where you can learn the Banking and Capital Markets industry and how it affects people.`,
+  })
+
+  Michael.addPerson(7)
+  Michael.addPerson(8)
+  Michael.addPerson(9)
+
+
   const EtionService1 = await Service.create({
     title: `Introducing Hatgimini's STIDIA gaming service`,
     image: `https://www.gstatic.com/stadia/gamers/landing_page/assets/v2_play_anywhere_hitman_2x.png`,
@@ -393,6 +425,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
     overview: `Transform your utility company into an energy services company with u2es Transformation, a value-based program that leverages emerging technologies to deliver proven benefits and positions your company as a leader for the future.`,
   })
 
+
   const DeepService1 = await Service.create({
     title: `Cyber Attack Simulation`,
     image: `https://www.swascan.com/wp-content/uploads/2020/11/cyber-4444448_1920-300x200.jpg`,
@@ -410,6 +443,36 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
      your exposures to the security threats.
     `,
   })
+
+  const MichaelService1 = await Service.create({
+    title: `Optimize your supply chain and vendor performance`,
+    image: `https://www.rextart.com/wp-content/uploads/2020/05/finance-assurance-prova-768x484-1-scaled.jpg`,
+    details:
+      `Your business can benefit from a digital supply chain solution that increases your competitive advantage by strengthening your business drivers and focusing on your end customers.` +
+      `Capgemini’s Digital Supply Chain offering puts your customers at the heart of our solution and opens up your channels to new` +
+      `innovative business models – resulting in increased revenue, profitability, working capital and customer satisfaction.` +
+      `Our Digital Supply Chain solution comprises a number of supply chain operations, including: 
+      Demand Planning, Order Management, Master Data Management and Supply Chain Analytics.`,
+    overview: `Create a real-time operating and decision-making environment through automating your systems`,
+  })
+
+  const MichaelService2 = await Service.create({
+    title: `Transform your finance operations`,
+    image: `https://www.almalaboris.com/images/articoli/finanza-finance-skills-competenze.png`,
+    details: `Capgemini’s Frictionless Finance offer delivers next-generation, AI-augmented order-to-cash (O2C), purchase-to-pay (P2P), record-to-analyze (R2A),  
+    and analytics, transforming your finance function into one that drives frictionless, enterprise-level outcomes, including enhanced efficiency and improved working capital.
+    Our solution leverages Capgemini’s renowned Digital Global Enterprise Model (D-GEM) platform that underpins next-generation AI-enabled solutions, an AI-augmented workforce, 
+    AI-driven operating models, and a partnership philosophy to drive frictionless processing, all of which help shape the future of your organization’s finance operations.`,
+    overview: `Unlock value from your F&A function through frictionless, AI-enabled finance operations`,
+  })
+
+  EtionService1.addArea(Etion)
+  EtionService2.addArea(Etion)
+  LisaService1.addArea(Lisa)
+  LisaService2.addArea(Lisa)
+  MichaelService1.addArea(Michael)
+  MichaelService2.addArea(Michael)
+
 
   const DeepService2 = await Service.create({
     title: `Cybersecurity Consulting`,
@@ -529,9 +592,9 @@ async function initializeDatabase() {
   // Call the function for the database structure definition
   defineDatabaseStructure()
   // Synchronize Sequelize with the actual database. force = true removes all current tuples in db
-  await db.sync({ force: false })
+  await db.sync({ force: true })
   // Call the function to insert some fake data
-  // await seedDatabase()
+  await seedDatabase()
 
   return db
 }

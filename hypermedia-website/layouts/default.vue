@@ -87,11 +87,24 @@ header > img {
 .AreaPreview {
   transition: 0.3s;
 }
+.ServicePreview {
+  transition: 0.3s;
+}
 .article-mini > .img > #img-shadow:hover,
 .PersonProfile:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 .AreaPreview:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.display-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.ServicePreview:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 .display-middle {

@@ -6,7 +6,7 @@
         src="https://b6x0l214gh21wkvwf1simsxr-wpengine.netdna-ssl.com/wp-content/uploads/2019/05/kas_resouce-webinar_selling-msp-services-network-assessments-sales-tool.jpg"
       />
       <div class="display-middle center">
-        <span class="text-white" style="font-size: 40px"> All our Areas</span>
+        <span class="text-black" style="font-size: 40px">All our Areas</span>
       </div>
     </header>
 
@@ -28,20 +28,8 @@
         </div>
       </div>
       <div class="control-bar">
-        <div
-          v-if="$data.next > 0"
-          class="nav-button sm:w-32"
-          @click="getPrevious()"
-        >
-          Previous 6
-        </div>
-        <div
-          v-if="showNextButton()"
-          class="nav-button sm:w-32"
-          @click="getNewData()"
-        >
-          Next 6
-        </div>
+        <div v-if="$data.next > 0" class="nav-button sm:w-32" @click="getPrevious()">Previous 6</div>
+        <div v-if="showNextButton()" class="nav-button sm:w-32" @click="getNewData()">Next 6</div>
       </div>
     </div>
   </div>
@@ -119,7 +107,7 @@ export default {
   }
 }
 
-/* This is the container of all people, and shows all employees in a row */
+/* This is the container of all areas, and shows all areas in a row */
 .all-areas-container {
   display: flex;
   flex-direction: row;

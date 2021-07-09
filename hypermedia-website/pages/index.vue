@@ -9,36 +9,12 @@
           :title="articles[3].title"
           :summary="articles[3].summary"
           :image="articles[3].image"
-        ></article-mini>
-        Hatgemini was established in 1996 to provide information technology
-        solutions for small to medium-sized businesses. Our mission from the
-        very first day has been to cultivate professional relationships with our
-        clients to provide effective and reliable information technology
-        solutions for their needs. <br /><br />
-        The team at Hatgemini is equipped with a highly developed skillset
-        developed over decades of experience not only in information technology
-        but also in business processes across a range of industry sectors. This
-        business experience makes us uniquely positioned to offer solutions
-        promising greater operational efficiency, productivity gains and cost
-        savings for each of our clients, regardless of their industry.<br /><br />
-        As an established technology-intensive company, we pride ourselves on
-        providing a comprehensive suite of solutions comprising of
-        infrastructure consultancy, on/offsite services, custom software and web
-        development, software and web application testing, and enterprise
-        architecture consulting. Our team consistently delivers state-of-the-art
-        solutions in various areas including, but not limited to, integrated
-        business solutions, system applications, product development,
-        Internet/Intranet applications and communication & network management
-        services. At Hatgemini, we guarantee rapid, reliable and robust
-        information technology solutions that work.
+        ></article-mini>Hatgemini is a global leader in consulting, digital transformation, technology and engineering services. The Group is at the forefront of innovation to address the entire breadth of clients’ opportunities in the evolving world of cloud, digital and platforms.
       </div>
       <div class="gridContainer">
         <h1 class="gridTitle">Our employess of the month</h1>
         <div class="grid">
-          <div
-            v-for="(person, index) of people.slice(0, 3)"
-            :key="'person-' + index"
-          >
+          <div v-for="(person, index) of people.slice(0, 3)" :key="'person-' + index">
             <home-page-card
               :id="'/employee/' + person.id"
               :title="person.name + ' ' + person.surname"
@@ -50,10 +26,7 @@
 
         <h1 class="gridTitle">Most famous Areas</h1>
         <div class="grid">
-          <div
-            v-for="(area, index) of areas.slice(0, 3)"
-            :key="'area-' + index"
-          >
+          <div v-for="(area, index) of areas.slice(0, 3)" :key="'area-' + index">
             <home-page-card
               :id="'/area/' + area.id"
               :title="area.title"
@@ -64,10 +37,7 @@
         </div>
         <h1 class="gridTitle">Most requested services</h1>
         <div class="grid">
-          <div
-            v-for="(service, index) of services.slice(0, 3)"
-            :key="'area-' + index"
-          >
+          <div v-for="(service, index) of services.slice(0, 3)" :key="'area-' + index">
             <home-page-card
               :id="'/service/' + service.id"
               :title="service.title"
