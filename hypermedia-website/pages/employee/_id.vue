@@ -75,6 +75,30 @@
         </div>
       </div>
     </section>
+    <hr />
+    <h4 v-if="person.services.length === 0">
+      {{ person.name }} does not offer any services:
+    </h4>
+    <h3 v-if="person.services.length !== 0">
+      {{ person.name }} offers these services:
+    </h3>
+    <section class="services-provided area-of-work publications">
+      <div
+        v-for="(service, serviceIndex) of person.services"
+        :key="'service-' + serviceIndex"
+        class="publication"
+      >
+        <div class="content">
+          <service-preview
+            :id="service.id"
+            :title="service.title"
+            :details="service.details"
+            :image="service.image"
+            :overview="service.overview"
+          />
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -112,6 +136,7 @@ hr {
 .content {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .container {
@@ -133,10 +158,15 @@ hr {
   flex-wrap: wrap;
   // margin-bottom: 2vh;
 }
+
 @media only screen and (min-width: 601px) {
   .publication {
     // border: 0.1vw solid $main-border-color;
     width: 33%;
+  }
+  .ServicePreview,
+  .service {
+    width: inherit;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -144,6 +174,10 @@ hr {
     // border: 3px solid $main-border-color;
     width: 90%;
     margin-bottom: 30px;
+  }
+  .ServicePreview,
+  .service {
+    width: 100%;
   }
 }
 

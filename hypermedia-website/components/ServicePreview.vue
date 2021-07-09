@@ -57,14 +57,14 @@ h3 {
   .ServicePreview,
   .service {
     cursor: pointer;
-    width: 70%;
+    // width: 70%;
   }
 }
 @media only screen and (max-width: 600px) {
   .ServicePreview,
   .service {
     cursor: pointer;
-    width: 70%;
+    // width: 70%;
   }
 }
 </style>

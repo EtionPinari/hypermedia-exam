@@ -77,15 +77,23 @@ async function init() {
     const { id } = req.params
     const person = await Person.findOne({
       where: { id },
-      include: [{ model: Area }, { model: Article }],
+      include: [{ model: Area }, { model: Article }, { model: Service }],
     })
-    return res.json(person)
+    const ourServices = await Service.findAll({
+      where: {
+        personId: person.id,
+      },
+    })
+    const result = person.toJSON()
+    result.services = ourServices
+    return res.json(result)
   })
 
   app.get('/service/:id', async (req, res) => {
     const { id } = req.params
     const service = await Service.findOne({
       where: { id },
+      include: [{ model: Area }, { model: Person }],
     })
     return res.json(service)
   })

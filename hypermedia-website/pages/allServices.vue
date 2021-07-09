@@ -96,6 +96,8 @@ export default {
 @media only screen and (min-width: 601px) {
   .service {
     flex: 1 0 50%;
+    width: 70%;
+    height: 265px;
     text-align: -webkit-center;
   }
   .nav-button {

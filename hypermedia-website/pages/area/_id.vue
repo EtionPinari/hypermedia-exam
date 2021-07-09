@@ -88,7 +88,7 @@ export default {
 
 <style lang="scss" scoped>
 .service-container {
-  width: 50%;
+  width: 30%;
 }
 .service-container > .content {
   width: auto;
@@ -147,6 +147,7 @@ hr {
 }
 .nav-button {
   display: inline-flex;
+  padding: 2.1%;
 }
 * > .card {
   margin: auto;
