@@ -36,6 +36,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   width: inherit;
+  margin: auto;
   margin-bottom: 1.3vw;
 }
 h3 {
