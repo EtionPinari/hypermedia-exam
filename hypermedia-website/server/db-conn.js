@@ -285,8 +285,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
 
     However, it does seem a bit counterintuitive to ‘humanize’ digital customer experience.  How is this even possible? This is where emotional AI fits in as it can recognize and respond to human feelings. Early examples of emotional AI are Siri and Alexa and they have paved the way for people to become more comfortable with chatbots and voice assistants to answer their questions.
     `,
-    image:
-      'https://economictimes.indiatimes.com/photo/60334367.cms',
+    image: 'https://economictimes.indiatimes.com/photo/60334367.cms',
   })
 
   const MichaelArticle2 = await Article.create({
@@ -303,7 +302,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
     And then along came COVID-19, and the need to shelter in place to save lives. It was no longer a race to deliver excellent customer experience through digital, it was a necessity. Now, more than ever, is the time to find the right path to deliver innovative digital customer experience – and that path is Open X.
     `,
     image:
-      'https://motwebmediastg01.blob.core.windows.net/nop-thumbs-images/0004360_bank-leumi-le-israel-bm-global-banking-606-tel-aviv-yafo_493.jpeg'
+      'https://motwebmediastg01.blob.core.windows.net/nop-thumbs-images/0004360_bank-leumi-le-israel-bm-global-banking-606-tel-aviv-yafo_493.jpeg',
   })
 
   const MichaelArticle3 = await Article.create({
@@ -401,7 +400,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   })
   const EtionService2 = await Service.create({
     title: `Digital Entertainment Exchange (DEX)`,
-    image: `https://www.HatGemini.com/be-en/wp-content/uploads/sites/17/2019/12/Cap-for-web-03.jpg?w=960`,
+    image: `https://www.capgemini.com/be-en/wp-content/uploads/sites/17/2019/12/Cap-for-web-03.jpg?w=960`,
     details:
       `DEX is a sophisticated reporting tool that incorporates best practices to analyze sales and performance while reducing costs. Grow your business and stay one step ahead.` +
       `Global box office revenue is forecast to hit $50 billion by 2020, with China, India, and the United States representing the largest markets. Movies play a key role in the entertainment experience, but as customers want more content on demand, the market needs to adapt.
@@ -448,7 +447,6 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       `of AMI with technology modernization and experience from the initial wave.`,
     overview: `Unlocking the service, efficiency and security opportunities of a next-generation advanced metering infrastructure`,
   })
-
   const LisaService2 = await Service.create({
     title: `u2es Transformation`,
     image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpU5I7ras5D43SiL-e2eQTx89MwH_gP-9a1g&usqp=CAU`,
@@ -470,7 +468,6 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
     overview: `Transform your utility company into an energy services company with u2es Transformation, a value-based program that leverages emerging technologies to deliver proven benefits and positions your company as a leader for the future.`,
   })
 
-
   const DeepService1 = await Service.create({
     title: `Cyber Attack Simulation`,
     image: `https://www.swascan.com/wp-content/uploads/2020/11/cyber-4444448_1920-300x200.jpg`,
@@ -488,37 +485,6 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
      your exposures to the security threats.
     `,
   })
-
-  const MichaelService1 = await Service.create({
-    title: `Optimize your supply chain and vendor performance`,
-    image: `https://www.rextart.com/wp-content/uploads/2020/05/finance-assurance-prova-768x484-1-scaled.jpg`,
-    details:
-      `Your business can benefit from a digital supply chain solution that increases your competitive advantage by strengthening your business drivers and focusing on your end customers.` +
-      `Capgemini’s Digital Supply Chain offering puts your customers at the heart of our solution and opens up your channels to new` +
-      `innovative business models – resulting in increased revenue, profitability, working capital and customer satisfaction.` +
-      `Our Digital Supply Chain solution comprises a number of supply chain operations, including: 
-      Demand Planning, Order Management, Master Data Management and Supply Chain Analytics.`,
-    overview: `Create a real-time operating and decision-making environment through automating your systems`,
-  })
-
-  const MichaelService2 = await Service.create({
-    title: `Transform your finance operations`,
-    image: `https://www.almalaboris.com/images/articoli/finanza-finance-skills-competenze.png`,
-    details: `Capgemini’s Frictionless Finance offer delivers next-generation, AI-augmented order-to-cash (O2C), purchase-to-pay (P2P), record-to-analyze (R2A),  
-    and analytics, transforming your finance function into one that drives frictionless, enterprise-level outcomes, including enhanced efficiency and improved working capital.
-    Our solution leverages Capgemini’s renowned Digital Global Enterprise Model (D-GEM) platform that underpins next-generation AI-enabled solutions, an AI-augmented workforce, 
-    AI-driven operating models, and a partnership philosophy to drive frictionless processing, all of which help shape the future of your organization’s finance operations.`,
-    overview: `Unlock value from your F&A function through frictionless, AI-enabled finance operations`,
-  })
-
-  EtionService1.addArea(Etion)
-  EtionService2.addArea(Etion)
-  LisaService1.addArea(Lisa)
-  LisaService2.addArea(Lisa)
-  MichaelService1.addArea(Michael)
-  MichaelService2.addArea(Michael)
-
-
   const DeepService2 = await Service.create({
     title: `Cybersecurity Consulting`,
     image: `https://images.squarespace-cdn.com/content/v1/5a05e672fe54ef1b4ad127a0/1567007217706-ELMLZ1U0EGRFBLD5N0LQ/Cybersecurity-services.jpg`,
@@ -533,6 +499,28 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
      roadmap are built upon a very consistent framework (incl. market standards, human factor and economics).`,
     overview: `Make Cybersecurity a Business Enabler in the Digital Enterprise`,
   })
+
+  const MichaelService1 = await Service.create({
+    title: `Optimize your supply chain and vendor performance`,
+    image: `https://www.rextart.com/wp-content/uploads/2020/05/finance-assurance-prova-768x484-1-scaled.jpg`,
+    details:
+      `Your business can benefit from a digital supply chain solution that increases your competitive advantage by strengthening your business drivers and focusing on your end customers.` +
+      `Capgemini’s Digital Supply Chain offering puts your customers at the heart of our solution and opens up your channels to new` +
+      `innovative business models – resulting in increased revenue, profitability, working capital and customer satisfaction.` +
+      `Our Digital Supply Chain solution comprises a number of supply chain operations, including: 
+      Demand Planning, Order Management, Master Data Management and Supply Chain Analytics.`,
+    overview: `Create a real-time operating and decision-making environment through automating your systems`,
+  })
+  const MichaelService2 = await Service.create({
+    title: `Transform your finance operations`,
+    image: `https://www.almalaboris.com/images/articoli/finanza-finance-skills-competenze.png`,
+    details: `Capgemini’s Frictionless Finance offer delivers next-generation, AI-augmented order-to-cash (O2C), purchase-to-pay (P2P), record-to-analyze (R2A),  
+    and analytics, transforming your finance function into one that drives frictionless, enterprise-level outcomes, including enhanced efficiency and improved working capital.
+    Our solution leverages Capgemini’s renowned Digital Global Enterprise Model (D-GEM) platform that underpins next-generation AI-enabled solutions, an AI-augmented workforce, 
+    AI-driven operating models, and a partnership philosophy to drive frictionless processing, all of which help shape the future of your organization’s finance operations.`,
+    overview: `Unlock value from your F&A function through frictionless, AI-enabled finance operations`,
+  })
+
   // People are automatically generated, you do not need to add them manually
   // ID's of people to use: LISA: 1-2-3 PARDEEP 4-5-6 MICHAEL 7-8-9 ETION 10-11-12
   // Add relation between Service and Area
@@ -647,9 +635,9 @@ async function initializeDatabase() {
   // Call the function for the database structure definition
   defineDatabaseStructure()
   // Synchronize Sequelize with the actual database. force = true removes all current tuples in db
-  await db.sync({ force: true })
+  await db.sync({ force: false })
   // Call the function to insert some fake data
-  await seedDatabase()
+  // await seedDatabase()
 
   return db
 }
