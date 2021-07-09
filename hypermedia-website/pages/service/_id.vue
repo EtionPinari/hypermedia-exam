@@ -6,55 +6,32 @@
         <header
           class="titleImage"
           :style="{
-            'background-image': `url(${area.image})`,
+            'background-image': `url(${service.image})`,
           }"
         >
           <div class="display-middle center">
-            <span class="text-white" style="font-size: 40px">{{ area.title }}</span>
+            <span class="text-white" style="font-size: 40px">{{ service.title }}</span>
           </div>
         </header>
 
-        <!-- area's decription section -->
+        <!-- service's decription section -->
         <article>
           <div class="content" style="max-width: 700px">
             <div id="overview">
-              <p>{{ area.overview }}</p>
+              <p>{{ service.overview }}</p>
             </div>
             <hr />
             <div id="details">
-              <p>{{ area.details }}</p>
+              <p>{{ service.details }}</p>
             </div>
             <hr />
           </div>
         </article>
       </div>
     </section>
-    <section>
-      <!-- All its services -->
-      <h3>Services in this Area</h3>
-      <h4 v-if="area.services.length === 0">{{ area.title }} has no services.</h4>
-      <section class="services">
-        <div
-          v-for="(service, serviceIndex) of area.services"
-          :key="'Service-' + serviceIndex"
-          class="service"
-        >
-          <div class="content">
-            <service-preview
-              :id="service.id"
-              :title="service.title"
-              :summary="service.overview"
-              :image="service.image"
-            ></service-preview>
-          </div>
-        </div>
-      </section>
-      <div class="nav-button" @click="goToExperts(`/employeeName/${area.title}`)">
-        <h3 class="lg: text-xl sm:text-base">Go to all Experts in this area</h3>
-      </div>
-    </section>
   </section>
 </template>
+
 
 <script>
 import ServicePreview from '../../components/ServicePreview.vue'
@@ -64,30 +41,22 @@ export default {
   async asyncData({ $axios, route }) {
     // const { id } = route.params
     const { data } = await $axios.get(
-      `${process.env.BASE_URL}/api/area/${route.params.id}`
+      `${process.env.BASE_URL}/api/service/${route.params.id}`
     )
-    const area = data
+    const service = data
     return {
-      area,
+      service,
     }
-  },
-  methods: {
-    goToExperts(path) {
-      this.$router.push({ path })
-    },
   },
 }
 </script>
+
 
 <style lang="scss" scoped>
 hr {
   border: 1px solid rgba(0, 0, 0, 0.3);
   width: 90%;
   align-self: center;
-}
-.article-mini {
-  border: 0px;
-  min-height: 30vh;
 }
 
 .text-white {
@@ -120,7 +89,7 @@ hr {
   margin-right: auto;
   max-width: 980px;
 }
-.services {
+.service {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
