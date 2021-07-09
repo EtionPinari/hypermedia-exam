@@ -24,10 +24,6 @@
           <div></div>
         </div>
       </div>
-      <div class="control-bar">
-        <div v-if="$data.next > 0" class="nav-button sm:w-32" @click="getPrevious()">Previous 6</div>
-        <div v-if="showNextButton()" class="nav-button sm:w-32" @click="getNewData()">Next 6</div>
-      </div>
     </div>
   </div>
 </template>
