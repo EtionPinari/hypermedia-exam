@@ -268,6 +268,63 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
     `,
     image: 'https://miro.medium.com/max/750/1*wYU7HChNgP-Mt8iZvdiFxQ.jpeg',
   })
+
+  const MichaelArticle1 = await Article.create({
+    title:
+      'Reinventing Customer Experience through emotionally realistic insurer/policyholder engagement',
+    summary:
+      'It’s now more common for customers to research and buy on the internet rather than in person for many important purchases in their lives.',
+    content: `I purchased my first insurance policy when agents and brokers were the primary gateways to coverage. An agent assessed my needs and factors such as age, lifestyle habits, and income, and, then, offered policy recommendations. This approach created a system of trust and transparency that forged long-term insurer/customer relationships.
+
+    Times have changed.  And while I can still turn to an agent in-person or virtually, I can also go to a comparison website for policy recommendations, visit an insurer’s corporate website for specific information, or use a mobile app to purchase a policy and track details.
+    
+    It’s now more common for customers to research and buy on the internet rather than in person for many important purchases in their lives. Our World Insurance Report 2020 survey found that 62% of millennials and 64% of Gen X and older generations transact online – everything from purchasing clothes to paying bills. And insurance policyholders are no exception as they frequently use digital tools in addition to traditional channels to research, compare, and buy insurance products online.
+    Easy-to-use websites and apps are needed to ensure hassle-free digital interactions so users can effortlessly complete tasks such as purchasing or updating policies, filing claims, or paying premiums. Straightforward, clearly written policy terms and comparisons of different plans can help customers make swift purchase decisions. Recently, I explored the artificial intelligence (AI) chatbot, Maya, from American InsurTech Lemonade. Maya was easy to navigate and offered instant quotes.
+
+    Purchasing an insurance policy, however, can be an emotional as well as a financial decision. As policyholders, we interact with our insurers at critical times – an accident, serious illness, or property damage/loss – that necessitate smooth and hassle-free communication and emotionally intelligent, reassuring engagement. And that’s why it is so essential for insurers to humanize the digital customer experience (CX).
+
+    However, it does seem a bit counterintuitive to ‘humanize’ digital customer experience.  How is this even possible? This is where emotional AI fits in as it can recognize and respond to human feelings. Early examples of emotional AI are Siri and Alexa and they have paved the way for people to become more comfortable with chatbots and voice assistants to answer their questions.
+    `,
+    image:
+      'https://economictimes.indiatimes.com/photo/60334367.cms',
+  })
+
+  const MichaelArticle2 = await Article.create({
+    title:
+      'Digital innovation empowers banks to deliver superior customer experience during unprecedented times',
+    summary:
+      'How to collaborate effectively with FinTechs to deliver innovative customer experiences.',
+    content: `While technology’s role has been rising in banking as more customers demand omnichannel digital interactions, the COVID-19 pandemic has upped the ante for digital customer experience. Our recently published research report, COVID-19 and the financial services consumer, revealed that now more than ever FS customers want digital experiences to make transactions and engage with firms from the safety of their homes – and these customers aren’t shy about going to FinTechs or challenger banks to get the digital experience they are craving. For banks too, technology has emerged as a critical enabler to keep businesses up and running, as it facilitates work-from-home capabilities.
+
+    For banks, digital banking is a win-win. Not only does it improve customer experience (CX), it also increases operational efficiencies and revenue opportunities. In fact, many banks have undertaken digital transformation initiatives intended to increase internet and mobile banking while pursuing core banking modernization. Banks are embracing emerging technologies such as artificial intelligence, the cloud, and analytics to manage rising operational costs, evolving customer expectations, and cybercrime.
+    
+    The key challenge for banks before the pandemic was to learn how to collaborate effectively with FinTechs to deliver innovative customer experiences to keep customers coming back for more and compete head on with competition from BigTechs and challenger banks. For all, leveraging emerging technologies to win customers was the number-one strategy to fuel these strategic collaborations.
+    
+    And then along came COVID-19, and the need to shelter in place to save lives. It was no longer a race to deliver excellent customer experience through digital, it was a necessity. Now, more than ever, is the time to find the right path to deliver innovative digital customer experience – and that path is Open X.
+    `,
+    image:
+      'https://motwebmediastg01.blob.core.windows.net/nop-thumbs-images/0004360_bank-leumi-le-israel-bm-global-banking-606-tel-aviv-yafo_493.jpeg'
+  })
+
+  const MichaelArticle3 = await Article.create({
+    title:
+      'Financial firms leverage automation to improve both their top and bottom lines',
+    summary:
+      'These days, commercial banks are enthusiastically investing in automation to gain a competitive technological advantage through simplified operations.',
+    content: `Since the global financial crisis ended nearly a decade ago, commercial banks have been transforming to focus on operational risk, enhance compliance, prevent fraudulent transactions, and improve processes and efficiency by streamlining repetitive tasks.
+
+    Disruption by FinTech firms and non-financial challengers is driving banking incumbents to innovate and improve agility. They need to find ways to efficiently process and onboard customers, bolster customer satisfaction through quicker response time, and optimize routine and manual processes.
+    With 56% of global annual bank revenue generated by corporations, it was no surprise that of the US$78 billion invested in FinTech firms in 2016 more than half was earmarked for corporate banking innovation. FinTech firms are challenging commercial banking incumbents with novel new solutions around payments, trade finance, and advanced analytics.
+
+    Around the globe, banks seek to automate and streamline their existing processes in data and documentation to reduce risk, increase accuracy, lower operating costs, and save time on manual and repetitive tasks.
+
+    For example, Bank of America worked with Houston-based FinTech startup HighRadius to develop an artificial intelligence (AI) solution to support corporate clients’ process account receivables. The application was designed mainly for clients who manage a high volume of payments in which remittance information is either missing or comes in separately from the payment. The solution leverages optical character recognition and machine learning to identify payments and match them with associated remittance data – a strategic innovation with the potential to reduce cost and improve cash forecasting.
+
+    Commercial banks are using AI on the front-end to secure customer identities, mimic the work of employees, enable seamless interoperability, and engage customers across channels. On the back-end, automated solutions can support staff, power processes, and pre-empt problems.
+    `,
+    image:
+      'https://www.swissbusinessacademy.com/wp-content/uploads/2021/03/23475526491_b817003b38_o.jpg',
+  })
   // redundant
   const Author = await seedPerson()
 
@@ -282,14 +339,9 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
     overview: `Area where you can learn more about games' design and how it affects people.`,
   })
 
-
-  // Sorry for being ego-centric
-  // This method adds the people with id 9-8-7 to my area (titled: gaming)
-  Etion.addPerson(9)
-  Etion.addPerson(8)
-  Etion.addPerson(7)
-
-  // Lisa's area
+  Etion.addPerson(12)
+  Etion.addPerson(11)
+  Etion.addPerson(10)
 
   const Lisa = await Area.create({
     title: `Energy and Utilities`,
@@ -300,27 +352,21 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       `are rapidly becoming industrialized. Meanwhile, technology – and opportunity – are moving to the edge. `,
     overview: `Area where you can learn utilities and energy and how it affects people.`,
   })
+
+  Lisa.addPerson(1)
+  Lisa.addPerson(2)
+  Lisa.addPerson(3)
+
   const Deep = await Area.create({
     title: `Electronics & High Tech`,
     image: `https://image.freepik.com/premium-vector/high-tech-technology-geometric_29971-384.jpg`,
     details: `The industry and world faces an onslaught of new challenges, increasing competition, and added levels of scrutiny with respect to data and privacy. Business models focused exclusively on product development and exploiting economies of scale are no longer viable in the current environment. Instead, businesses must transform products to drive deeper customer engagement by supplementing goods with high-value, relevant services that deliver a business outcome. This shift to “servitization” will help differentiate their offerings and protect the business from replication by competitors.`,
     overview: `Area when you can learn more about electronics and high tech.`,
   })
-  // This method adds relationships between people with id 12-11-10 (or 1-2-3 for Lisa) to a certain area
-  // Example Person with id 1 is now part of area Energy & Utilities
-  Lisa.addPerson(1)
-  Lisa.addPerson(2)
-  Lisa.addPerson(3)
-
 
   Deep.addPerson(4)
   Deep.addPerson(5)
   Deep.addPerson(6)
-
-  Etion.addPerson(12)
-  Etion.addPerson(11)
-  Etion.addPerson(10)
-  // Add your SERVICES (2) here
 
   // Michael's area
   const Michael = await Area.create({
@@ -340,7 +386,6 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   Michael.addPerson(7)
   Michael.addPerson(8)
   Michael.addPerson(9)
-
 
   const EtionService1 = await Service.create({
     title: `Introducing Hatgimini's STIDIA gaming service`,
@@ -497,6 +542,8 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   await LisaService2.addArea(Lisa)
   await DeepService1.addArea(Deep)
   await DeepService2.addArea(Deep)
+  await MichaelService1.addArea(Michael)
+  await MichaelService2.addArea(Michael)
 
   // Add relationship between Service and Person who created it
   await EtionService1.setPerson(12)
@@ -505,6 +552,8 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   await LisaService2.setPerson(2)
   await DeepService1.setPerson(4)
   await DeepService2.setPerson(5)
+  await MichaelService1.setPerson(7)
+  await MichaelService2.setPerson(8)
 
   // Add relationship between Article and Person who created it (Author.id = 12)
   await EtionArticle1.setPerson(Author.id)
@@ -516,6 +565,9 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   await DeepArticle1.setPerson(4)
   await DeepArticle2.setPerson(5)
   await DeepArticle3.setPerson(6)
+  await MichaelArticle1.setPerson(7)
+  await MichaelArticle2.setPerson(8)
+  await MichaelArticle3.setPerson(9)
 
   // Add relationship between Article and Area which it refers to
   await EtionArticle1.setArea(Etion.id)
@@ -524,9 +576,12 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   await LisaArticle1.setArea(Lisa.id)
   await LisaArticle2.setArea(Lisa.id)
   await LisaArticle3.setArea(Lisa.id)
-  await DeepArticle1.setPerson(Deep.id)
-  await DeepArticle2.setPerson(Deep.id)
-  await DeepArticle3.setPerson(Deep.id)
+  await DeepArticle1.setArea(Deep.id)
+  await DeepArticle2.setArea(Deep.id)
+  await DeepArticle3.setArea(Deep.id)
+  await MichaelArticle1.setArea(Michael.id)
+  await MichaelArticle2.setArea(Michael.id)
+  await MichaelArticle3.setArea(Michael.id)
 }
 
 async function seedPerson() {
