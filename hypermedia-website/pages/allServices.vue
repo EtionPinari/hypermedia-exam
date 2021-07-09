@@ -1,7 +1,10 @@
 <template>
   <div>
     <header class="titleImage">
-      <img class="titleImage" src="https://it.agictech.com/media/1455/services4.png" />
+      <img
+        class="titleImage"
+        src="https://it.agictech.com/media/1455/services4.png"
+      />
       <div class="display-middle center">
         <span class="text-black" style="font-size: 40px">All our Services</span>
       </div>
@@ -10,7 +13,11 @@
     <div class="servicesContainer">
       <h2>These are all the services of our company:</h2>
       <div class="all-services-container">
-        <div v-for="(service, serviceIndex) of services" :key="serviceIndex" class="service">
+        <div
+          v-for="(service, serviceIndex) of services"
+          :key="serviceIndex"
+          class="service"
+        >
           <div>
             <service-preview
               :id="service.id"
@@ -23,10 +30,6 @@
 
           <div></div>
         </div>
-      </div>
-      <div class="control-bar">
-        <div v-if="$data.next > 0" class="nav-button sm:w-32" @click="getPrevious()">Previous 6</div>
-        <div v-if="showNextButton()" class="nav-button sm:w-32" @click="getNewData()">Next 6</div>
       </div>
     </div>
   </div>

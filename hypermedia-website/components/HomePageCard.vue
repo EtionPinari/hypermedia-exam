@@ -1,5 +1,5 @@
 <template>
-  <div class="grid-item">
+  <div class="grid-item" @click="goToPath(`${id}`)">
     <div class="card">
       <img class="card-img" :src="image" />
       <div class="card-content">
