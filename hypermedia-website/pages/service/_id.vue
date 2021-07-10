@@ -7,7 +7,9 @@
           <img class="titleImage" :src="service.image" />
 
           <div class="display-middle center">
-            <span class="text-black" style="font-size: 40px">{{ service.title }}</span>
+            <span class="text-black" style="font-size: 40px">{{
+              service.title
+            }}</span>
           </div>
         </header>
 
@@ -27,8 +29,12 @@
       </div>
     </section>
 
-    <h4 v-if="service.areas.length === 0">{{ service.title }} is not provided by any areas</h4>
-    <h3 v-if="service.areas.length !== 0">{{ service.title }} is provided by this area:</h3>
+    <h4 v-if="service.areas.length === 0">
+      {{ service.title }} is not provided by any areas
+    </h4>
+    <h3 v-if="service.areas.length !== 0">
+      {{ service.title }} is provided by this area:
+    </h3>
     <section class="area-of-work publications">
       <div
         v-for="(area, areaIndex) of service.areas"
@@ -49,12 +55,10 @@
   </section>
 </template>
 
-
 <script>
-import ServicePreview from '../../components/ServicePreview.vue'
 import redirectButton from '~/components/redirectButton.vue'
 export default {
-  components: { ServicePreview, redirectButton },
+  components: { redirectButton },
   async asyncData({ $axios, route }) {
     // const { id } = route.params
     const { data } = await $axios.get(
@@ -68,11 +72,10 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
 hr {
   border: 1px solid rgba(0, 0, 0, 0.3);
-  width: 90%;
+  width: 95%;
   align-self: center;
 }
 
@@ -88,6 +91,8 @@ hr {
 .content {
   display: flex;
   flex-direction: column;
+  font-size: 20px;
+  text-align: left;
 }
 .sand {
   color: #000 !important;

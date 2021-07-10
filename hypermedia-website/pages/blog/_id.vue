@@ -9,7 +9,7 @@
       <img :src="article.image" :alt="article.summary" />
     </header>
     <article class="w-4/5 text-base md:text-lg">
-      <p v-html="article.content">
+      <p id="content" v-html="article.content">
         {{ article.content }}
       </p>
     </article>
@@ -66,5 +66,13 @@ h4 {
 article {
   margin: auto;
   text-align: center;
+}
+
+.date {
+  margin-top: 10px;
+}
+
+#content {
+  text-align: left;
 }
 </style>

@@ -9,16 +9,19 @@
           :title="articles[3].title"
           :summary="articles[3].summary"
           :image="articles[3].image"
-        ></article-mini>Hatgemini is a global leader in consulting, digital transformation,
-        technology and engineering services.
-        <br />The Group is at the forefront of
-        innovation to address the entire breadth of clients’ opportunities in
+        ></article-mini
+        >Hatgemini is a global leader in consulting, digital transformation,
+        technology and engineering services. <br />The Group is at the forefront
+        of innovation to address the entire breadth of clients’ opportunities in
         the evolving world of cloud, digital and platforms.
       </div>
       <div class="gridContainer">
         <h1 class="gridTitle">Our employess of the month</h1>
         <div class="grid">
-          <div v-for="(person, index) of people.slice(0, 3)" :key="'person-' + index">
+          <div
+            v-for="(person, index) of people.slice(0, 3)"
+            :key="'person-' + index"
+          >
             <home-page-card
               :id="'/employee/' + person.id"
               :title="person.name + ' ' + person.surname"
@@ -30,7 +33,10 @@
 
         <h1 class="gridTitle">Most famous Areas</h1>
         <div class="grid">
-          <div v-for="(area, index) of areas.slice(0, 3)" :key="'area-' + index">
+          <div
+            v-for="(area, index) of areas.slice(0, 3)"
+            :key="'area-' + index"
+          >
             <home-page-card
               :id="'/area/' + area.id"
               :title="area.title"
@@ -41,7 +47,10 @@
         </div>
         <h1 class="gridTitle">Most requested services</h1>
         <div class="grid">
-          <div v-for="(service, index) of services.slice(0, 3)" :key="'area-' + index">
+          <div
+            v-for="(service, index) of services.slice(0, 3)"
+            :key="'area-' + index"
+          >
             <home-page-card
               :id="'/service/' + service.id"
               :title="service.title"
@@ -130,8 +139,7 @@ html {
 }
 
 .grid {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
   width: 90%;
   grid-gap: 4rem;
   grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));

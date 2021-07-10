@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="body">
-      <div class="content place-content-center md:text-xl sm:text-base">
+      <div
+        id="text"
+        class="content place-content-center md:text-xl sm:text-base"
+      >
         Hatgemini was established in 1996 to provide information technology
         solutions for small to medium-sized businesses. Our mission from the
         very first day has been to cultivate professional relationships with our
@@ -35,5 +38,9 @@
 <style scoped>
 .content {
   margin: 4.5%;
+}
+
+#text {
+  text-align: left;
 }
 </style>
