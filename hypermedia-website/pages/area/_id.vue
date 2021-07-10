@@ -7,7 +7,7 @@
           <img class="titleImage" :src="area.image" />
 
           <div class="display-middle center">
-            <span class="text-white" style="font-size: 40px">
+            <span class="text-black" style="font-size: 40px">
               {{
               area.title
               }}
@@ -98,7 +98,10 @@ hr {
 }
 
 .text-white {
-  color: rgb(0, 0, 0) !important;
+  color: rgb(255, 255, 255) !important;
+}
+.text-black {
+  color: #000 !important;
 }
 .center {
   text-align: center !important;

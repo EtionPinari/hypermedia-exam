@@ -7,7 +7,7 @@
           <img class="titleImage" :src="service.image" />
 
           <div class="display-middle center">
-            <span class="text-white" style="font-size: 40px">{{ service.title }}</span>
+            <span class="text-black" style="font-size: 40px">{{ service.title }}</span>
           </div>
         </header>
 
@@ -77,7 +77,10 @@ hr {
 }
 
 .text-white {
-  color: rgb(0, 0, 0) !important;
+  color: rgb(255, 255, 255) !important;
+}
+.text-black {
+  color: #000 !important;
 }
 .center {
   text-align: center !important;
