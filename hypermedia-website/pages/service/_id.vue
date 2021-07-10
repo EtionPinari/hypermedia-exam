@@ -3,12 +3,9 @@
     <section>
       <redirectButton :number-of-pages-back="-1" />
       <div>
-        <header
-          class="titleImage"
-          :style="{
-            'background-image': `url(${service.image})`,
-          }"
-        >
+        <header class="titleImage">
+          <img class="titleImage" :src="service.image" />
+
           <div class="display-middle center">
             <span class="text-white" style="font-size: 40px">{{ service.title }}</span>
           </div>
@@ -81,7 +78,7 @@ hr {
 }
 
 .text-white {
-  color: #fff !important;
+  color: rgb(0, 0, 0) !important;
 }
 .center {
   text-align: center !important;
@@ -162,5 +159,10 @@ hr {
 }
 .nav-button {
   display: inline-flex;
+}
+
+img {
+  opacity: 0.5;
+  filter: brightness(80%);
 }
 </style>

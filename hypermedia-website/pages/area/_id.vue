@@ -3,16 +3,15 @@
     <section>
       <redirectButton :number-of-pages-back="-1" />
       <div>
-        <header
-          class="titleImage"
-          :style="{
-            'background-image': `url(${area.image})`,
-          }"
-        >
+        <header class="titleImage">
+          <img class="titleImage" :src="area.image" />
+
           <div class="display-middle center">
-            <span class="text-white" style="font-size: 40px">{{
+            <span class="text-white" style="font-size: 40px">
+              {{
               area.title
-            }}</span>
+              }}
+            </span>
           </div>
         </header>
 
@@ -34,9 +33,7 @@
     <section>
       <!-- All its services -->
       <h3>Services in this Area</h3>
-      <h4 v-if="area.services.length === 0">
-        {{ area.title }} has no services.
-      </h4>
+      <h4 v-if="area.services.length === 0">{{ area.title }} has no services.</h4>
       <section class="services">
         <div
           v-for="(service, serviceIndex) of area.services"
@@ -53,10 +50,7 @@
           </div>
         </div>
       </section>
-      <div
-        class="nav-button"
-        @click="goToExperts(`/employeeName/${area.title}`)"
-      >
+      <div class="nav-button" @click="goToExperts(`/employeeName/${area.title}`)">
         <h3 class="lg: text-xl sm:text-base">Go to all Experts in this area</h3>
       </div>
     </section>
@@ -104,7 +98,7 @@ hr {
 }
 
 .text-white {
-  color: #fff !important;
+  color: rgb(0, 0, 0) !important;
 }
 .center {
   text-align: center !important;
@@ -152,5 +146,9 @@ hr {
 * > .card {
   margin: auto;
   width: auto;
+}
+img {
+  opacity: 0.5;
+  filter: brightness(80%);
 }
 </style>
