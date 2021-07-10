@@ -122,6 +122,10 @@ hr {
   width: 100%;
 }
 
+h4 {
+  font-size: 18px;
+}
+
 .container {
   text-align: center;
 }
@@ -240,5 +244,6 @@ hr {
 // give some space to the biography paragraph and differentiate it from other components
 #biography {
   margin: 3vh 10% 3vh 10%;
+  font-size: 18px;
 }
 </style>
