@@ -29,6 +29,27 @@
         </article>
       </div>
     </section>
+
+    <hr />
+    <h4 v-if="service.areas.length === 0">{{ service.title }} is not provided by any areas</h4>
+    <h3 v-if="service.areas.length !== 0">{{ service.title }} is provided by this area:</h3>
+    <section class="area-of-work publications">
+      <div
+        v-for="(area, areaIndex) of service.areas"
+        :key="'area-' + areaIndex"
+        class="publication"
+      >
+        <div class="content">
+          <area-preview
+            :id="area.id"
+            :title="area.title"
+            :details="area.details"
+            :image="area.image"
+            :overview="area.overview"
+          />
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -88,6 +109,7 @@ hr {
   margin-left: auto;
   margin-right: auto;
   max-width: 980px;
+  width: 100%;
 }
 .service {
   display: flex;
@@ -96,6 +118,42 @@ hr {
   padding: 20px;
 }
 
+.area-of-work > img {
+  // width: 145%;
+  max-width: 145%;
+}
+.area-of-work * {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+.publications {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  // margin-bottom: 2vh;
+}
+@media only screen and (min-width: 601px) {
+  .publication {
+    // border: 0.1vw solid $main-border-color;
+    width: 33%;
+  }
+  .AreaPreview,
+  .area {
+    width: inherit;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .publication {
+    // border: 3px solid $main-border-color;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  .AreaPreview,
+  .area {
+    width: 100%;
+  }
+}
 @media only screen and (min-width: 601px) {
   .service {
     // border: 0.1vw solid $main-border-color;
