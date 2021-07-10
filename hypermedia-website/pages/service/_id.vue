@@ -27,7 +27,6 @@
       </div>
     </section>
 
-    <hr />
     <h4 v-if="service.areas.length === 0">{{ service.title }} is not provided by any areas</h4>
     <h3 v-if="service.areas.length !== 0">{{ service.title }} is provided by this area:</h3>
     <section class="area-of-work publications">
