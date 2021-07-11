@@ -5,10 +5,7 @@
       <!-- Person face, short biography and name + surname -->
       <div id="person-details">
         <header id="person">
-          <div
-            id="short-description"
-            class="md:text-lg sm:text-base lg:text-2xl"
-          >
+          <div id="short-description" class="md:text-lg sm:text-base lg:text-2xl">
             <h1>{{ person.name + ' ' + person.surname }}</h1>
           </div>
           <div id="face">
@@ -24,13 +21,12 @@
         </article>
       </div>
     </section>
+    <hr />
     <!-- All his publications -->
-    <h3 v-if="person.articles.length !== 0">
-      All {{ person.name }}'s articles
-    </h3>
-    <h4 v-if="person.articles.length === 0">
-      {{ person.name + ' ' + person.surname }} has no articles.
-    </h4>
+    <h3 v-if="person.articles.length !== 0">All {{ person.name }}'s articles</h3>
+    <h4
+      v-if="person.articles.length === 0"
+    >{{ person.name + ' ' + person.surname }} has no articles.</h4>
     <section class="publications">
       <div
         v-for="(article, articleIndex) of person.articles"
@@ -47,21 +43,15 @@
         </div>
         <div class="date">
           Published {{ new Date(article.createdAt).getDate() }}/{{
-            new Date(article.createdAt).getMonth()
+          new Date(article.createdAt).getMonth()
           }}/{{ new Date(article.createdAt).getFullYear() }}
         </div>
       </div>
     </section>
-
+    <hr />
     <section class="area-of-work publications">
-      <h3 v-if="person.areas.length !== 0">
-        {{ person.name }} works in this area:
-      </h3>
-      <div
-        v-for="(area, areaIndex) of person.areas"
-        :key="'Area-' + areaIndex"
-        class="publication"
-      >
+      <h3 v-if="person.areas.length !== 0">{{ person.name }} works in this area:</h3>
+      <div v-for="(area, areaIndex) of person.areas" :key="'Area-' + areaIndex" class="publication">
         <div class="content">
           <area-preview
             :id="area.id"
@@ -74,12 +64,8 @@
       </div>
     </section>
     <hr />
-    <h4 v-if="person.services.length === 0">
-      {{ person.name }} does not offer any services
-    </h4>
-    <h3 v-if="person.services.length !== 0">
-      {{ person.name }} offers these services:
-    </h3>
+    <h4 v-if="person.services.length === 0">{{ person.name }} does not offer any services</h4>
+    <h3 v-if="person.services.length !== 0">{{ person.name }} offers these services:</h3>
     <section class="services-provided area-of-work publications">
       <div
         v-for="(service, serviceIndex) of person.services"
@@ -263,6 +249,6 @@ h4 {
 // give some space to the biography paragraph and differentiate it from other components
 #biography {
   margin: 3vh 10% 3vh 10%;
-  font-size: 18px;
+  font-size: 20px;
 }
 </style>
