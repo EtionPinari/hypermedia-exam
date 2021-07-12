@@ -14,7 +14,6 @@ async function init() {
   const {
     Area,
     Article,
-    Comment,
     Person,
     PeopleAreas,
     Service,
@@ -68,7 +67,7 @@ async function init() {
     const { id } = req.params
     const article = await Article.findOne({
       where: { id },
-      include: { model: Comment }, // -> this is the way we "include" also comments inside Articles
+      include: { model: Person }, // -> this is the way we "include" also people inside Articles
     })
     return res.json(article)
   })

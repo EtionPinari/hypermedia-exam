@@ -52,13 +52,31 @@
         </div>
       </div>
     </section>
+
+    <br />
+    <h3 v-if="service.person.id > 0">
+      {{ service.title }} is provided by our employee:
+    </h3>
+    <section class="area-of-work publications">
+      <div class="content personprofile-component">
+        <person-profile
+          :id="service.person.id"
+          :name="service.person.name"
+          :surname="service.person.surname"
+          :image="service.person.image"
+          :area="service.areas[0].name"
+        />
+      </div>
+    </section>
   </section>
 </template>
 
 <script>
 import redirectButton from '~/components/redirectButton.vue'
+import PersonProfile from '~/components/PersonProfile.vue'
+import AreaPreview from '~/components/AreaPreview.vue'
 export default {
-  components: { redirectButton },
+  components: { redirectButton, AreaPreview, PersonProfile },
   async asyncData({ $axios, route }) {
     // const { id } = route.params
     const { data } = await $axios.get(
@@ -145,6 +163,9 @@ hr {
   .AreaPreview,
   .area {
     width: inherit;
+  }
+  .personprofile-component {
+    width: 33%;
   }
 }
 @media only screen and (max-width: 600px) {

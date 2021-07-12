@@ -48,22 +48,28 @@ h3 {
   height: 2.9em;
   width: inherit;
 }
-.areapreview {
-  height: 200px;
-  width: 100%;
-}
+
 @media only screen and (min-width: 601px) {
   .AreaPreview,
   .area {
     cursor: pointer;
-    width: 70%;
+    width: 75%;
+  }
+  .areapreview {
+    height: 200px;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 600px) {
   .AreaPreview,
   .area {
     cursor: pointer;
-    width: 70%;
+    // width: 70%;
+  }
+  .areapreview {
+    // height: 200px;
+    height: auto;
+    width: 80%;
   }
 }
 </style>

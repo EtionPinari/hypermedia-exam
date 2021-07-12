@@ -9,7 +9,7 @@
         <div class="card">
           <h3 class="lg: text-xl sm:text-base">{{ title }}</h3>
 
-          <p class="lg:text-lg :sm:text-xs">{{ summary }}</p>
+          <p class="lg:text-lg smaller-text">{{ summary }}</p>
         </div>
       </div>
     </div>
@@ -46,7 +46,13 @@ hr {
   align-self: center;
   margin: auto;
 }
-
+@media only screen and (max-width: 600px) {
+  .smaller-text {
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-top: 5px;
+  }
+}
 /* card is where the content is displayed */
 .card {
   padding: 20px 10px;
