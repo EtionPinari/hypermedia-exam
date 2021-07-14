@@ -5,11 +5,12 @@
       <!-- If you want to put content in here, delete all the text below :) -->
       <div id="ourCompany">
         <div class="image img">
-          <br /><br />
-          <br /><br />
+          <br />
+          <br />
+          <br />
+          <br />
           <h3 id="welcome">Welcome to Hatgemini!</h3>
-        </div>
-        Hatgemini is a global leader in consulting, digital transformation,
+        </div>Hatgemini is a global leader in consulting, digital transformation,
         technology and engineering services.
         <br />The Group is at the forefront of innovation to address the entire
         breadth of clients’ opportunities in the evolving world of cloud,
@@ -18,10 +19,7 @@
       <div class="gridContainer">
         <h1 class="gridTitle">Our employess of the month</h1>
         <div class="grid">
-          <div
-            v-for="(person, index) of people.slice(0, 3)"
-            :key="'person-' + index"
-          >
+          <div v-for="(person, index) of people.slice(0, 3)" :key="'person-' + index">
             <home-page-card
               :id="'/employee/' + person.id"
               :title="person.name + ' ' + person.surname"
@@ -31,12 +29,9 @@
           </div>
         </div>
 
-        <h1 class="gridTitle">Most famous Areas</h1>
+        <h1 class="gridTitle">Areas in evidence</h1>
         <div class="grid">
-          <div
-            v-for="(area, index) of areas.slice(0, 3)"
-            :key="'area-' + index"
-          >
+          <div v-for="(area, index) of areas.slice(0, 3)" :key="'area-' + index">
             <home-page-card
               :id="'/area/' + area.id"
               :title="area.title"
@@ -45,12 +40,9 @@
             ></home-page-card>
           </div>
         </div>
-        <h1 class="gridTitle">Most requested services</h1>
+        <h1 class="gridTitle">Services in evidence</h1>
         <div class="grid">
-          <div
-            v-for="(service, index) of services.slice(0, 3)"
-            :key="'area-' + index"
-          >
+          <div v-for="(service, index) of services.slice(0, 3)" :key="'area-' + index">
             <home-page-card
               :id="'/service/' + service.id"
               :title="service.title"
