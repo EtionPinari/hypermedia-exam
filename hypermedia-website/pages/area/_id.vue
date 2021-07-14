@@ -10,7 +10,9 @@
           }"
         >
           <div class="display-middle center">
-            <span class="text-white" style="font-size: 40px">{{ area.title }}</span>
+            <div class="title">
+              <span style="font-size: 40px">{{ area.title }}</span>
+            </div>
           </div>
         </header>
 
@@ -31,26 +33,38 @@
     </section>
     <section>
       <!-- All its services -->
-      <h3>Services in this Area</h3>
-      <h4 v-if="area.services.length === 0">{{ area.title }} has no services.</h4>
-      <section class="services">
-        <div
-          v-for="(service, serviceIndex) of area.services"
-          :key="'Service-' + serviceIndex"
-          class="service"
-        >
-          <div class="content">
-            <service-preview
-              :id="service.id"
-              :title="service.title"
-              :summary="service.overview"
-              :image="service.image"
-            ></service-preview>
+      <div class="servicesContainer">
+        <h2>These are all the Services in this Area:</h2>
+        <br />
+        <h4 v-if="area.services.length === 0">
+          {{ area.title }} has no services.
+        </h4>
+        <div class="all-services-container">
+          <div
+            v-for="(service, serviceIndex) of area.services"
+            :key="'Service-' + serviceIndex"
+            class="service"
+          >
+            <div>
+              <service-preview
+                :id="service.id"
+                :title="service.title"
+                :summary="service.overview"
+                :image="service.image"
+              ></service-preview>
+            </div>
           </div>
         </div>
-      </section>
-      <div class="nav-button" @click="goToExperts(`/employeeName/${area.title}`)">
-        <h3 class="lg: text-xl sm:text-base">Go to all Experts in this area</h3>
+      </div>
+      <div class="button-container">
+        <div
+          class="nav-button"
+          @click="goToExperts(`/employeeName/${area.title}`)"
+        >
+          <h3 class="lg: text-xl sm:text-base">
+            Go to all Experts in this area
+          </h3>
+        </div>
       </div>
     </section>
   </section>
@@ -85,20 +99,9 @@ hr {
   width: 90%;
   align-self: center;
 }
-.article-mini {
-  border: 0px;
-  min-height: 30vh;
-}
 
-.text-white {
-  color: #fff !important;
-}
-.center {
-  text-align: center !important;
-}
-.content {
-  display: flex;
-  flex-direction: column;
+.container {
+  text-align: center;
 }
 .sand {
   color: #000 !important;
@@ -114,7 +117,11 @@ hr {
 #details {
   padding: 20px;
 }
-
+.button-container {
+  display: flex;
+  justify-content: center;
+  display: inline-flex;
+}
 .content {
   margin-left: auto;
   margin-right: auto;
@@ -124,16 +131,43 @@ hr {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  padding: 20px;
 }
-
-@media only screen and (min-width: 601px) {
+@media only screen and (max-width: 600px) {
   .service {
-    // border: 0.1vw solid $main-border-color;
-    width: 33%;
+    flex: 1 0 90%;
+    text-align: -webkit-center;
   }
 }
+@media only screen and (min-width: 601px) {
+  .service {
+    flex: 1 0 50%;
+    text-align: -webkit-center;
+  }
+}
+
+/* This is the container of all areas, and shows all areas in a row */
+.all-services-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
+}
+
+.display-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.center {
+  text-align: center !important;
+}
+
 .nav-button {
-  display: inline-flex;
+  white-space: nowrap;
 }
 </style>

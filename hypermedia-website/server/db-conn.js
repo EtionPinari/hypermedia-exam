@@ -419,7 +419,7 @@ async function initializeDatabase() {
   // Synchronize Sequelize with the actual database. force = true removes all current tuples in db
   await db.sync({ force: true })
   // Call the function to insert some fake data
-  await seedDatabase()
+  // await seedDatabase()
 
   return db
 }

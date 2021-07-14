@@ -82,6 +82,14 @@ async function init() {
     return res.json(person)
   })
 
+  app.get('/service/:id', async (req, res) => {
+    const { id } = req.params
+    const service = await Service.findOne({
+      where: { id },
+    })
+    return res.json(service)
+  })
+
   app.get('/area/:id', async (req, res) => {
     const { id } = req.params
     const area = await Area.findOne({
