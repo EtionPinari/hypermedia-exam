@@ -9,15 +9,25 @@
       <img :src="article.image" :alt="article.summary" />
     </header>
     <article class="w-4/5 text-base md:text-lg">
-      <p v-html="article.content">
+      <p id="content" v-html="article.content">
         {{ article.content }}
       </p>
-    </article>
-    <section class="comments">
-      <div class="date">
-        Published the: {{ new Date(article.createdAt).getDate() }}/{{
+      <div id="content" class="date">
+        Published on: {{ new Date(article.createdAt).getDate() }}/{{
           new Date(article.createdAt).getMonth()
         }}/{{ new Date(article.createdAt).getFullYear() }}
+      </div>
+    </article>
+    <br />
+    <h3>Get to know more about the author of this article down below:</h3>
+    <section class="flex">
+      <div class="flex-item">
+        <person-profile
+          :id="article.person.id"
+          :name="article.person.name"
+          :surname="article.person.surname"
+          :image="article.person.image"
+        />
       </div>
     </section>
   </section>
@@ -25,8 +35,9 @@
 
 <script>
 import redirectButton from '~/components/redirectButton.vue'
+import PersonProfile from '~/components/PersonProfile.vue'
 export default {
-  components: { redirectButton },
+  components: { redirectButton, PersonProfile },
   async asyncData({ $axios, route }) {
     const { id } = route.params
     const { data } = await $axios.get(
@@ -41,8 +52,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  text-align: center;
+.flex {
+  display: inline-flex;
 }
 .container .comments {
   text-align: left;
@@ -65,6 +76,13 @@ h4 {
 }
 article {
   margin: auto;
-  text-align: center;
+}
+
+.date {
+  margin-top: 10px;
+}
+
+#content {
+  text-align: left;
 }
 </style>

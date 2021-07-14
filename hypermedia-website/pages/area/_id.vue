@@ -3,12 +3,9 @@
     <section>
       <redirectButton :number-of-pages-back="-1" />
       <div>
-        <header
-          class="titleImage"
-          :style="{
-            'background-image': `url(${area.image})`,
-          }"
-        >
+        <header class="titleImage">
+          <img class="titleImage" :src="area.image" />
+
           <div class="display-middle center">
             <div class="title">
               <span style="font-size: 40px">{{ area.title }}</span>
@@ -94,14 +91,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.service-container {
+  width: 30%;
+}
+.service-container > .content {
+  width: auto;
+}
 hr {
   border: 1px solid rgba(0, 0, 0, 0.3);
-  width: 90%;
+  width: 95%;
   align-self: center;
 }
 
-.container {
-  text-align: center;
+.text-white {
+  color: rgb(255, 255, 255) !important;
+}
+.text-black {
+  color: #000 !important;
+}
+.center {
+  text-align: center !important;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 .sand {
   color: #000 !important;
@@ -125,6 +139,7 @@ hr {
 .content {
   margin-left: auto;
   margin-right: auto;
+  font-size: 20px;
   max-width: 980px;
 }
 .services {
@@ -143,6 +158,11 @@ hr {
     flex: 1 0 50%;
     text-align: -webkit-center;
   }
+.service {
+  margin: auto;
+}
+.servicePreview {
+  width: auto;
 }
 
 /* This is the container of all areas, and shows all areas in a row */
@@ -169,5 +189,15 @@ hr {
 
 .nav-button {
   white-space: nowrap;
+  display: inline-flex;
+  padding: 2.1%;
+}
+* > .card {
+  margin: auto;
+  width: auto;
+}
+img {
+  opacity: 0.5;
+  filter: brightness(80%);
 }
 </style>

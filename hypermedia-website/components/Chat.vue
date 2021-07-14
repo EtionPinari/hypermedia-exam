@@ -75,25 +75,41 @@ export default {
 .chat {
   position: fixed;
   bottom: 3px;
-  right: 20px;
-}
-.chat-container {
-  border: 1px solid black;
-  border-radius: 4px;
-  height: 500px;
-  width: 400px;
-  position: absolute;
-  bottom: 61px;
   right: 0px;
-  background-color: rgba(240, 240, 240, 0.4);
 }
+@media only screen and (min-width: 601px) {
+  .chat-container {
+    border: 1px solid black;
+    border-radius: 4px;
+    height: 500px;
+    width: 400px;
+    position: absolute;
+    bottom: 61px;
+    right: 0px;
+    background-color: rgba(240, 240, 240, 0.4);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .chat-container {
+    border: 1px solid black;
+    border-radius: 4px;
+    height: 450px;
+    width: 250px;
+    position: absolute;
+    bottom: 61px;
+    right: 0px;
+    background-color: rgba(240, 240, 240, 0.4);
+  }
+}
+
 .chat-window {
   overflow-y: scroll;
   height: calc(100% - 34px);
   border-bottom: gray 1px solid;
 }
 .message {
-  width: calc(100% - 8px);
+  width: calc(100% - 10px);
   display: flex;
   justify-content: flex-end;
 }

@@ -54,6 +54,8 @@ function defineDatabaseStructure() {
   // No attributes because it only contains the keys to and from people and area (Person1 <-> Area1)
   const PeopleAreas = db.define('people_areas', {})
   const ServicesAreas = db.define('services_areas', {})
+  const ArticleAreas = db.define('article_areas', {})
+
   const Area = db.define('area', {
     title: DataTypes.STRING,
     image: DataTypes.STRING,
@@ -68,13 +70,21 @@ function defineDatabaseStructure() {
   })
   // Creating the 1 -> N association between Article and Comment
   // More on association: https://sequelize.org/master/manual/assocs.html
+  // Comment was never implemented
   Article.hasMany(Comment, { foreignKey: 'article_id' })
+  // One to many Relationships
   Person.hasMany(Article, { foreignKey: 'person_id' })
   Article.belongsTo(Person)
+  Area.hasMany(Article, { foreignKey: 'area_id' })
+  Article.belongsTo(Area)
+  Service.belongsTo(Person)
+  Person.hasMany(Service, { foreignKey: 'person_id' })
+  // Many to many Relationships
   Person.belongsToMany(Area, { through: PeopleAreas })
   Area.belongsToMany(Person, { through: PeopleAreas })
   Service.belongsToMany(Area, { through: ServicesAreas })
   Area.belongsToMany(Service, { through: ServicesAreas })
+
   db._tables = {
     Area,
     Article,
@@ -83,6 +93,7 @@ function defineDatabaseStructure() {
     PeopleAreas,
     Service,
     ServicesAreas,
+    ArticleAreas,
   }
 }
 
@@ -90,10 +101,10 @@ function defineDatabaseStructure() {
  * Function to insert some fake info in the database
  */
 async function insertFakeData() {
-  const { Area, Article, Comment, Service } = db._tables
+  const { Area, Article, Service } = db._tables
 
-  // ETION's ARTICLES
-  const art1 = await Article.create({
+  // Add ARTICLES (3) here
+  const EtionArticle1 = await Article.create({
     title: 'How video game play may provide learning, health, social benefits',
     summary: `Playing video games, including violent shooter games, may boost children's learning, health and social skills, according to a review of research in American Psychologist.`,
     content: `The study comes out as debate continues among psychologists and other health professionals regarding the effects of violent media on youth. An APA task force is conducting a comprehensive review of research on violence in video games and interactive media and will release its findings later this year.
@@ -110,7 +121,7 @@ async function insertFakeData() {
     image:
       'https://www.wanderglobe.org/wp-content/uploads/2018/08/5-Video-Games-That-your-Kids-Should-Play.jpg',
   })
-  const art2 = await Article.create({
+  const EtionArticle2 = await Article.create({
     title: 'Why is kids’ video game Roblox worth $38 billion?',
     summary: `When the children’s digital game Roblox launched on the New York Stock Exchange last week, the company’s share price rapidly took off. By the end of the day, it was valued at US$38 billion.
     How can a game for kids be worth so much?
@@ -130,7 +141,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
 `,
     image: 'https://wallpapercave.com/wp/wp1815435.png',
   })
-  const art3 = await Article.create({
+  const EtionArticle3 = await Article.create({
     title: 'How online gaming has become a social lifeline',
     summary:
       'Gamers have known for a long time something that everyone else is starting to figure out: there’s community connection on the other side of a screen',
@@ -148,45 +159,175 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       Gaming has skyrocketed during the pandemic, reaching people who’d play every now and then, or even those who had previously snubbed it entirely. In the US alone, four out of five consumers in one survey played video games in the last six months, according to a new study by NPD, an American business-research firm. And at a time in which many industries are in dire straits, sales in gaming are booming. Global revenue is expected to jump 20% this year to $175bn (£130bn).`,
     image: 'https://ychef.files.bbci.co.uk/1280x720/p091j3dx.webp',
   })
+  const LisaArticle1 = await Article.create({
+    title: `Accelerate Hydrogen: how to 'rewrite global energy map'`,
+    summary: `Recharge and sister NHST title Upstream publish the first issue of new e-newsletter that will 'separate hype from the hard truths' in the rapidly evolving global H2 market`,
+    content: `<p>NHST Media Group titles <i>Recharge</i> and <i>Upstream</i> have launched a new weekly e-newsletter to cover the rapidly evolving global hydrogen market.</p>
+    <p>The second in our <i>Accelerate</i> energy transition e-newsletter series, <i>Accelerate Hydrogen</i> will report on the sector seen as set to “rewrite the global energy map” as governments and industry gear up strategies to reach carbon-neutrality by mid-century.</p>
+    <p>“We have been covering the hydrogen market closely for a number of years now, but the step-up in industrial and governmental interest in the sector that we have seen in the past 12 months has been extraordinary,” said <i>Recharge</i> Editor-in-Chief Darius Snieckus.</p>
+    <p>“For a sense of the speed of progress in this space: a few years ago, analysts were talking about green – renewables-based – hydrogen become cost-competitive with blue – gas-fed, with carbon capture – by 2035, by last year it became 2030 and now some are forecasting the cost crossover will happen before then.</p>
+    <p>“Another clear indicator is in the size of projects now being developed, <a href="https://www.rechargenews.com/energy-transition/global-green-hydrogen-pipeline-exceeds-200gw-heres-the-24-largest-gigawatt-scale-projects/2-1-933755"><b>with over 20 multi-billion-dollar giga-scale green hydrogen schemes</b></a> moving forward at last count,” Snieckus added. </p>
+    <p>“What’s often missing from the hydrogen discussion is context in what is a highly complex emerging industry. When is hydrogen the most cost-effective solution, and when is it a bad idea? Should we only use renewables-powered green hydrogen or welcome the ‘low-carbon’ blue variety? Is it possible to produce all the hydrogen we need from wind and solar power when the world desperately needs massive volumes of renewable energy to decarbonise the power sector?</p>
+    <p>Plus, we have exclusive news of a potential <b><a href="https://www.rechargenews.com/energy-transition/-our-plasma-electrolysers-will-cut-the-cost-of-green-hydrogen-by-a-factor-of-three-/2-1-1032895">market-changing electrolyser technology</a></b> that could cut the cost of green hydrogen by a factor of three; an exclusive long-read on <b><a href="https://www.rechargenews.com/energy-transition/-our-plasma-electrolysers-will-cut-the-cost-of-green-hydrogen-by-a-factor-of-three-/2-1-1032895">a 3GW floating wind and hydrogen megaproject</a></b> that could slash offshore oil production emissions in the UK North Sea ‘by half’, and much more.</p>`,
+    image:
+      'https://images-global.nhst.tech/image/eGE5QkRsL2NYT1BFZHhsTnJsQ1RKVm5CRjYyTlhtdDNUZUw4MDhaVjBFMD0=/nhst/binary/e00c333d3f0ffc422445eac244228087?image_version=640',
+  })
+  const LisaArticle2 = await Article.create({
+    title:
+      'Concentrated Solar Power should be considered given the need for manageable energy and storage',
+    summary: `José Barragán is the Vice President of Renewables Technical Services at ACWA Power and Hatgemini is honored to have a talk about energy consumption with him.`,
+    content: `<p>Mr. José Barragán is the Vice President of Renewables Technical Services at ACWA Power. Founded in 2004 in Saudi Arabia, ACWA Power is a developer, investor, and operator of power generation and desalinated water production plants and is currently present in 13 countries in the Middle East, Africa, Central Asia, and Southeast Asia. It has 64 assets in operation, construction, or advanced development, producing close to 42GWof power and&nbsp;6.4&nbsp;million m<sup>3</sup>&nbsp;/day of desalinated water.&nbsp;ACWA Power&nbsp;is accelerating energy transition globally and is the most active in the Concentrating Solar Power (CSP) sector.</p>
+    <p>The company holds more than 560 MW of CSP in Operation, located in South Africa and Morocco,&nbsp;and another 800 MW under construction in Dubai (UAE) and South&nbsp;Africa.&nbsp;Recently, ACWA Power announced the financial closure of a new CSP plant, Redstone, in South Africa. Mr. Barragan, who has actively participated in this project, kindly accepted to respond to our following questions:</p>
+    <p><strong>1.Mr. Barragán, could you please explain how Redstone works? What is the technology? Is there any difference with the last CSP that came online in Chile Cerro Dominador?</strong></p>
+    <p>The Redstone project is based on central tower technology with molten salts. The plant uses two molten salts tanks, one kept cold at 300 degrees C and one kept hot at 565 degrees C. The molten salt is pumped from the cold tank to the hot tank going through the solar receiver. The solar receiver is located at the top of a central tower where solar radiation is concentrated by a &nbsp;solar field with more than 41000 heliostats (25 m2 each). The molten salts are heated up to 565 degrees in the receiver panels (600 MWth net absorbed power) and stored in the hot tank (12 h capacity). &nbsp;Independently, the molten salts are pumped from the hot tank to the cold tank going through a steam generator system (SGS). In the SGS, the feed-water coming from a rankine steam cycle is heated up and converted to superheated and reheated steam and feeds a steam turbine which is connected to an electrical generator producing 115 MWe gross power. This power can be dispatched whenever needed, as long as there is sufficient energy content in the hot tank. Conceptually, this technology is the same as in the Moroccan Noor 3 project, the Chilean Cerro Dominador project, and the tower unit in the UAE DEWA CSP (Noor Energy 1) project. The main particularity of the Redstone project is that the strategy of operation which aims to maximise the plant load factor during the peak time from 4.30 pm to 9.30 pm when a higher tariff is applicable. The plant is expected to be dispatchable from 5 am to 10 pm as the PPA. Therefore, the plant will not be operated on a baseload 24h basis as the Cerro Dominador project in Chile even though it is capable of doing so.</p>
+    <p><strong>2.The project was announced a few years ago, however, the financial closure only came recently. What is the reason for this delay? Is due to any technical challenge? Or, on the contrary, is due to an external factor?</strong></p>
+    <p>It has taken time to launch the execution of Redstone and both ACWA Power and our partners made tremendous efforts to financially close the project despite the challenges faced. There were a number of reasons that contributed to the delays; however, these were not related to the CSP technology itself. Due to the perseverance of ACWA Power and our partners, we were able to achieve the financial close of the project. This milestone would not have been possible without the continued support of various entities involved and we truly appreciate their active collaboration in this venture.</p>
+    <p><strong>3.In Spain, the Government has announced 5 GW of new CSP until 2030, with the first auction already in 2021. How does ACWA Power perceive the Spanish market, in which they are not present?</strong></p>
+    <p>At ACWA Power our focus remains on reliably and responsibly delivering power and desalinated water at a low cost in the countries we operate in. We are currently&nbsp;present in 13 countries and will continue to seek opportunities for growth.</p>`,
+    image:
+      'https://www.evwind.es/wp-content/uploads/2020/01/Dubai-concentrated-solar-power-672x372.jpg',
+  })
+
+  const LisaArticle3 = await Article.create({
+    title: 'Energy bars on the rise',
+    summary:
+      'Hatgemini takes a look at the rapidly growing and evolving energy bar market in the latest edition of our Innovation Spotlight feature',
+    content: `<p>So-called “energy bars”, i.e. products with health and nutritional benefits, are one of the fastest-growing segments within the snack bar market. Health-conscious consumers are the main growth driver, as they are increasingly on the lookout for all-natural, sustainable products that support their well-being.</p>
+    <p>Especially in times of global pandemic, with people all around the globe having more time for themselves, a great share of consumers is rethinking their approach to health, nutrition, and sustainability. Bar producers are following suit with expanded portfolios that boost the traditional bar market – with many varieties of shapes, tastes, and packaging styles.</p>
+    <p>Manufacturers of all sizes – from start-ups and small enterprises to large companies and multinational corporations – are benefitting from the current trend. However, the production of health and nutrition bars differs from conventional chocolate and snack bars production in a number of ways, which has a significant impact on the manufacturing, handling, and packaging process:</p>
+    <ul><li>Bars with natural ingredients can spoil more easily; consequently, health and nutrition bar packaging needs to offer better protection than for conventional bars</li>
+	<li>Using natural ingredients like nuts and dried fruits means product sizes can vary from bar to bar, which poses a particular challenge for product feeding and handling</li>
+	<li>Allergen-free products are subject to stringent hygienic standards. Combined with their oftentimes sticky consistency, this calls for extensive cleaning and maintenance processes.</li>
+</ul><p>Learn more: <a href="http://info.syntegon.com/production-and-packaging-of-health-bars" target="_blank">http://info.syntegon.com/packaging-of-energy-bars</a></p>
+    `,
+    image:
+      'https://packagingeurope.com/downloads/9795/download/syntegon2-01.07.jpg?cb=59f8b57186b5794f644e4162e188bf1f',
+  })
+  const DeepArticle1 = await Article.create({
+    title:
+      'Ensure your business is secure and quick to respond in the event of a breach.',
+    summary:
+      'malware doesn’t only threaten data security – it can also have a direct impact on sustainability initiatives and impede enterprise climate targets. There are numerous attacks that cause detrimental effects on the environment:',
+    content: `DDOS attacks
+    DDOS attacks consume extortionate amounts of energy. The attack often starts with that suspicious link or download that you accidently click on. Before you know it, you have a botnet on your hands, rapidly sending fake traffic to a server or website. As the network becomes flooded with malicious traffic, it’s no longer able to operate normally. The malware quickly captures workstations causing computers across the network to run at full capacity, firing more and more requests to the server. Eventually, the server goes into overdrive as it tries to handle the mass of data requests it’s receiving.   
+    From a business perspective, this means services and operations can grind to a halt. But from an energy perspective, it means consumption levels accelerate exponentially, undermining efficiency measures that may have been in place.
+    Production line sabotage
+    Cyber criminals are increasingly targeting production lines in an attempt to break into a company’s network. This can spell disaster for a factory, potentially rendering its entire production unfit for purpose. Malware can jeopardize the robust quality control procedures that ensure a product is being produced safely and meets standards.
+    For example, a factory producing automotive chemicals will have various digital checkpoints along the production line to ensure the product meets regulated levels. Malware can damage these checkpoints, making them unreliable and ineffective. This has a considerable knock-on effect: entire batches of product become unusable and must be discarded, the energy used becomes obsolete, and ultimately pollution and waste levels increase.
+    This was seen recently when one of the spirits brands suffered a ransomware attack. While the breach compromised the security of customer data, it also ground its factories to a halt. The drinks brand was unable to prove that its liquor met regulations and so had to discard batches of product.    
+    Sustainable infrastructure warfare
+    For organizations that operate in sustainable infrastructure, any attacks will have a direct and devastating effect on the environment – a fact that certainly does not escape attackers, particularly the growing number of state sponsored ones.
+    Take, for example, a water works company. A water works ensures that water is safe and prevents pollution from entering our rivers. It processes water to ensure it is clean and will monitor pollution levels at all times. If that system is compromised, then the water is no longer guaranteed to be clean or free of pollution, creating astronomical environmental, economic, and societal consequences.
+    By actively protecting infrastructure against malicious attacks, we are simultaneously protecting the environment – and the communities it supports.
+    An end-to-end solution
+    Given the widespread impact of a potential attack, organizations cannot afford any gaps in their cybersecurity. The most effective way to protect your business is through end-to-end encryption, which enables you to manage the full lifecycle of your security.
+    At Hapgemini, we split our end-to-end solution into three key areas:
+    Define your security objectives and procedures; ensure cybercriminals can’t get through the back door.
+    Protect your assets; implement the right security solutions for your business.
+    Defend the enterprise; detect and react in advance of cyberattacks.
+    By taking this approach, you can ensure your business is secure and quick to respond in the event of a breach. The sooner you act on malware, the faster you stop the spread of infection and avoid the associated risks. It’s this action that ensures cybersecurity can be an enabler for sustainability.
+    `,
+    image:
+      'https://www.onoratoinformatica.it/wp-content/uploads/2020/12/ransomware-virus-onorato.png',
+  })
+  const DeepArticle2 = await Article.create({
+    title:
+      'Is your cybersecurity insurance dynamic enough for today’s threat landscape?',
+    summary:
+      'To provide effective insurance, and claim their stake within this growing market, insurance providers must pivot their models to ensure that they can effectually assess cyber-risk.',
+    content: `Providing cover is not straightforward. Cyber-attacks are not one-size-fits-all, making them harder to quantify from an insurance standpoint. Moreover, new methods of attack are constantly emerging. With causes ranging from human error to ransomware to identity theft, insurers must design extensive and agile policies to ensure they are providing sufficient protection.
+    Traditionally, insurers have provided cover on a sum-insured basis or conducted physical – and also time-consuming – audits. For the fast-moving world of cybersecurity, this is inadequate, either being inaccurate at the point of underwriting or outdated once completed and resulting in risk levels that do not match what has been logged.
+    To provide effective insurance, and claim their stake within this growing market, insurance providers must pivot their models to ensure that they can effectually assess cyber-risk. To do this, they must offer competitive price policies, manage risk of the policy portfolio continuously, and also qualify legitimate claims and protect themselves from fraud.
+    HatGemini’s Global Cyber Insurance offer
+    HatGemini has developed a Global Cyber Insurance offer that gives insurers a competitive advantage in meeting and exceeding the needs of today’s organizations looking for cover. It combines our expertise in cyber risk management and compliance, threat intelligence, and the ability to assess a client’s external risk posture in near real-time.
+    We are unique in our ability to harness digital insights to assist policyholders in understanding and improving their security posture. We also help insurance providers manage their insured portfolio effectively. We do this by addressing challenges across the entire cyber insurance life-cycle: rapid risk assessments at the point of sale, tracking the risk posture of the policyholder throughout the insured period, and providing timely interventions to mitigate both the risk of a cyberattack and the likelihood of a claim being made.
+    Lower risk, higher profitability
+    Using our heritage in technology and innovation strategy, we use tools such as automation and real-time data analysis to provide effective and dynamic cover. We automate the security risk assessment, using data analytics to evaluate multiple risk vectors and information from historical breaches associated with the potential policyholder. This not only significantly reduces the length of the risk assessment; it improves accuracy too.
+    As part of the onboarding process we provide a score report to the policyholder, providing details of security risks they are exposed to and recommendations on how to address these risks.
+    Once the policy is live, we help insurers to stay aware of a policyholder’s changing risk profile, in real-time, allowing for timely interventions that prevent security breaches and subsequent claims. By proactively evaluating threats, HatGemini offers 24×7 notifications, security news and security alerts with comprehensive, actionable intelligence.
+    If and when breaches do occur, HatGemini helps to sift through the ambiguity of pay-outs and claims. We assist insurers with a claim period risk report, detailing the risk posture of the policyholder. We also help insurers to identify the root causes of a breach and give guidance in setting up forensic direction.
+    In today’s digital world, cybersecurity risks are inevitable and complex. But cybersecurity insurance doesn’t have to be. Just as cybercriminals are using more intelligent solutions and tools, so too should insurance providers – enabling them to stay one step ahead
+    Contact HatGemini today for additional details about our unique – and uniquely effective – services for cyber insurance carriers and policyholders.
+    `,
+    image:
+      'https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/NOVA24/2021/02/04/Nova24/ImmaginiWeb/Ritagli/AdobeStock_265280757-Cybersecurity-kk9B--1020x533@IlSole24Ore-Web.jpg',
+  })
+
+  const DeepArticle3 = await Article.create({
+    title: 'Testing the Security of your Applications',
+    summary: 'Applications are your business. Better secure them',
+    content: `With 73% of security breaches occurring at the application layer, identifying vulnerabilities has become a priority for organizations worldwide. Many organizations now depend on the rapid release of critical applications to remain competitive. Our Application Security Testing solution makes it simple and fast to initiate fundamental security controls, whether you have just a few applications or are looking to launch a comprehensive security program across your organization.
+    With Capgemini’s Application Security Testing service:
+    You simply purchase a subscription and our experts systematically test all your applications – Web-based, mobile, or business applications, proprietary or open source – prior to release.
+    You get a balanced mix of manual and automated testing depending on the level of service you need, using best-in-class tools and processes from Capgemini and world-class partners.
+    You receive actionable results via a single, intuitive dedicated portal. The portal gives you the ability to scan requests, review results, and view dashboards that help you understand your application security posture and build the most appropriate remediation strategy.
+    You can customize your dashboards in terms of business priorities or technical complexity.
+    You ensure objectivity by separating the testing process from development, and you get a whole new level of scalability and repeatability.
+    You get broader and more accurate coverage because we combine top-tier analyst tools, continuously updated threat intelligence, and expertise based on many years of testing experience to detect vulnerabilities – all delivered by security experts based in multiple geographies.
+    You have the flexibility to test wherever you undertake development activity, ensuring responsiveness to your time pressures and enabling faster
+    `,
+    image: 'https://miro.medium.com/max/750/1*wYU7HChNgP-Mt8iZvdiFxQ.jpeg',
+  })
+
+  const MichaelArticle1 = await Article.create({
+    title:
+      'Reinventing Customer Experience through emotionally realistic insurer/policyholder engagement',
+    summary:
+      'It’s now more common for customers to research and buy on the internet rather than in person for many important purchases in their lives.',
+    content: `I purchased my first insurance policy when agents and brokers were the primary gateways to coverage. An agent assessed my needs and factors such as age, lifestyle habits, and income, and, then, offered policy recommendations. This approach created a system of trust and transparency that forged long-term insurer/customer relationships.
+
+    Times have changed.  And while I can still turn to an agent in-person or virtually, I can also go to a comparison website for policy recommendations, visit an insurer’s corporate website for specific information, or use a mobile app to purchase a policy and track details.
+    
+    It’s now more common for customers to research and buy on the internet rather than in person for many important purchases in their lives. Our World Insurance Report 2020 survey found that 62% of millennials and 64% of Gen X and older generations transact online – everything from purchasing clothes to paying bills. And insurance policyholders are no exception as they frequently use digital tools in addition to traditional channels to research, compare, and buy insurance products online.
+    Easy-to-use websites and apps are needed to ensure hassle-free digital interactions so users can effortlessly complete tasks such as purchasing or updating policies, filing claims, or paying premiums. Straightforward, clearly written policy terms and comparisons of different plans can help customers make swift purchase decisions. Recently, I explored the artificial intelligence (AI) chatbot, Maya, from American InsurTech Lemonade. Maya was easy to navigate and offered instant quotes.
+
+    Purchasing an insurance policy, however, can be an emotional as well as a financial decision. As policyholders, we interact with our insurers at critical times – an accident, serious illness, or property damage/loss – that necessitate smooth and hassle-free communication and emotionally intelligent, reassuring engagement. And that’s why it is so essential for insurers to humanize the digital customer experience (CX).
+
+    However, it does seem a bit counterintuitive to ‘humanize’ digital customer experience.  How is this even possible? This is where emotional AI fits in as it can recognize and respond to human feelings. Early examples of emotional AI are Siri and Alexa and they have paved the way for people to become more comfortable with chatbots and voice assistants to answer their questions.
+    `,
+    image: 'https://economictimes.indiatimes.com/photo/60334367.cms',
+  })
+
+  const MichaelArticle2 = await Article.create({
+    title:
+      'Digital innovation empowers banks to deliver superior customer experience during unprecedented times',
+    summary:
+      'How to collaborate effectively with FinTechs to deliver innovative customer experiences.',
+    content: `While technology’s role has been rising in banking as more customers demand omnichannel digital interactions, the COVID-19 pandemic has upped the ante for digital customer experience. Our recently published research report, COVID-19 and the financial services consumer, revealed that now more than ever FS customers want digital experiences to make transactions and engage with firms from the safety of their homes – and these customers aren’t shy about going to FinTechs or challenger banks to get the digital experience they are craving. For banks too, technology has emerged as a critical enabler to keep businesses up and running, as it facilitates work-from-home capabilities.
+
+    For banks, digital banking is a win-win. Not only does it improve customer experience (CX), it also increases operational efficiencies and revenue opportunities. In fact, many banks have undertaken digital transformation initiatives intended to increase internet and mobile banking while pursuing core banking modernization. Banks are embracing emerging technologies such as artificial intelligence, the cloud, and analytics to manage rising operational costs, evolving customer expectations, and cybercrime.
+    
+    The key challenge for banks before the pandemic was to learn how to collaborate effectively with FinTechs to deliver innovative customer experiences to keep customers coming back for more and compete head on with competition from BigTechs and challenger banks. For all, leveraging emerging technologies to win customers was the number-one strategy to fuel these strategic collaborations.
+    
+    And then along came COVID-19, and the need to shelter in place to save lives. It was no longer a race to deliver excellent customer experience through digital, it was a necessity. Now, more than ever, is the time to find the right path to deliver innovative digital customer experience – and that path is Open X.
+    `,
+    image:
+      'https://motwebmediastg01.blob.core.windows.net/nop-thumbs-images/0004360_bank-leumi-le-israel-bm-global-banking-606-tel-aviv-yafo_493.jpeg',
+  })
+
+  const MichaelArticle3 = await Article.create({
+    title:
+      'Financial firms leverage automation to improve both their top and bottom lines',
+    summary:
+      'These days, commercial banks are enthusiastically investing in automation to gain a competitive technological advantage through simplified operations.',
+    content: `Since the global financial crisis ended nearly a decade ago, commercial banks have been transforming to focus on operational risk, enhance compliance, prevent fraudulent transactions, and improve processes and efficiency by streamlining repetitive tasks.
+
+    Disruption by FinTech firms and non-financial challengers is driving banking incumbents to innovate and improve agility. They need to find ways to efficiently process and onboard customers, bolster customer satisfaction through quicker response time, and optimize routine and manual processes.
+    With 56% of global annual bank revenue generated by corporations, it was no surprise that of the US$78 billion invested in FinTech firms in 2016 more than half was earmarked for corporate banking innovation. FinTech firms are challenging commercial banking incumbents with novel new solutions around payments, trade finance, and advanced analytics.
+
+    Around the globe, banks seek to automate and streamline their existing processes in data and documentation to reduce risk, increase accuracy, lower operating costs, and save time on manual and repetitive tasks.
+
+    For example, Bank of America worked with Houston-based FinTech startup HighRadius to develop an artificial intelligence (AI) solution to support corporate clients’ process account receivables. The application was designed mainly for clients who manage a high volume of payments in which remittance information is either missing or comes in separately from the payment. The solution leverages optical character recognition and machine learning to identify payments and match them with associated remittance data – a strategic innovation with the potential to reduce cost and improve cash forecasting.
+
+    Commercial banks are using AI on the front-end to secure customer identities, mimic the work of employees, enable seamless interoperability, and engage customers across channels. On the back-end, automated solutions can support staff, power processes, and pre-empt problems.
+    `,
+    image:
+      'https://www.swissbusinessacademy.com/wp-content/uploads/2021/03/23475526491_b817003b38_o.jpg',
+  })
+  // redundant
   const Author = await seedPerson()
 
-  await art1.setPerson(Author.id)
-  await art2.setPerson(Author.id)
-  await art3.setPerson(Author.id)
-
-  // EXAMPLES
-  const firstArticle = await Article.create({
-    title: 'Such good article',
-    summary: 'This is the summary of the first good article',
-    content: 'The content of the first article',
-    image:
-      'https://www.meme-arsenal.com/memes/98c0fb217e3b35d20518647668cea5dc.jpg',
-  })
-  await firstArticle.setPerson(1)
-  const secondArticle = await Article.create({
-    title: 'Why Fallout 76 is broken',
-    summary: '..no really... why?',
-    content:
-      'After more than 50 hours plundering the irradiated wasteland of Fallout 76, the greatest mystery still lingering is who this mutated take on Fallout is intended for. Like many of Vault-Tec’s underground bunkers, Bethesda’s multiplayer riff on its post-nuclear RPG series is an experiment gone awry. There are bright spots entangled in this mass of frustratingly buggy and sometimes conflicting systems, but what fun I was able to salvage from the expansive but underpopulated West Virginia map was consistently overshadowed by the monotony of its gathering and crafting treadmill.\nOn the surface, Fallout 76 is another dose of Bethesda’s tried-and-true open-world RPG formula on a larger-than-ever map that’s begging to be explored. As you emerge from Vault 76 you’ll start in a relatively peaceful forest and venture out into more dangerous pockets of the irradiated wasteland. My favorite is traveling the lengths of the Cranberry Bog, where the pinkish-red fields are seemingly inviting from afar but turn out to be full of a snaking system of trenches and alien forests that hide the worst horrors of the wasteland, but there are many more.',
-    image:
-      'https://www.meme-arsenal.com/memes/925f3e6e213ebe0bc196d379a7281ee8.jpg',
-  })
-  secondArticle.setPerson(2)
-  const ThirdArticle = await Article.create({
-    title: 'Such great article',
-    summary: 'This is the summary of the third good article',
-    content: 'The content of the third article',
-    image:
-      'https://www.bmw.it/content/dam/bmw/common/home/teaser/bmw-i4-mini-hometeaser-1680x756.jpg.asset.1615561624175.jpgtps://pbs.twimg.com/media/CB6OrVUUAAAU4eQ.jpg',
-  })
-  ThirdArticle.setPerson(3)
-  const comment1 = await Comment.create({
-    content: 'Great article! Keep posting',
-  })
-  const comment2 = await Comment.create({
-    content: 'Such Doge.',
-  })
-  // Etion's area
+  // Add you AREA here
   const Etion = await Area.create({
     title: `Gaming and Entertainment`,
     image: `https://www.translationsuniverse.com/images/video-game-streaming-subscription.jpg`,
@@ -196,13 +337,11 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       ` These and many more articles in the following links: `,
     overview: `Area where you can learn more about games' design and how it affects people.`,
   })
-  // Sorry for being ego-centric
-  // This method adds the people with id 9-8-7 to my area (titled: gaming)
-  Etion.addPerson(9)
-  Etion.addPerson(8)
-  Etion.addPerson(7)
 
-  // Lisa's area
+  Etion.addPerson(12)
+  Etion.addPerson(11)
+  Etion.addPerson(10)
+
   const Lisa = await Area.create({
     title: `Energy and Utilities`,
     image: `https://avansys-usa.com/wp-content/uploads/2012/05/Energy_EN-Header.jpg`,
@@ -216,6 +355,17 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
   Lisa.addPerson(1)
   Lisa.addPerson(2)
   Lisa.addPerson(3)
+
+  const Deep = await Area.create({
+    title: `Electronics & High Tech`,
+    image: `https://image.freepik.com/premium-vector/high-tech-technology-geometric_29971-384.jpg`,
+    details: `The industry and world faces an onslaught of new challenges, increasing competition, and added levels of scrutiny with respect to data and privacy. Business models focused exclusively on product development and exploiting economies of scale are no longer viable in the current environment. Instead, businesses must transform products to drive deeper customer engagement by supplementing goods with high-value, relevant services that deliver a business outcome. This shift to “servitization” will help differentiate their offerings and protect the business from replication by competitors.`,
+    overview: `Area when you can learn more about electronics and high tech.`,
+  })
+
+  Deep.addPerson(4)
+  Deep.addPerson(5)
+  Deep.addPerson(6)
 
   // Michael's area
   const Michael = await Area.create({
@@ -232,9 +382,9 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
     overview: `Area where you can learn the Banking and Capital Markets industry and how it affects people.`,
   })
 
-  Michael.addPerson(4)
-  Michael.addPerson(5)
-  Michael.addPerson(6)
+  Michael.addPerson(7)
+  Michael.addPerson(8)
+  Michael.addPerson(9)
 
   const EtionService1 = await Service.create({
     title: `Introducing Hatgimini's STIDIA gaming service`,
@@ -288,7 +438,7 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       `for energy transition efforts and enable digital and industry technologies is a priority for many` +
       `utilities. Without further investment, organizations may  not fully realize the advanced benefits from` +
       `first wave deployments.` +
-      `Capgemini helps utility organizations address these issues and prepare for the future with Next-Gen AMI,` +
+      `HatGemini helps utility organizations address these issues and prepare for the future with Next-Gen AMI,` +
       ` a future resilient, integrated system of smart meters, communication services, modern applications and ` +
       `data management technologies. Building on the original promise of the initial wave, we work with clients` +
       `to plan, design, deploy and operate a next-generation AMI that will enable modern technologies, define new ` +
@@ -297,7 +447,6 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       `of AMI with technology modernization and experience from the initial wave.`,
     overview: `Unlocking the service, efficiency and security opportunities of a next-generation advanced metering infrastructure`,
   })
-
   const LisaService2 = await Service.create({
     title: `u2es Transformation`,
     image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpU5I7ras5D43SiL-e2eQTx89MwH_gP-9a1g&usqp=CAU`,
@@ -319,6 +468,38 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
     overview: `Transform your utility company into an energy services company with u2es Transformation, a value-based program that leverages emerging technologies to deliver proven benefits and positions your company as a leader for the future.`,
   })
 
+  const DeepService1 = await Service.create({
+    title: `Cyber Attack Simulation`,
+    image: `https://www.swascan.com/wp-content/uploads/2020/11/cyber-4444448_1920-300x200.jpg`,
+    details: `The more you know about the threat’s your organization faces,
+     the less vulnerable you are to increasingly sophisticated cyber attacks.
+     HatGemini gives you that knowledge. A Cyber Attack Simulation exercise 
+     exposes both known and unknown vulnerabilities by putting enterprise 
+     defenses under the same duress as in the real and evolving threat landscape.
+     Leveraging our state-of-the-art Security Operations Center Lab, our proven
+     methodologies span multiple technologies and security control areas, from
+     physical security to personnel and procedural security controls, to system and application-level penetration`,
+    overview: `Despite investment in cyber security controls, the modern
+    enterprise is still being breached. A real-world attack simulation to
+    test your Process, Technology and Compliance can help you understand
+     your exposures to the security threats.
+    `,
+  })
+  const DeepService2 = await Service.create({
+    title: `Cybersecurity Consulting`,
+    image: `https://images.squarespace-cdn.com/content/v1/5a05e672fe54ef1b4ad127a0/1567007217706-ELMLZ1U0EGRFBLD5N0LQ/Cybersecurity-services.jpg`,
+    details: `Our cybersecurity consulting services give you insight into
+     your security management with assessments of your sensitive data, 
+     critical infrastructures and applications. We work with you to define
+     and implement the right strategy, target operating model and GRC structure.
+     We ensure your security design and operations support your strategic 
+     objectives and business continuity. By planning ahead with a cybersecurity
+     strategy as part of your digital transformation journey, you will be in a
+     more confident position to stay compliant and achieve cost savings. Our 
+     roadmap are built upon a very consistent framework (incl. market standards, human factor and economics).`,
+    overview: `Make Cybersecurity a Business Enabler in the Digital Enterprise`,
+  })
+
   const MichaelService1 = await Service.create({
     title: `Optimize your supply chain and vendor performance`,
     image: `https://www.rextart.com/wp-content/uploads/2020/05/finance-assurance-prova-768x484-1-scaled.jpg`,
@@ -330,7 +511,6 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
       Demand Planning, Order Management, Master Data Management and Supply Chain Analytics.`,
     overview: `Create a real-time operating and decision-making environment through automating your systems`,
   })
-
   const MichaelService2 = await Service.create({
     title: `Transform your finance operations`,
     image: `https://www.almalaboris.com/images/articoli/finanza-finance-skills-competenze.png`,
@@ -341,17 +521,55 @@ Roblox’s optimistic market valuation is based on the sheer number of creators 
     overview: `Unlock value from your F&A function through frictionless, AI-enabled finance operations`,
   })
 
-  EtionService1.addArea(Etion)
-  EtionService2.addArea(Etion)
-  LisaService1.addArea(Lisa)
-  LisaService2.addArea(Lisa)
-  MichaelService1.addArea(Michael)
-  MichaelService2.addArea(Michael)
+  // People are automatically generated, you do not need to add them manually
+  // ID's of people to use: LISA: 1-2-3 PARDEEP 4-5-6 MICHAEL 7-8-9 ETION 10-11-12
+  // Add relation between Service and Area
+  await EtionService1.addArea(Etion)
+  await EtionService2.addArea(Etion)
+  await LisaService1.addArea(Lisa)
+  await LisaService2.addArea(Lisa)
+  await DeepService1.addArea(Deep)
+  await DeepService2.addArea(Deep)
+  await MichaelService1.addArea(Michael)
+  await MichaelService2.addArea(Michael)
 
-  // Adding the first comment to the first article
-  await firstArticle.addComment(comment1.id)
-  // Adding the second comment to the first article
-  await firstArticle.addComment(comment2.id)
+  // Add relationship between Service and Person who created it
+  await EtionService1.setPerson(12)
+  await EtionService2.setPerson(11)
+  await LisaService1.setPerson(1)
+  await LisaService2.setPerson(2)
+  await DeepService1.setPerson(4)
+  await DeepService2.setPerson(5)
+  await MichaelService1.setPerson(7)
+  await MichaelService2.setPerson(8)
+
+  // Add relationship between Article and Person who created it (Author.id = 12)
+  await EtionArticle1.setPerson(Author.id)
+  await EtionArticle2.setPerson(Author.id)
+  await EtionArticle3.setPerson(Author.id)
+  await LisaArticle1.setPerson(1)
+  await LisaArticle2.setPerson(2)
+  await LisaArticle3.setPerson(1)
+  await DeepArticle1.setPerson(4)
+  await DeepArticle2.setPerson(5)
+  await DeepArticle3.setPerson(6)
+  await MichaelArticle1.setPerson(7)
+  await MichaelArticle2.setPerson(8)
+  await MichaelArticle3.setPerson(9)
+
+  // Add relationship between Article and Area which it refers to
+  await EtionArticle1.setArea(Etion.id)
+  await EtionArticle2.setArea(Etion.id)
+  await EtionArticle3.setArea(Etion.id)
+  await LisaArticle1.setArea(Lisa.id)
+  await LisaArticle2.setArea(Lisa.id)
+  await LisaArticle3.setArea(Lisa.id)
+  await DeepArticle1.setArea(Deep.id)
+  await DeepArticle2.setArea(Deep.id)
+  await DeepArticle3.setArea(Deep.id)
+  await MichaelArticle1.setArea(Michael.id)
+  await MichaelArticle2.setArea(Michael.id)
+  await MichaelArticle3.setArea(Michael.id)
 }
 
 async function seedPerson() {
@@ -407,7 +625,7 @@ async function seedPerson() {
 
 // eslint-disable-next-line no-unused-vars
 async function seedDatabase() {
-  for (let i = 0; i < 8; i++) await seedPerson()
+  for (let i = 0; i < 11; i++) await seedPerson()
   await insertFakeData()
 }
 /**
@@ -417,7 +635,7 @@ async function initializeDatabase() {
   // Call the function for the database structure definition
   defineDatabaseStructure()
   // Synchronize Sequelize with the actual database. force = true removes all current tuples in db
-  await db.sync({ force: true })
+  await db.sync({ force: false })
   // Call the function to insert some fake data
   // await seedDatabase()
 

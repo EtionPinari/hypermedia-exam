@@ -24,10 +24,6 @@
           <div></div>
         </div>
       </div>
-      <div class="control-bar">
-        <div v-if="$data.next > 0" class="nav-button sm:w-32" @click="getPrevious()">Previous 6</div>
-        <div v-if="showNextButton()" class="nav-button sm:w-32" @click="getNewData()">Next 6</div>
-      </div>
     </div>
   </div>
 </template>
@@ -93,6 +89,8 @@ export default {
 @media only screen and (min-width: 601px) {
   .service {
     flex: 1 0 50%;
+    width: 70%;
+    height: 265px;
     text-align: -webkit-center;
   }
   .nav-button {
@@ -132,5 +130,9 @@ h2 {
   justify-content: space-around;
   display: inline-flex;
   margin-top: 2vw;
+}
+img {
+  opacity: 0.5;
+  filter: brightness(80%);
 }
 </style>

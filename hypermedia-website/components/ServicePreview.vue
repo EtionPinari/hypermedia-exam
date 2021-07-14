@@ -36,6 +36,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   width: inherit;
+  margin: auto;
   margin-bottom: 1.3vw;
 }
 h3 {
@@ -56,14 +57,14 @@ h3 {
   .ServicePreview,
   .service {
     cursor: pointer;
-    width: 70%;
+    // width: 70%;
   }
 }
 @media only screen and (max-width: 600px) {
   .ServicePreview,
   .service {
     cursor: pointer;
-    width: 70%;
+    // width: 70%;
   }
 }
 </style>

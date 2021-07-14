@@ -106,8 +106,8 @@ export default {
     text-align: -webkit-center;
   }
   .nav-button {
-    width: 5vw;
-    height: 3.3vh;
+    width: 8vw;
+    height: 4vh;
     text-align: center;
     margin: auto;
   }
@@ -140,5 +140,9 @@ h2 {
   justify-content: space-around;
   display: inline-flex;
   margin-top: 2vw;
+}
+img {
+  opacity: 0.5;
+  filter: brightness(80%);
 }
 </style>

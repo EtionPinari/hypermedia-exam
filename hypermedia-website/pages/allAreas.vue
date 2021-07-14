@@ -136,4 +136,8 @@ h2 {
   display: inline-flex;
   margin-top: 2vw;
 }
+img {
+  opacity: 0.5;
+  filter: brightness(80%);
+}
 </style>

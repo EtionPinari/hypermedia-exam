@@ -6,7 +6,7 @@
     <ul class="flex-row">
       <li href="#">
         <a href="https://www.facebook.com/hatgeminixyz" target="_blank">
-          <i class="fab fa-facebook">
+          <i id="facebook" class="fab fa-facebook">
             <font-awesome-icon :icon="['fab', 'facebook']" />
           </i>
         </a>
@@ -14,14 +14,14 @@
 
       <li href="#">
         <a href="https://www.twitter.com/hatgemini" target="_blank">
-          <i class="fab fa-twitter">
+          <i id="twitter" class="fab fa-twitter">
             <font-awesome-icon :icon="['fab', 'twitter']" />
           </i>
         </a>
       </li>
       <li href="#">
         <a href="https://www.instagram.com/hatgemini" target="_blank">
-          <i class="fab fa-instagram">
+          <i id="instagram" class="fab fa-instagram">
             <font-awesome-icon :icon="['fab', 'instagram']" />
           </i>
         </a>
@@ -29,7 +29,7 @@
 
       <li href="#">
         <a href="https://www.linkedin.com/hatgemini" target="_blank">
-          <i class="fab fa-instagram">
+          <i id="linkedin" class="fab fa-linkedin">
             <font-awesome-icon :icon="['fab', 'linkedin']" />
           </i>
         </a>
@@ -62,7 +62,7 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-  color: black;
+  color: white;
   background-color: $footer-color-darkens;
   align-items: center;
   padding-bottom: 10px;
@@ -94,6 +94,23 @@ a {
 i {
   cursor: pointer;
   font-size: 30px;
+  color: white;
+}
+
+#facebook:hover {
+  color: rgb(72, 103, 170);
+}
+
+#twitter:hover {
+  color: rgb(0, 182, 241);
+}
+
+#instagram:hover {
+  color: #e1306c;
+}
+
+#linkedin:hover {
+  color: rgb(0, 116, 180);
 }
 
 p {
