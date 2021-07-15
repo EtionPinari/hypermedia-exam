@@ -17,7 +17,7 @@ export default {
     image: { type: String, default: () => '' }, //
     overview: { type: String, default: () => '' }, //
     details: { type: String, default: () => '' }, //
-    services: { type: String, default: () => '' },
+    areas: { type: String, default: () => '' },
   },
   methods: {
     goToService(path) {
