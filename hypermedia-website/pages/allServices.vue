@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style scoped>
-/* This is the child of the all-people-container */
+/* This is the child of the all-service-container */
 /* All children can only take up to 50% of the total space and always stay in the center position */
 @media only screen and (max-width: 600px) {
   .service {
@@ -102,7 +102,7 @@ export default {
   }
 }
 
-/* This is the container of all people, and shows all employees in a row */
+/* This is the container of all services, and shows all services in a row */
 .all-services-container {
   display: flex;
   flex-direction: row;

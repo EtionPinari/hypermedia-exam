@@ -2,7 +2,6 @@
   <div class="body">
     <div class="content place-content-center md:text-xl sm:text-base">
       <!-- here lay all the previews of articles, employess and services -->
-      <!-- If you want to put content in here, delete all the text below :) -->
       <div id="ourCompany">
         <div class="image img">
           <br />
