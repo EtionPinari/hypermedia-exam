@@ -117,7 +117,9 @@ export default {
 .service-section {
   max-width: 85%;
 }
-
+.content {
+  width: auto;
+}
 hr {
   border: 1px solid rgba(0, 0, 0, 0.3);
   width: 95%;
@@ -145,9 +147,12 @@ article {
 
 .nav-button {
   display: inline-flex;
-  padding: 2%;
+  padding: 2.1%;
 }
-
+* > .card {
+  margin: auto;
+  width: auto;
+}
 img {
   opacity: 0.5;
   filter: brightness(80%);
