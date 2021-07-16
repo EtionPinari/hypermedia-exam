@@ -54,7 +54,7 @@
     </section>
 
     <br />
-    <h3 class="lg:text-2xl sm:text-base" v-if="service.person.id > 0">
+    <h3 v-if="service.person.id > 0">
       {{ service.title }} is provided by our employee:
     </h3>
     <section class="area-of-work publications">
