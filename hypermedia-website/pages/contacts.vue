@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>Contact us</h2>
     Here you find our contacts:<br />
     Our contact number is : 800-800-8000<br />
     <form id="contact-form" type="reset" value="reset">

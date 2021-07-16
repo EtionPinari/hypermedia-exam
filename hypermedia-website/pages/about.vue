@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="body">
+      <h2>About us</h2>
       <div
         id="text"
         class="content place-content-center md:text-xl sm:text-base"
