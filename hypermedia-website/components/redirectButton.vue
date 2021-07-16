@@ -23,5 +23,8 @@ export default {
 <style lang="scss" scoped>
 .btn {
   cursor: pointer;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 65px;
 }
 </style>

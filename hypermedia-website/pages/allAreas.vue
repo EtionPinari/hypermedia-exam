@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-div">
     <header class="titleImage">
       <img
         class="titleImage"
@@ -10,8 +10,10 @@
       </div>
     </header>
 
-    <div class="areasContainer">
-      <h2>These are all the areas of our company:</h2>
+    <div>
+      <h2 class="lg:text-2xl sm:text-base">
+        These are all the areas of our company:
+      </h2>
       <div class="all-areas-container">
         <div v-for="(area, areaIndex) of areas" :key="areaIndex" class="area">
           <div>
@@ -26,10 +28,6 @@
 
           <div></div>
         </div>
-      </div>
-      <div class="control-bar">
-        <div v-if="$data.next > 0" class="nav-button sm:w-32" @click="getPrevious()">Previous 6</div>
-        <div v-if="showNextButton()" class="nav-button sm:w-32" @click="getNewData()">Next 6</div>
       </div>
     </div>
   </div>
@@ -96,14 +94,9 @@ export default {
 @media only screen and (min-width: 601px) {
   .area {
     flex: 1 0 50%;
+    width: 70%;
+    height: 265px;
     text-align: -webkit-center;
-  }
-  .nav-button {
-    width: 5vw;
-    height: 2vw;
-    text-align: center;
-    padding: 0.3vw 0;
-    margin: auto 1vw;
   }
 }
 
@@ -113,16 +106,12 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-left: 1.5vw;
-  margin-right: 1.5vw;
 }
 
 .display-middle {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
 }
 
 .center {
@@ -131,11 +120,7 @@ export default {
 h2 {
   margin: 1vw;
 }
-.control-bar {
-  justify-content: space-around;
-  display: inline-flex;
-  margin-top: 2vw;
-}
+
 img {
   opacity: 0.5;
   filter: brightness(80%);

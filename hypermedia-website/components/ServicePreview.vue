@@ -49,22 +49,27 @@ h3 {
   height: 2.9em;
   width: inherit;
 }
-.servicepreview {
-  height: 200px;
-  width: 100%;
-}
+
 @media only screen and (min-width: 601px) {
   .ServicePreview,
   .service {
     cursor: pointer;
-    // width: 70%;
+    width: 35vw;
+  }
+  .servicepreview {
+    height: 15vw;
+    width: 25vw;
   }
 }
 @media only screen and (max-width: 600px) {
   .ServicePreview,
   .service {
     cursor: pointer;
-    // width: 70%;
+    width: 75vw;
+  }
+  .servicepreview {
+    width: 60vw;
+    height: 45vw;
   }
 }
 </style>

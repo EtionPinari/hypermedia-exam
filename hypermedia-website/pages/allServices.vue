@@ -1,16 +1,25 @@
 <template>
   <div>
     <header class="titleImage">
-      <img class="titleImage" src="https://it.agictech.com/media/1455/services4.png" />
+      <img
+        class="titleImage"
+        src="https://it.agictech.com/media/1455/services4.png"
+      />
       <div class="display-middle center">
         <span class="text-black" style="font-size: 40px">All our Services</span>
       </div>
     </header>
 
-    <div class="servicesContainer">
-      <h2>These are all the services of our company:</h2>
+    <div>
+      <h2 class="lg:text-2xl sm:text-base">
+        These are all the services of our company:
+      </h2>
       <div class="all-services-container">
-        <div v-for="(service, serviceIndex) of services" :key="serviceIndex" class="service">
+        <div
+          v-for="(service, serviceIndex) of services"
+          :key="serviceIndex"
+          class="service"
+        >
           <div>
             <service-preview
               :id="service.id"
@@ -93,13 +102,6 @@ export default {
     height: 265px;
     text-align: -webkit-center;
   }
-  .nav-button {
-    width: 5vw;
-    height: 2vw;
-    text-align: center;
-    padding: 0.3vw 0;
-    margin: auto 1vw;
-  }
 }
 
 /* This is the container of all services, and shows all services in a row */
@@ -108,16 +110,12 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-left: 1.5vw;
-  margin-right: 1.5vw;
 }
 
 .display-middle {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
 }
 
 .center {
@@ -126,11 +124,7 @@ export default {
 h2 {
   margin: 1vw;
 }
-.control-bar {
-  justify-content: space-around;
-  display: inline-flex;
-  margin-top: 2vw;
-}
+
 img {
   opacity: 0.5;
   filter: brightness(80%);

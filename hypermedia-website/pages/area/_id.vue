@@ -1,64 +1,68 @@
 <template>
-  <section class="sand grayscale large">
-    <section>
-      <redirectButton :number-of-pages-back="-1" />
-      <div>
-        <header class="titleImage">
-          <img class="titleImage" :src="area.image" />
+  <section>
+    <redirectButton :number-of-pages-back="-1" />
 
-          <div class="display-middle center">
-            <span class="text-black" style="font-size: 40px">{{
-              area.title
-            }}</span>
-          </div>
-        </header>
+    <section class="main-section">
+      <section>
+        <div>
+          <header class="titleImage">
+            <img class="titleImage" :src="area.image" />
 
-        <!-- area's decription section -->
-        <article>
-          <div class="content" style="max-width: 700px">
-            <div id="overview">
-              <p>{{ area.overview }}</p>
+            <div class="display-middle center">
+              <span class="text-black" style="font-size: 40px">{{
+                area.title
+              }}</span>
             </div>
-            <hr />
-            <div id="details">
-              <p>{{ area.details }}</p>
+          </header>
+
+          <!-- area's decription section -->
+          <article>
+            <div class="text-content content">
+              <div id="overview">
+                <p>{{ area.overview }}</p>
+              </div>
+              <hr />
+              <div id="details">
+                <p>{{ area.details }}</p>
+              </div>
+              <hr />
             </div>
-            <hr />
-          </div>
-        </article>
-      </div>
-    </section>
-    <section>
-      <!-- All its services -->
-      <br />
-      <h3>Services in {{ area.title }}</h3>
-      <h4 v-if="area.services.length === 0">
-        {{ area.title }} has no services.
-      </h4>
-      <section class="services">
-        <div
-          v-for="(service, serviceIndex) of area.services"
-          :key="'Service-' + serviceIndex"
-          class="service-container"
-        >
-          <div class="content">
-            <service-preview
-              :id="service.id"
-              :title="service.title"
-              :summary="service.overview"
-              :image="service.image"
-            ></service-preview>
-          </div>
+          </article>
         </div>
       </section>
-      <div
-        class="nav-button"
-        @click="goToExperts(`/employeeName/${area.title}`)"
-      >
-        <h3 class="lg: text-xl sm:text-base">
-          Go to all Experts in {{ area.title }}
-        </h3>
-      </div>
+      <section class="service-section">
+        <!-- All its services -->
+        <br />
+        <h2 class="lg:text-2xl sm:text-base">Services in {{ area.title }}</h2>
+        <br />
+        <h4 v-if="area.services.length === 0">
+          {{ area.title }} has no services.
+        </h4>
+        <section class="services-container">
+          <div
+            v-for="(service, serviceIndex) of area.services"
+            :key="'Service-' + serviceIndex"
+            class="service-container"
+          >
+            <div class="content">
+              <service-preview
+                :id="service.id"
+                :title="service.title"
+                :summary="service.overview"
+                :image="service.image"
+              ></service-preview>
+            </div>
+          </div>
+        </section>
+        <div
+          class="nav-button"
+          @click="goToExperts(`/employeeName/${area.title}`)"
+        >
+          <h3 class="lg: text-xl sm:text-base">
+            Go to all experts in {{ area.title }}
+          </h3>
+        </div>
+      </section>
     </section>
   </section>
 </template>
@@ -87,77 +91,63 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.service-container {
-  width: 30%;
+@media only screen and (max-width: 600px) {
+  .service-container {
+    flex: 1 0 100%;
+    text-align: -webkit-center;
+  }
 }
-.service-container > .content {
-  width: auto;
+@media only screen and (min-width: 601px) {
+  .service-container {
+    flex: 1 0 50%;
+    text-align: -webkit-center;
+  }
 }
+.main-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.services-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.service-section {
+  max-width: 85%;
+}
+
 hr {
   border: 1px solid rgba(0, 0, 0, 0.3);
   width: 95%;
   align-self: center;
 }
-.article-mini {
-  border: 0px;
-  min-height: 30vh;
-}
-
-.text-white {
-  color: rgb(255, 255, 255) !important;
+#overview,
+#details {
+  padding: 2vw;
 }
 .text-black {
   color: #000 !important;
 }
-.center {
-  text-align: center !important;
+article {
+  display: flex;
+  justify-content: center;
 }
-.content {
+.text-content {
   display: flex;
   flex-direction: column;
-  text-align: left;
-}
-.sand {
-  color: #000 !important;
-}
-.greyscale {
-  filter: grayscale(70%);
-}
-.large {
-  font-size: 18px !important;
-}
-
-#overview,
-#details {
-  padding: 20px;
-}
-
-.content {
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
+  align-items: center;
   font-size: 20px;
-  max-width: 980px;
+  max-width: 75%;
 }
-.services {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  padding: 20px;
-}
-.service {
-  margin: auto;
-}
-.servicePreview {
-  width: auto;
-}
+
 .nav-button {
   display: inline-flex;
-  padding: 2.1%;
+  padding: 2%;
 }
-* > .card {
-  margin: auto;
-  width: auto;
-}
+
 img {
   opacity: 0.5;
   filter: brightness(80%);

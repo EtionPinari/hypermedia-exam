@@ -1,105 +1,107 @@
 <template>
   <section>
+    <redirectButton :number-of-pages-back="-1" />
     <section>
-      <redirectButton :number-of-pages-back="-1" />
-      <!-- Person face, short biography and name + surname -->
-      <div id="person-details">
-        <header id="person">
-          <div
-            id="short-description"
-            class="md:text-lg sm:text-base lg:text-2xl"
-          >
-            <h1>{{ person.name + ' ' + person.surname }}</h1>
-          </div>
-          <div id="face">
-            <img :src="person.image" />
-            <h4>{{ person.summary }}</h4>
-          </div>
-        </header>
-        <hr />
-        <!-- person's biography section -->
-        <article id="biography">
-          <h2>{{ person.name + `'s biography` }}</h2>
-          <p id="bio">{{ person.biography }}</p>
-        </article>
-      </div>
-    </section>
-    <hr />
-    <!-- All his publications -->
-    <h3 v-if="person.articles.length !== 0">
-      All {{ person.name }}'s articles:
-    </h3>
-    <h4 v-if="person.articles.length === 0">
-      {{ person.name + ' ' + person.surname }} has no articles.
-    </h4>
-    <section class="publications">
-      <div
-        v-for="(article, articleIndex) of person.articles"
-        :key="'Article-' + articleIndex"
-        class="publication"
-      >
-        <div class="content">
-          <article-mini
-            :id="article.id"
-            :title="article.title"
-            :summary="article.summary"
-            :image="article.image"
-          ></article-mini>
+      <section>
+        <!-- Person face, short biography and name + surname -->
+        <div id="person-details">
+          <header id="person">
+            <div
+              id="short-description"
+              class="md:text-lg sm:text-base lg:text-2xl"
+            >
+              <h1>{{ person.name + ' ' + person.surname }}</h1>
+            </div>
+            <div id="face">
+              <img :src="person.image" />
+              <h4>{{ person.summary }}</h4>
+            </div>
+          </header>
+          <hr />
+          <!-- person's biography section -->
+          <article id="biography">
+            <h2>{{ person.name + `'s biography` }}</h2>
+            <p id="bio">{{ person.biography }}</p>
+          </article>
         </div>
-        <div class="date">
-          Published {{ new Date(article.createdAt).getDate() }}/{{
-            new Date(article.createdAt).getMonth()
-          }}/{{ new Date(article.createdAt).getFullYear() }}
-        </div>
-      </div>
-    </section>
-    <br />
-    <section class="area-of-work publications">
-      <h3 v-if="person.areas.length !== 0">
-        {{ person.name }} works in this area:
+      </section>
+      <hr />
+      <!-- All his publications -->
+      <h3 v-if="person.articles.length !== 0">
+        All {{ person.name }}'s articles:
       </h3>
-      <div
-        v-for="(area, areaIndex) of person.areas"
-        :key="'Area-' + areaIndex"
-        class="publication"
-      >
-        <div class="content">
-          <area-preview
-            :id="area.id"
-            :title="area.title"
-            :details="area.details"
-            :image="area.image"
-            :overview="area.overview"
-          />
+      <h4 v-if="person.articles.length === 0">
+        {{ person.name + ' ' + person.surname }} has no articles.
+      </h4>
+      <section class="publications">
+        <div
+          v-for="(article, articleIndex) of person.articles"
+          :key="'Article-' + articleIndex"
+          class="publication"
+        >
+          <div class="content">
+            <article-mini
+              :id="article.id"
+              :title="article.title"
+              :summary="article.summary"
+              :image="article.image"
+            ></article-mini>
+          </div>
+          <div class="date">
+            Published {{ new Date(article.createdAt).getDate() }}/{{
+              new Date(article.createdAt).getMonth()
+            }}/{{ new Date(article.createdAt).getFullYear() }}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <br />
+      <section class="area-of-work publications">
+        <h3 v-if="person.areas.length !== 0">
+          {{ person.name }} works in this area:
+        </h3>
+        <div
+          v-for="(area, areaIndex) of person.areas"
+          :key="'Area-' + areaIndex"
+          class="publication"
+        >
+          <div class="content">
+            <area-preview
+              :id="area.id"
+              :title="area.title"
+              :details="area.details"
+              :image="area.image"
+              :overview="area.overview"
+            />
+          </div>
+        </div>
+      </section>
 
-    <br />
-    <hr />
-    <br />
-    <h4 v-if="person.services.length === 0">
-      {{ person.name }} does not manage any company services.
-    </h4>
-    <h3 v-if="person.services.length !== 0">
-      {{ person.name }} manages these services:
-    </h3>
-    <section class="services-provided area-of-work publications">
-      <div
-        v-for="(service, serviceIndex) of person.services"
-        :key="'service-' + serviceIndex"
-        class="publication"
-      >
-        <div class="content">
-          <service-preview
-            :id="service.id"
-            :title="service.title"
-            :details="service.details"
-            :image="service.image"
-            :overview="service.overview"
-          />
+      <br />
+      <hr />
+      <br />
+      <h4 v-if="person.services.length === 0">
+        {{ person.name }} does not manage any company services.
+      </h4>
+      <h3 v-if="person.services.length !== 0">
+        {{ person.name }} manages these services:
+      </h3>
+      <section class="services-provided area-of-work publications">
+        <div
+          v-for="(service, serviceIndex) of person.services"
+          :key="'service-' + serviceIndex"
+          class="publication"
+        >
+          <div class="content">
+            <service-preview
+              :id="service.id"
+              :title="service.title"
+              :details="service.details"
+              :image="service.image"
+              :overview="service.overview"
+            />
+          </div>
         </div>
-      </div>
+      </section>
     </section>
   </section>
 </template>

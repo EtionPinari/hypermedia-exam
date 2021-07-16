@@ -32,6 +32,7 @@ export default {
 .card {
   padding: 0.3vw 0.5vw;
   align-items: center;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -53,23 +54,22 @@ h3 {
   .AreaPreview,
   .area {
     cursor: pointer;
-    width: 75%;
+    width: 35vw;
   }
   .areapreview {
-    height: 200px;
-    width: 100%;
+    height: 15vw;
+    width: 25vw;
   }
 }
 @media only screen and (max-width: 600px) {
   .AreaPreview,
   .area {
     cursor: pointer;
-    // width: 70%;
+    width: 75vw;
   }
   .areapreview {
-    // height: 200px;
-    height: auto;
-    width: 80%;
+    width: 60vw;
+    height: 45vw;
   }
 }
 </style>

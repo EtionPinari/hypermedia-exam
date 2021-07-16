@@ -1,72 +1,74 @@
 <template>
-  <section class="sand grayscale large">
-    <section>
-      <redirectButton :number-of-pages-back="-1" />
-      <div>
-        <header class="titleImage">
-          <img class="titleImage" :src="service.image" />
+  <section>
+    <redirectButton :number-of-pages-back="-1" />
+    <section class="main-section">
+      <section>
+        <div>
+          <header class="titleImage">
+            <img class="titleImage" :src="service.image" />
 
-          <div class="display-middle center">
-            <span class="text-black" style="font-size: 40px">{{
-              service.title
-            }}</span>
-          </div>
-        </header>
-
-        <!-- service's decription section -->
-        <article>
-          <div class="content" style="max-width: 700px">
-            <div id="overview">
-              <p>{{ service.overview }}</p>
+            <div class="display-middle center">
+              <span class="text-black" style="font-size: 40px">{{
+                service.title
+              }}</span>
             </div>
-            <hr />
-            <div id="details">
-              <p>{{ service.details }}</p>
-            </div>
-            <hr />
-          </div>
-        </article>
-      </div>
-    </section>
+          </header>
 
-    <h4 v-if="service.areas.length === 0">
-      {{ service.title }} is not provided by any areas
-    </h4>
-    <h3 v-if="service.areas.length !== 0">
-      {{ service.title }} is provided by this area:
-    </h3>
-    <section class="area-of-work publications">
-      <div
-        v-for="(area, areaIndex) of service.areas"
-        :key="'area-' + areaIndex"
-        class="publication"
-      >
-        <div class="content">
-          <area-preview
-            :id="area.id"
-            :title="area.title"
-            :details="area.details"
-            :image="area.image"
-            :overview="area.overview"
+          <!-- service's decription section -->
+          <article>
+            <div class="text-content content">
+              <div id="overview">
+                <p>{{ service.overview }}</p>
+              </div>
+              <hr />
+              <div id="details">
+                <p>{{ service.details }}</p>
+              </div>
+              <hr />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <h4 v-if="service.areas.length === 0">
+        {{ service.title }} is not provided by any areas
+      </h4>
+      <h3 v-if="service.areas.length !== 0">
+        {{ service.title }} is provided by this area:
+      </h3>
+      <section class="area-of-work publications">
+        <div
+          v-for="(area, areaIndex) of service.areas"
+          :key="'area-' + areaIndex"
+          class="publication"
+        >
+          <div class="content">
+            <area-preview
+              :id="area.id"
+              :title="area.title"
+              :details="area.details"
+              :image="area.image"
+              :overview="area.overview"
+            />
+          </div>
+        </div>
+      </section>
+
+      <br />
+      <h3 v-if="service.person.id > 0">
+        {{ service.title }} is provided by our employee:
+      </h3>
+      <section class="area-of-work publications">
+        <div class="content personprofile-component">
+          <person-profile
+            :id="service.person.id"
+            :name="service.person.name"
+            :surname="service.person.surname"
+            :image="service.person.image"
+            :area="service.areas[0].name"
           />
         </div>
-      </div>
-    </section>
-
-    <br />
-    <h3 v-if="service.person.id > 0">
-      {{ service.title }} is provided by our employee:
-    </h3>
-    <section class="area-of-work publications">
-      <div class="content personprofile-component">
-        <person-profile
-          :id="service.person.id"
-          :name="service.person.name"
-          :surname="service.person.surname"
-          :image="service.person.image"
-          :area="service.areas[0].name"
-        />
-      </div>
+      </section>
     </section>
   </section>
 </template>
@@ -97,20 +99,17 @@ hr {
   align-self: center;
 }
 
-.text-white {
-  color: rgb(255, 255, 255) !important;
-}
 .text-black {
   color: #000 !important;
 }
-.center {
-  text-align: center !important;
-}
-.content {
+
+.text-content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-size: 20px;
-  text-align: left;
+  max-width: 75%;
 }
 .sand {
   color: #000 !important;
@@ -124,7 +123,7 @@ hr {
 
 #overview,
 #details {
-  padding: 20px;
+  padding: 2vw;
 }
 
 .content {
@@ -139,7 +138,10 @@ hr {
   flex-wrap: wrap;
   padding: 20px;
 }
-
+article {
+  display: flex;
+  justify-content: center;
+}
 .area-of-work > img {
   // width: 145%;
   max-width: 145%;
@@ -187,6 +189,7 @@ hr {
 }
 .nav-button {
   display: inline-flex;
+  padding: 2%;
 }
 
 img {
