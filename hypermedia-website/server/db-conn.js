@@ -596,14 +596,41 @@ async function seedPerson() {
   } else {
     heOrShe = 'She'
   }
-  const Author = await Person.create({
-    name: res.name.first,
-    surname: res.name.last,
-    biography:
-      res.name.first +
+
+  const biographies = [
+    // 1st biography
+    res.name.first +
       ` ` +
       res.name.last +
-      ` is a 30-year-old chef at chain restaurant who enjoys golf, spreading fake news on Facebook and photography. Being generous and creative, ` +
+      `  is a 22-year-old business studies student who enjoys ferret racing, working on cars and travelling. ` +
+      heOrShe +
+      ` is generous and considerate, but can also be very nasty and a bit unkind.
+
+      ` +
+      heOrShe +
+      ` is  Portuguese and currently at college studying business studies. ` +
+      heOrShe +
+      ` has a severe phobia of clowns, and is obsessed with bottled water.
+    
+    Physically, ` +
+      res.name.first +
+      ` is in good shape. ` +
+      heOrShe +
+      ` is very short and grew up in a middle class neighbourhood. She was raised in a happy family home with two loving parents.
+    
+     ` +
+      res.name.first +
+      `'s best friend is a business studies student called Isabel Watts. ` +
+      heOrShe +
+      ` also hangs around with Dale Fraser and Kendra Gallagher. They enjoy planking together.
+    
+    `,
+
+    // 2nd biography
+    res.name.first +
+      ` ` +
+      res.name.last +
+      ` is a 35-year-old ex-chef at chain restaurant who enjoys golf, spreading fake news on Facebook and photography. Being generous and creative, ` +
       res.name.first +
       `can also be very disloyal and a bit dull. ` +
       heOrShe +
@@ -612,11 +639,72 @@ async function seedPerson() {
       `  is in good shape. ` +
       heOrShe +
       ` is very tall with pale skin, brown hair and green eyes. 
-      ` +
+    ` +
       heOrShe +
       ` grew up in an upper class neighbourhood. ` +
       res.name.first +
       `'s best friend is a chef at chain restaurant called Susie Torres. They have a very firey friendship.`,
+    // 3rd biography
+    res.name.first +
+      ` ` +
+      res.name.last +
+      ` is a 20-year-old student who enjoys theatre, running and bridge. ` +
+      heOrShe +
+      ` is creative and smart, but can also be very unfriendly and a bit impatient.
+
+    ` +
+      heOrShe +
+      ` is American who defines herself as vegan. She is currently at college. ` +
+      heOrShe +
+      ` is obsessed with gangnam style.
+    
+    Physically, ` +
+      res.name.first +
+      ` is in good shape. ` +
+      heOrShe +
+      ` is very short with bronze skin, auburn hair and blue eyes although the images might not show it. ` +
+      heOrShe +
+      ` has a tattoo of Psy on her upper back.
+    ` +
+      res.name.first +
+      `'s best friend is a medical student called Zac Allan. They have a been friends since childhood. They enjoy watching YouTube videos together.
+    
+    `,
+    // 4th biography
+    res.name.first +
+      ` ` +
+      res.name.last +
+      ` is a 29-year-old ex-television actor who enjoys planking, watching television and theatre. ` +
+      heOrShe +
+      ` is energetic and caring, but can also be very unintelligent and a bit untidy.
+
+    ` +
+      heOrShe +
+      ` is Tuvaluan who defines himself as straight. ` +
+      heOrShe +
+      ` finished school and then left academia, but still managed to follow his dream of being an IT.
+    
+    Physically, ` +
+      res.name.first +
+      ` is in good shape. ` +
+      heOrShe +
+      ` is tall with light skin, light-brown hair and big eyes.
+    
+    ` +
+      heOrShe +
+      ` grew up in a working class neighbourhood. 
+
+    Jeff's best friend is another television actor called Angela Ortiz. They enjoy often making reports about our Hatgemini company.
+    
+    `,
+  ]
+
+  const id = Math.floor(Math.random() * biographies.length)
+
+  const Author = await Person.create({
+    name: res.name.first,
+    surname: res.name.last,
+    biography: biographies[id],
     summary: summary.data,
     image: res.picture.large,
   })

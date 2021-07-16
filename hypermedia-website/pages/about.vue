@@ -1,5 +1,10 @@
 <template>
   <div>
+    <header class="center">
+      <div>
+        <span class="text-black" style="font-size: 40px">ABOUT US</span>
+      </div>
+    </header>
     <div class="body">
       <h2>About us</h2>
       <div
@@ -43,5 +48,6 @@
 
 #text {
   text-align: left;
+  font-size: 20px;
 }
 </style>
