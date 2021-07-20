@@ -73,13 +73,13 @@ h3 {
 }
 @media only screen and (max-width: 600px) {
   .facepreview {
-    width: 120px;
+    width: 180px;
     height: auto;
   }
   .PersonProfile,
   .person {
     cursor: pointer;
-    width: 120px;
+    width: 180px;
     height: auto;
   }
 }

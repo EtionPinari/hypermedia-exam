@@ -18,7 +18,7 @@
         <div
           v-for="(service, serviceIndex) of services"
           :key="serviceIndex"
-          class="service"
+          class="service-container"
         >
           <div>
             <service-preview
@@ -90,18 +90,19 @@ export default {
 /* This is the child of the all-service-container */
 /* All children can only take up to 50% of the total space and always stay in the center position */
 @media only screen and (max-width: 600px) {
-  .service {
+  .service-container {
     flex: 1 0 90%;
-    text-align: -webkit-center;
   }
 }
 @media only screen and (min-width: 601px) {
-  .service {
+  .service-container {
     flex: 1 0 50%;
     width: 70%;
-    height: 265px;
-    text-align: -webkit-center;
   }
+}
+.service-container {
+  text-align: -webkit-center;
+  margin-bottom: 2vh;
 }
 
 /* This is the container of all services, and shows all services in a row */

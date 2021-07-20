@@ -87,18 +87,30 @@ export default {
 #welcome {
   color: white;
 }
+
 .img {
   cursor: default;
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url('https://www.concentrix.com/wp-content/uploads/2017/09/Workplace-Diversity.jpg');
   text-align: center;
   margin: auto;
-  width: 60%;
-  min-width: 350px;
-  min-height: 250px;
   background-position: center top;
   margin-top: 2vh;
   margin-bottom: 1vh;
+}
+@media only screen and (min-width: 601px) {
+  .img {
+    width: 60%;
+    min-width: 350px;
+    min-height: 250px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .img {
+    width: 100%;
+    min-width: 250px;
+    min-height: 150px;
+  }
 }
 .container {
   justify-content: center;
