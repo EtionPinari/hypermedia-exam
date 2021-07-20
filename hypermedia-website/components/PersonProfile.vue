@@ -1,6 +1,6 @@
 <template>
   <div class="PersonProfile person">
-    <div class="card" @click="goToArticle(`/employee/${id}`)">
+    <div class="card" @click="navigate(`/employee/${id}`)">
       <img :src="image" class="facepreview" />
       <div class="content2">
         <h3 class="lg:text-xl sm:text-base">{{ name + ` ` + surname }}</h3>
@@ -11,7 +11,9 @@
 </template>
 
 <script>
+import RoutingMixin from '~/mixins/routing'
 export default {
+  mixins: [RoutingMixin],
   props: {
     id: { type: Number, default: () => 0 },
     name: { type: String, default: () => '' }, //
@@ -29,11 +31,6 @@ export default {
     }, //
     summary: { type: String, default: () => '' },
     articles: { type: String, default: () => '' },
-  },
-  methods: {
-    goToArticle(path) {
-      this.$router.push({ path })
-    },
   },
 }
 </script>

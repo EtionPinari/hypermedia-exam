@@ -3,7 +3,7 @@
     <div
       class="img"
       :style="{ 'background-image': `url(${image})` }"
-      @click="goToArticle(`/blog/${id}`)"
+      @click="navigate(`/blog/${id}`)"
     >
       <div id="img-shadow">
         <div class="card">
@@ -18,17 +18,14 @@
 </template>
 
 <script>
+import RoutingMixin from '~/mixins/routing'
 export default {
+  mixins: [RoutingMixin],
   props: {
     id: { type: Number, default: () => 0 },
     title: { type: String, default: () => '' },
     image: { type: String, default: () => '' },
     summary: { type: String, default: () => '' },
-  },
-  methods: {
-    goToArticle(path) {
-      this.$router.push({ path })
-    },
   },
 }
 </script>

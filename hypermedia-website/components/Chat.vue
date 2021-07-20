@@ -55,6 +55,8 @@ export default {
       }
       WebSocketEventBus.$emit('send', packet)
       this.messageToSend = ''
+      // const chatEl = document.getElementById('chat-window')
+      // chatEl.scrollTop = 9 * chatEl.scrollHeight
     },
   },
 }

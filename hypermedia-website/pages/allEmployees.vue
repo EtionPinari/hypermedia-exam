@@ -7,11 +7,17 @@
           src="https://www.bamboohr.com/blog/wp-content/uploads/Employee_Development_Plans_4_Winning_Steps_to_Engage_Employees700x525.png"
         />
         <div class="display-middle center">
-          <span class="text-black" style="font-size: 40px; margin: auto">All our Employees</span>
+          <span class="text-black" style="font-size: 40px; margin: auto"
+            >All our Employees</span
+          >
         </div>
       </header>
       <div class="all-people-container">
-        <div v-for="(person, personIndex) of people" :key="'person-' + personIndex" class="person">
+        <div
+          v-for="(person, personIndex) of people"
+          :key="'person-' + personIndex"
+          class="person"
+        >
           <div v-if="canShow(personIndex)">
             <person-profile
               :id="person.id"
@@ -30,8 +36,16 @@
           v-if="showPreviousButton()"
           class="nav-button sm:w-32"
           @click="getPrevious()"
-        >Previous 6</div>
-        <div v-if="showNextButton()" class="nav-button sm:w-32" @click="getNewData()">Next 6</div>
+        >
+          Previous 6
+        </div>
+        <div
+          v-if="showNextButton()"
+          class="nav-button sm:w-32"
+          @click="getNewData()"
+        >
+          Next 6
+        </div>
       </div>
     </div>
   </div>

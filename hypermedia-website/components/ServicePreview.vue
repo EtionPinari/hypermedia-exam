@@ -1,6 +1,6 @@
 <template>
   <div class="ServicePreview service">
-    <div class="card" @click="goToService(`/service/${id}`)">
+    <div class="card" @click="navigate(`/service/${id}`)">
       <img :src="image" class="servicepreview" />
       <div class="content2">
         <h3 class="lg:text-xl sm:text-base">{{ title }}</h3>
@@ -10,7 +10,9 @@
 </template>
 
 <script>
+import RoutingMixin from '~/mixins/routing'
 export default {
+  mixins: [RoutingMixin],
   props: {
     id: { type: Number, default: () => 0 },
     title: { type: String, default: () => '' }, //

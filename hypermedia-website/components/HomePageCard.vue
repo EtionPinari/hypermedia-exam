@@ -1,5 +1,5 @@
 <template>
-  <div class="grid-item" @click="goToPath(`${id}`)">
+  <div class="grid-item" @click="navigate(`${id}`)">
     <div class="card">
       <img class="card-img" :src="image" />
       <div class="card-content">
@@ -9,7 +9,7 @@
         <p class="card-text">
           {{ summary }}
         </p>
-        <button class="card-btn" @click="goToPath(`${id}`)">
+        <button class="card-btn" @click="navigate(`${id}`)">
           More<span>&rarr;</span>
         </button>
       </div>
@@ -18,17 +18,14 @@
 </template>
 
 <script>
+import RoutingMixin from '~/mixins/routing'
 export default {
+  mixins: [RoutingMixin],
   props: {
     id: { type: String, default: () => '' },
     title: { type: String, default: () => '' },
     image: { type: String, default: () => '' },
     summary: { type: String, default: () => '' },
-  },
-  methods: {
-    goToPath(path) {
-      this.$router.push({ path })
-    },
   },
 }
 </script>
