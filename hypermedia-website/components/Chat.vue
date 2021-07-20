@@ -42,6 +42,12 @@ export default {
       isOpen: true,
     }
   },
+  watch: {
+    '$store.state.messages'() {
+      const chatEl = document.getElementById('chat-window')
+      chatEl.scrollTop = chatEl.scrollHeight
+    },
+  },
   methods: {
     sendMessage() {
       const { WebSocketEventBus } = require('mmcc/WebSocketEventBus')
@@ -55,8 +61,6 @@ export default {
       }
       WebSocketEventBus.$emit('send', packet)
       this.messageToSend = ''
-      // const chatEl = document.getElementById('chat-window')
-      // chatEl.scrollTop = 9 * chatEl.scrollHeight
     },
   },
 }
