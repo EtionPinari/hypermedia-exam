@@ -48,8 +48,8 @@
         <h1 class="gridTitle">Services in evidence</h1>
         <div class="grid">
           <div
-            v-for="(service, index) of services.slice(0, 3)"
-            :key="'area-' + index"
+            v-for="(service, serviceIndex) of services.slice(0, 3)"
+            :key="'service-' + serviceIndex"
           >
             <home-page-card
               :id="'/service/' + service.id"

@@ -66,7 +66,9 @@ export default {
   color: #0d0d0d;
   margin-bottom: 1.5rem;
   height: 2.4rem;
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-text {
@@ -130,7 +132,6 @@ export default {
     width: 17rem;
   }
   .card-header {
-    min-height: 4rem;
     margin-bottom: 0rem;
     overflow: hidden;
   }
