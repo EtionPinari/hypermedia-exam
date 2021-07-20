@@ -67,6 +67,7 @@ header > img {
   .container {
     background-color: $main-bg-color;
     text-align: center;
+    margin: 0 auto;
   }
 }
 

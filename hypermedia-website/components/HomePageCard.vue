@@ -66,6 +66,7 @@ export default {
   color: #0d0d0d;
   margin-bottom: 1.5rem;
   height: 2.4rem;
+  overflow: hidden;
 }
 
 .card-text {
@@ -115,7 +116,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 600px) {
   .grid-item {
     width: 20rem;
   }
@@ -124,12 +125,22 @@ export default {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 320px) {
   .grid-item {
-    width: 20rem;
+    width: 17rem;
   }
   .card-header {
-    height: 3rem;
+    min-height: 4rem;
+    margin-bottom: 0rem;
+    overflow: hidden;
+  }
+
+  .card-img {
+    height: 15rem;
+  }
+
+  .card-text {
+    margin-bottom: 0.5rem;
   }
 }
 </style>

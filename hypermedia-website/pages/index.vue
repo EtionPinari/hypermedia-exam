@@ -187,24 +187,34 @@ html {
 }
 
 @media only screen and (max-width: 320px) {
-  body {
-    padding: 3rem;
+  .gridContainer {
+    width: 100%;
+    margin-left: 1px;
   }
 
   .grid {
-    grid-gap: 1rem;
+    margin-left: 15px;
+    margin-right: 0px;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
+}
 
-  .ourEmployees {
-    width: 105%;
+@media only screen and (max-width: 420px) {
+  .gridContainer {
+    width: 100%;
+    margin-left: 1px;
   }
+}
 
-  .topEmployees {
-    margin-left: 20px;
+@media only screen and (min-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
+}
 
-  #ourCompany {
-    margin-left: 4px;
+@media only screen and (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   }
 }
 </style>
