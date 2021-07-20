@@ -57,7 +57,7 @@ h3 {
     width: 35vw;
   }
   .servicepreview {
-    height: 15vw;
+    height: 13vw;
     width: 25vw;
   }
 }
