@@ -15,7 +15,11 @@
         These are all the areas of our company:
       </h2>
       <div class="all-areas-container">
-        <div v-for="(area, areaIndex) of areas" :key="areaIndex" class="area">
+        <div
+          v-for="(area, areaIndex) of areas"
+          :key="areaIndex"
+          class="area-container"
+        >
           <div>
             <area-preview
               :id="area.id"
@@ -86,18 +90,19 @@ export default {
 /* This is the child of the all-area-container */
 /* All children can only take up to 50% of the total space and always stay in the center position */
 @media only screen and (max-width: 600px) {
-  .area {
+  .service-container {
     flex: 1 0 90%;
-    text-align: -webkit-center;
   }
 }
 @media only screen and (min-width: 601px) {
-  .area {
+  .area-container {
     flex: 1 0 50%;
     width: 70%;
-    height: 265px;
-    text-align: -webkit-center;
   }
+}
+.area-container {
+  text-align: -webkit-center;
+  margin-bottom: 2vh;
 }
 
 /* This is the container of all areas, and shows all areas in a row */
