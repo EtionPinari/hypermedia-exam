@@ -9,16 +9,19 @@
           <br />
           <br />
           <h3 id="welcome">Welcome to Hatgemini!</h3>
-        </div>Hatgemini is a global leader in consulting, digital transformation,
-        technology and engineering services.
-        <br />The Group is at the forefront of innovation to address the entire
-        breadth of clients’ opportunities in the evolving world of cloud,
-        digital and platforms.
+        </div>
+        Hatgemini is a global leader in consulting, digital transformation,
+        technology and engineering services. <br />The Group is at the forefront
+        of innovation to address the entire breadth of clients’ opportunities in
+        the evolving world of cloud, digital and platforms.
       </div>
       <div class="gridContainer">
         <h1 class="gridTitle">Our employess of the month</h1>
         <div class="grid">
-          <div v-for="(person, index) of people.slice(0, 3)" :key="'person-' + index">
+          <div
+            v-for="(person, index) of people.slice(0, 3)"
+            :key="'person-' + index"
+          >
             <home-page-card
               :id="'/employee/' + person.id"
               :title="person.name + ' ' + person.surname"
@@ -30,7 +33,10 @@
 
         <h1 class="gridTitle">Areas in evidence</h1>
         <div class="grid">
-          <div v-for="(area, index) of areas.slice(0, 3)" :key="'area-' + index">
+          <div
+            v-for="(area, index) of areas.slice(0, 3)"
+            :key="'area-' + index"
+          >
             <home-page-card
               :id="'/area/' + area.id"
               :title="area.title"
@@ -41,7 +47,10 @@
         </div>
         <h1 class="gridTitle">Services in evidence</h1>
         <div class="grid">
-          <div v-for="(service, index) of services.slice(0, 3)" :key="'area-' + index">
+          <div
+            v-for="(service, index) of services.slice(0, 3)"
+            :key="'area-' + index"
+          >
             <home-page-card
               :id="'/service/' + service.id"
               :title="service.title"
@@ -60,17 +69,15 @@ import HomePageCard from '~/components/HomePageCard.vue'
 export default {
   components: { HomePageCard },
   async asyncData({ $axios }) {
-    const [people, areas, services, articles] = await Promise.all([
+    const [people, areas, services] = await Promise.all([
       $axios.get(`${process.env.BASE_URL}/api/people`),
       $axios.get(`${process.env.BASE_URL}/api/areas`),
       $axios.get(`${process.env.BASE_URL}/api/services`),
-      $axios.get(`${process.env.BASE_URL}/api/articles`),
     ])
     return {
       people: people.data,
       areas: areas.data,
       services: services.data,
-      articles: articles.data,
     }
   },
 }
@@ -153,7 +160,7 @@ html {
   align-items: start;
   margin: 5%;
   margin-top: 40px;
-  padding: 10px 5px 0px 5px;
+  padding-top: 3px;
   overflow: hidden;
 }
 

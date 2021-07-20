@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav v-click-outside="closeMenu">
     <div class="max-w-6xl xl:max-w-7xl">
       <div class="flex justify-between">
         <nuxt-link to="/"><logo id="logo" /></nuxt-link>
@@ -102,6 +102,11 @@ export default {
     // This method resets the previous/next counter on every click of the navbar
     resetCounter() {
       this.$store.commit(`reset`)
+    },
+    closeMenu() {
+      if (this.showMenu) {
+        this.showMenu = !this.showMenu
+      }
     },
   },
 }

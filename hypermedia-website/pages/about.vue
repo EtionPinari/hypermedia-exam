@@ -6,7 +6,10 @@
       </div>
     </header>
     <div class="body">
-      <div id="text" class="content place-content-center md:text-xl sm:text-base">
+      <div
+        id="text"
+        class="content place-content-center md:text-xl sm:text-base"
+      >
         Hatgemini was established in 1996 to provide information technology
         solutions for small to medium-sized businesses. Our mission from the
         very first day has been to cultivate professional relationships with our
