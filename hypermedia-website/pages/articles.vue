@@ -2,7 +2,7 @@
   <!-- Container class only adds some style properties such as centering text and putting the right margin to containers  -->
   <div>
     <header id="header">
-      <h1>All our employee's articles</h1>
+      <h1>All our employees' articles</h1>
       <div v-if="adUrl" class="ad">
         <img :src="adUrl" alt="Advertisement" />
       </div>
