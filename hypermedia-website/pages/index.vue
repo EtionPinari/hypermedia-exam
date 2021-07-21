@@ -16,7 +16,7 @@
         the evolving world of cloud, digital and platforms.
       </div>
       <div class="gridContainer">
-        <h1 class="gridTitle">Our employess of the month</h1>
+        <h1 class="gridTitle">Our employees of the month</h1>
         <div class="grid">
           <div
             v-for="(person, index) of people.slice(0, 3)"

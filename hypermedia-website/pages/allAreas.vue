@@ -90,7 +90,7 @@ export default {
 /* This is the child of the all-area-container */
 /* All children can only take up to 50% of the total space and always stay in the center position */
 @media only screen and (max-width: 600px) {
-  .service-container {
+  .area-container {
     flex: 1 0 90%;
   }
 }
