@@ -122,6 +122,18 @@ export default {
       person,
     }
   },
+  head() {
+    return {
+      title: `Hatgemini - employee`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.person.summary + ' Find more about his personal life.',
+        },
+      ],
+    }
+  },
 }
 </script>
 

@@ -82,6 +82,18 @@ export default {
       area,
     }
   },
+  head() {
+    return {
+      title: this.area.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.area.overview,
+        },
+      ],
+    }
+  },
   methods: {
     goToExperts(path) {
       this.$router.push({ path })

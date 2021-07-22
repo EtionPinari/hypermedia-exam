@@ -81,7 +81,7 @@ export default {
     }
   },
   head: {
-    title: 'Innovation technologies - Hatgemini',
+    title: 'Hatgemini - Innovation technologies',
     meta: [
       {
         hid: 'description',

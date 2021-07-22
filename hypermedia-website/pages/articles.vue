@@ -49,7 +49,8 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: ' Find out all our articles. ',
+        content:
+          ' Read articles regarding, Engineering, Telecommunication, Entertainment and more! Gain more knowledge, in less time.',
       },
     ],
   },

@@ -76,7 +76,8 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: ' All our employees: ',
+        content:
+          ' Employees of Hatgemini. Find out what our employees specialize in: ',
       },
     ],
   },

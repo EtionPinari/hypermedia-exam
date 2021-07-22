@@ -81,13 +81,24 @@ import AreaPreview from '~/components/AreaPreview.vue'
 export default {
   components: { redirectButton, AreaPreview, PersonProfile },
   async asyncData({ $axios, route }) {
-    // const { id } = route.params
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/service/${route.params.id}`
     )
     const service = data
     return {
       service,
+    }
+  },
+  head() {
+    return {
+      title: 'Hatgemini - ' + this.service.title, // `{{service.name}}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.service.title + ' offers: ' + this.service.overview,
+        },
+      ],
     }
   },
 }

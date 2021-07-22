@@ -63,7 +63,8 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: ' Find out all of our services provided.',
+        content:
+          ' Find out which services we provide in the fields of expertise: Information, Communication and Telecommunications.',
       },
     ],
   },

@@ -1,6 +1,3 @@
-// STILL IN WORK BUT // THIS IS THE PAGE THAT FINDS THE EMPLOYEE'S THROUGH THEIR
-NAMES
-
 <template>
   <div>
     <RedirectButton />
@@ -35,6 +32,19 @@ export default {
     return {
       person,
       areaName,
+    }
+  },
+  head() {
+    return {
+      title: 'Hatgemini - ' + this.areaName + `'s staff`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            ' Experts of: ' + this.areaName + ' can help your business grow.',
+        },
+      ],
     }
   },
 }

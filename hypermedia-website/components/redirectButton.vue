@@ -10,7 +10,7 @@
 <script>
 export default {
   props: {
-    numberOfPagesBack: { type: Number, default: () => -2 },
+    numberOfPagesBack: { type: Number, default: () => -1 },
   },
   methods: {
     goBack(numberOfPagesBack) {

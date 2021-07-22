@@ -56,7 +56,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'Find out how our services can help you to transform your company, or find out how to become our partner, contact us: 800-800-8002, Place de l Étoile - 15 rue de Tilsitt - 63200 Riom',
+          'Contact Hatgemini, an ICT company that offers services which can help you transform your company. Find out how to become our partner. Contact us: 800-800-8002, Place de l Étoile - 15 rue de Tilsitt - 63200 Riom',
       },
     ],
   },
