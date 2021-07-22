@@ -117,6 +117,23 @@ export default {
     width: 20rem;
   }
 }
+@media (max-width: 768px) and (min-width: 601px) {
+  .grid-item {
+    margin-left: 8rem;
+  }
+}
+
+@media (max-width: 600px) and (min-width: 501px) {
+  .grid-item {
+    margin-left: 5rem;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 420px) {
+  .grid-item {
+    margin-left: 3rem;
+  }
+}
 
 @media only screen and (max-width: 600px) {
   .grid-item {
