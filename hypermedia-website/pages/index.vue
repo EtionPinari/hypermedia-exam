@@ -80,6 +80,17 @@ export default {
       services: services.data,
     }
   },
+  head: {
+    title: 'Innovation technologies - Hatgemini',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          ' Hatgemini is a global leader in consulting, digital transformation, technology and engineering services.',
+      },
+    ],
+  },
 }
 </script>
 

@@ -57,6 +57,16 @@ export default {
       next: { type: Number, default: () => 0 },
     }
   },
+  head: {
+    title: 'Services - Hatgemini',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: ' Find out all of our services provided.',
+      },
+    ],
+  },
   methods: {
     canShow(serviceIndex) {
       if (serviceIndex < (this.$store.state.counter + 1) * 6) {

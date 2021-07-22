@@ -43,6 +43,16 @@ export default {
       adUrl: '',
     }
   },
+  head: {
+    title: 'Articles - Hatgemini',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: ' Find out all our articles. ',
+      },
+    ],
+  },
   mounted() {
     setTimeout(async () => {
       const { data } = await axios.get('/api/ad')

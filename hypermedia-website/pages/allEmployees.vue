@@ -70,6 +70,16 @@ export default {
       next: { type: Number, default: () => 0 },
     }
   },
+  head: {
+    title: 'Our Staff - Hatgemini',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: ' All our employees: ',
+      },
+    ],
+  },
   methods: {
     canShow(personIndex) {
       if (personIndex < (this.$store.state.counter + 1) * 6) {

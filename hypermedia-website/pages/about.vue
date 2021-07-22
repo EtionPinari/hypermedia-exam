@@ -38,7 +38,21 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  head: {
+    title: 'Areas - Hatgemini',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Areas: Gaming and Entertainment, Energy and Utilities, Electronics & High Tech, Electronics & High Tech  ',
+      },
+    ],
+  },
+}
+</script>
 
 <style scoped>
 .content {

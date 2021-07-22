@@ -49,6 +49,17 @@
 
 <script>
 export default {
+  head: {
+    title: 'Contacts - Hatgemini',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Find out how our services can help you to transform your company, or find out how to become our partner, contact us: 800-800-8002, Place de l Étoile - 15 rue de Tilsitt - 63200 Riom',
+      },
+    ],
+  },
   methods: {
     sendFeedback() {
       alert('Thank you for your time!')
