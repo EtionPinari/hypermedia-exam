@@ -83,7 +83,7 @@ export default {
   bottom: 3px;
   right: 0px;
 }
-@media only screen and (min-width: 601px), screen and (min-height: 701x) {
+@media only screen and (min-width: 601px) {
   .chat-container {
     border: 1px solid black;
     border-radius: 4px;
