@@ -84,7 +84,7 @@ export default {
   },
   head() {
     return {
-      title: this.area.title,
+      title: 'Hatgemini - ' + this.area.title,
       meta: [
         {
           hid: 'description',

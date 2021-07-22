@@ -124,7 +124,7 @@ export default {
   },
   head() {
     return {
-      title: `Hatgemini - employee`,
+      title: `Hatgemini's employee - ` + this.person.name,
       meta: [
         {
           hid: 'description',

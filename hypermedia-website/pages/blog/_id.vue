@@ -50,7 +50,7 @@ export default {
   },
   head() {
     return {
-      title: this.article.title,
+      title: 'Hatgemini- ' + this.article.title,
       meta: [
         {
           hid: 'description',
