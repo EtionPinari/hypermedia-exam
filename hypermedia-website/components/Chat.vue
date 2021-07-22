@@ -96,6 +96,12 @@ export default {
   }
 }
 
+@media only screen and (max-height: 700px) {
+  .chat-container {
+    height: 50vh;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .chat-container {
     border: 1px solid black;
