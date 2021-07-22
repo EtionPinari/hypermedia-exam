@@ -124,21 +124,26 @@ export default {
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 900px) {
   .grid-item {
-    width: 17rem;
-  }
-  .card-header {
-    margin-bottom: 0rem;
-    overflow: hidden;
+    width: 19rem;
   }
 
+  .card-header {
+    margin-bottom: 0rem;
+  }
   .card-img {
-    height: 15rem;
+    height: 14rem;
   }
 
   .card-text {
     margin-bottom: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .grid-item {
+    width: 17rem;
   }
 }
 </style>
