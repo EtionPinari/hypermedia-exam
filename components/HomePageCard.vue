@@ -43,7 +43,7 @@ export default {
 
 .grid-item:hover {
   transform: translateY(-0.5%);
-  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
 }
 
 .card-img {
