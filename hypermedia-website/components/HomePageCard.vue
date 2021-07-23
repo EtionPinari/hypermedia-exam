@@ -75,19 +75,11 @@ export default {
   margin-bottom: 2.5rem;
   font-size: 1.2rem;
   height: 9rem;
-<<<<<<< Updated upstream
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-=======
   overflow: hidden;
   white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
->>>>>>> Stashed changes
 }
 
 .card-btn {
