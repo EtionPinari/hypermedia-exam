@@ -6,12 +6,12 @@
       <section>
         <div>
           <header class="titleImage">
-            <img class="titleImage" :src="area.image" />
+            <img class="titleImage" alt="Image of the area" :src="area.image" />
 
             <div class="display-middle center">
-              <span class="text-black" style="font-size: 40px">{{
-                area.title
-              }}</span>
+              <span class="text-black" style="font-size: 40px"><h1> {{
+                area.title 
+              }} </h1> </span>
             </div>
           </header>
 

@@ -13,7 +13,7 @@
               <h1>{{ person.name + ' ' + person.surname }}</h1>
             </div>
             <div id="face">
-              <img :src="person.image" />
+              <img alt="Image of a person" :src="person.image" />
               <h4>{{ person.summary }}</h4>
             </div>
           </header>

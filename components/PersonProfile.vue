@@ -1,7 +1,7 @@
 <template>
   <div class="PersonProfile person">
     <div class="card" @click="navigate(`/employee/${id}`)">
-      <img :src="image" class="facepreview" />
+      <img :src="image" alt="Image of a person" class="facepreview" />
       <div class="content2">
         <h3 class="lg:text-xl sm:text-base">{{ name + ` ` + surname }}</h3>
         <h5 class="lg:text-lg sm:text-xs">{{ area.title }}</h5>
