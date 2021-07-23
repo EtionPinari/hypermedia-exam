@@ -75,11 +75,11 @@ export default {
   margin-bottom: 2.5rem;
   font-size: 1.2rem;
   height: 9rem;
-  overflow: hidden;
-  white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-btn {
