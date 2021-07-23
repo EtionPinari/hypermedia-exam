@@ -185,7 +185,7 @@ html {
   margin: 5%;
   margin-top: 40px;
   padding-top: 3px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 @media only screen and (max-width: 60em) {
