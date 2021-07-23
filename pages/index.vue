@@ -16,7 +16,7 @@
         the evolving world of cloud, digital and platforms.
       </div>
       <div class="gridContainer">
-        <h1 class="gridTitle">Our employees of the month</h1>
+        <h4 class="gridTitle">Our employees of the month</h4>
         <div class="grid">
           <div
             v-for="(person, index) of people.slice(0, 3)"
@@ -31,7 +31,7 @@
           </div>
         </div>
 
-        <h1 class="gridTitle">Areas in evidence</h1>
+        <h4 class="gridTitle">Areas in evidence</h4>
         <div class="grid">
           <div
             v-for="(area, index) of areas.slice(0, 3)"
@@ -45,7 +45,7 @@
             ></home-page-card>
           </div>
         </div>
-        <h1 class="gridTitle">Services in evidence</h1>
+        <h4 class="gridTitle">Services in evidence</h4>
         <div class="grid">
           <div
             v-for="(service, serviceIndex) of services.slice(0, 3)"
@@ -81,7 +81,7 @@ export default {
     }
   },
   head: {
-    title: 'Hatgemini - Innovation technologies',
+    title: 'Innovation technologies - Hatgemini',
     meta: [
       {
         hid: 'description',
@@ -173,6 +173,7 @@ html {
 .gridTitle {
   margin-top: 20px;
   text-align: center;
+  font-size: 38px;
 }
 
 .grid {
