@@ -4,6 +4,7 @@
       <img
         class="titleImage"
         src="https://b6x0l214gh21wkvwf1simsxr-wpengine.netdna-ssl.com/wp-content/uploads/2019/05/kas_resouce-webinar_selling-msp-services-network-assessments-sales-tool.jpg"
+        alt="Person looking away with a spyglass"
       />
       <div class="display-middle center">
         <span class="text-black" style="font-size: 40px">All our Areas</span>
@@ -11,9 +12,9 @@
     </header>
 
     <div>
-      <h2 class="lg:text-2xl sm:text-base">
+      <h1 class="lg:text-2xl sm:text-base">
         These are all the areas of our company:
-      </h2>
+      </h1>
       <div class="all-areas-container">
         <div
           v-for="(area, areaIndex) of areas"

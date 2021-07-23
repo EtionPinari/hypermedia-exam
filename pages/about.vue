@@ -2,7 +2,7 @@
   <div>
     <header class="center">
       <div>
-        <span class="text-black" style="font-size: 40px">ABOUT US</span>
+        <span class="text-black" style="font-size: 40px"><h1> ABOUT US</h1></span>
       </div>
     </header>
     <div class="body">

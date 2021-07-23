@@ -5,10 +5,11 @@
         <img
           class="titleImage"
           src="https://www.bamboohr.com/blog/wp-content/uploads/Employee_Development_Plans_4_Winning_Steps_to_Engage_Employees700x525.png"
+          alt="People working together"
         />
         <div class="display-middle center">
           <span class="text-black" style="font-size: 40px; margin: auto"
-            >All our Employees</span
+            > <h1> All our Employees </h1> </span
           >
         </div>
       </header>

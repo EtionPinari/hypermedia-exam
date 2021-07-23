@@ -4,6 +4,7 @@
       <img
         class="titleImage"
         src="https://it.agictech.com/media/1455/services4.png"
+        alt="Multiple gear containing the services provided by Hatgemini"
       />
       <div class="display-middle center">
         <span class="text-black" style="font-size: 40px">All our Services</span>
@@ -11,9 +12,9 @@
     </header>
 
     <div>
-      <h2 class="lg:text-2xl sm:text-base">
+      <h1 class="lg:text-2xl sm:text-base">
         These are all the services of our company:
-      </h2>
+      </h1>
       <div class="all-services-container">
         <div
           v-for="(service, serviceIndex) of services"

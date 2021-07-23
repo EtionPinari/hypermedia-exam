@@ -1,7 +1,7 @@
 <template>
   <div class="grid-item" @click="navigate(`${id}`)">
     <div class="card">
-      <img class="card-img" :src="image" />
+      <img class="card-img" alt="image Of the card" :src="image" />
       <div class="card-content">
         <h2 class="card-header">
           {{ title }}
@@ -43,7 +43,7 @@ export default {
 
 .grid-item:hover {
   transform: translateY(-0.5%);
-  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.5);
 }
 
 .card-img {

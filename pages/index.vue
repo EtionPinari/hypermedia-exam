@@ -8,7 +8,7 @@
           <br />
           <br />
           <br />
-          <h3 id="welcome">Welcome to Hatgemini!</h3>
+          <h1 id="welcome">Welcome to Hatgemini!</h1>
         </div>
         Hatgemini is a global leader in consulting, digital transformation,
         technology and engineering services. <br />The Group is at the forefront
