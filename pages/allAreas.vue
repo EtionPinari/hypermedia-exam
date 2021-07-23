@@ -1,19 +1,25 @@
 <template>
-  <div>
+  <div class="main-div">
     <header class="titleImage">
       <img
         class="titleImage"
         src="https://b6x0l214gh21wkvwf1simsxr-wpengine.netdna-ssl.com/wp-content/uploads/2019/05/kas_resouce-webinar_selling-msp-services-network-assessments-sales-tool.jpg"
       />
       <div class="display-middle center">
-        <span class="text-white" style="font-size: 40px"> All our Areas</span>
+        <span class="text-black" style="font-size: 40px">All our Areas</span>
       </div>
     </header>
 
-    <div class="areasContainer">
-      <h2>These are all the areas of our company:</h2>
+    <div>
+      <h2 class="lg:text-2xl sm:text-base">
+        These are all the areas of our company:
+      </h2>
       <div class="all-areas-container">
-        <div v-for="(area, areaIndex) of areas" :key="areaIndex" class="area">
+        <div
+          v-for="(area, areaIndex) of areas"
+          :key="areaIndex"
+          class="area-container"
+        >
           <div>
             <area-preview
               :id="area.id"
@@ -25,22 +31,6 @@
           </div>
 
           <div></div>
-        </div>
-      </div>
-      <div class="control-bar">
-        <div
-          v-if="$data.next > 0"
-          class="nav-button sm:w-32"
-          @click="getPrevious()"
-        >
-          Previous 6
-        </div>
-        <div
-          v-if="showNextButton()"
-          class="nav-button sm:w-32"
-          @click="getNewData()"
-        >
-          Next 6
         </div>
       </div>
     </div>
@@ -66,6 +56,17 @@ export default {
       // default is 0 even though it would be more correct to be equal to store.state.counter
       next: { type: Number, default: () => 0 },
     }
+  },
+  head: {
+    title: 'Areas - Hatgemini',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Our Areas include Electronics & High Tech, Gaming and Entertainment, Energy and Utilities, Banking and Consulting.',
+      },
+    ],
   },
   methods: {
     canShow(areaIndex) {
@@ -97,44 +98,36 @@ export default {
 </script>
 
 <style scoped>
-/* This is the child of the all-people-container */
+/* This is the child of the all-area-container */
 /* All children can only take up to 50% of the total space and always stay in the center position */
 @media only screen and (max-width: 600px) {
-  .area {
+  .area-container {
     flex: 1 0 90%;
-    text-align: -webkit-center;
   }
 }
 @media only screen and (min-width: 601px) {
-  .area {
+  .area-container {
     flex: 1 0 50%;
-    text-align: -webkit-center;
-  }
-  .nav-button {
-    width: 5vw;
-    height: 2vw;
-    text-align: center;
-    padding: 0.3vw 0;
-    margin: auto 1vw;
+    width: 70%;
   }
 }
+.area-container {
+  text-align: -webkit-center;
+  margin-bottom: 2vh;
+}
 
-/* This is the container of all people, and shows all employees in a row */
+/* This is the container of all areas, and shows all areas in a row */
 .all-areas-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-left: 1.5vw;
-  margin-right: 1.5vw;
 }
 
 .display-middle {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
 }
 
 .center {
@@ -143,9 +136,9 @@ export default {
 h2 {
   margin: 1vw;
 }
-.control-bar {
-  justify-content: space-around;
-  display: inline-flex;
-  margin-top: 2vw;
+
+img {
+  opacity: 0.5;
+  filter: brightness(80%);
 }
 </style>

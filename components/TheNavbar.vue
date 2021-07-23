@@ -1,12 +1,12 @@
 <template>
-  <nav>
+  <nav v-click-outside="closeMenu">
     <div class="max-w-6xl xl:max-w-7xl">
       <div class="flex justify-between">
         <nuxt-link to="/"><logo id="logo" /></nuxt-link>
         <div class="flex py-8"></div>
         <div class="hidden md:flex items-center mr-12">
           <div
-            class="flex space-x-4 lg:space-x-16 xl:space-x-28 2xl:space-x-24"
+            class="flex space-x-4 lg:space-x-16 xl:space-x-28 2xl:space-x-20"
           >
             <nuxt-link to="/allAreas"> Areas </nuxt-link>
             <nuxt-link to="/articles">Articles</nuxt-link>
@@ -43,22 +43,46 @@
 
     <!-- mobile menu -->
     <div v-if="showMenu" class="mobile-menu md:hidden">
-      <nuxt-link to="/allAreas" class="block py-2 px-4 text-sm">
+      <nuxt-link
+        to="/allAreas"
+        class="block py-2 px-4 text-sm"
+        @click.native="showMenu = !showMenu"
+      >
         Areas
       </nuxt-link>
-      <nuxt-link to="/articles" class="block py-2 px-4 text-sm">
+      <nuxt-link
+        to="/articles"
+        class="block py-2 px-4 text-sm"
+        @click.native="showMenu = !showMenu"
+      >
         Articles
       </nuxt-link>
-      <nuxt-link to="/allEmployees" class="block py-2 px-4 text-sm">
+      <nuxt-link
+        to="/allEmployees"
+        class="block py-2 px-4 text-sm"
+        @click.native="showMenu = !showMenu"
+      >
         <p @click="resetCounter()">Experts</p>
       </nuxt-link>
-      <nuxt-link to="/allServices" class="block py-2 px-4 text-sm">
+      <nuxt-link
+        to="/allServices"
+        class="block py-2 px-4 text-sm"
+        @click.native="showMenu = !showMenu"
+      >
         Services
       </nuxt-link>
-      <nuxt-link to="/contacts" class="block py-2 px-4 text-sm">
+      <nuxt-link
+        to="/contacts"
+        class="block py-2 px-4 text-sm"
+        @click.native="showMenu = !showMenu"
+      >
         Contact us
       </nuxt-link>
-      <nuxt-link to="/about" class="block py-2 px-4 text-sm">
+      <nuxt-link
+        to="/about"
+        class="block py-2 px-4 text-sm"
+        @click.native="showMenu = !showMenu"
+      >
         About us
       </nuxt-link>
     </div>
@@ -78,6 +102,11 @@ export default {
     // This method resets the previous/next counter on every click of the navbar
     resetCounter() {
       this.$store.commit(`reset`)
+    },
+    closeMenu() {
+      if (this.showMenu) {
+        this.showMenu = !this.showMenu
+      }
     },
   },
 }

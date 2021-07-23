@@ -1,78 +1,77 @@
 <template>
-  <section class="sand grayscale large">
-    <section>
-      <redirectButton :number-of-pages-back="-1" />
-      <!-- Person face, short biography and name + surname -->
-      <div>
-        <header
-          class="titleImage"
-          :style="{
-            'background-image': `url(${area.image})`,
-          }"
-        >
-          <div class="display-middle center">
-            <span class="text-white" style="font-size: 40px">
-              {{ area.title }}</span
-            >
-          </div>
-        </header>
+  <section>
+    <redirectButton :number-of-pages-back="-1" />
 
-        <!-- service's decription section -->
-        <article>
-          <div class="content" style="max-width: 700px">
-            <div id="overview">
-              <p>
-                {{ area.overview }}
-              </p>
+    <section class="main-section">
+      <section>
+        <div>
+          <header class="titleImage">
+            <img class="titleImage" :src="area.image" />
+
+            <div class="display-middle center">
+              <span class="text-black" style="font-size: 40px">{{
+                area.title
+              }}</span>
             </div>
-            <hr />
-            <div id="details">
-              <p>
-                {{ area.details }}
-              </p>
+          </header>
+
+          <!-- area's decription section -->
+          <article>
+            <div class="text-content content">
+              <div id="overview">
+                <p>{{ area.overview }}</p>
+              </div>
+              <hr />
+              <div id="details">
+                <p>{{ area.details }}</p>
+              </div>
+              <hr />
             </div>
-            <hr />
-          </div>
-        </article>
-      </div>
-    </section>
-    <section>
-      <!-- All its services -->
-      <h3>Services in this Area</h3>
-      <h4 v-if="area.services.length === 0">
-        {{ area.title }} has no services.
-      </h4>
-      <section class="services">
-        <div
-          v-for="(service, serviceIndex) of area.services"
-          :key="'Service-' + serviceIndex"
-          class="service"
-        >
-          <div class="content">
-            <article-mini
-              :id="service.id"
-              :title="service.title"
-              :summary="service.overview"
-              :image="service.image"
-            ></article-mini>
-          </div>
+          </article>
         </div>
       </section>
-      <div
-        class="nav-button"
-        @click="goToExperts(`/employeeName/${area.title}`)"
-      >
-        <h3 class="lg: text-xl sm:text-base">Go to all Experts in this area</h3>
-      </div>
+      <section class="service-section">
+        <!-- All its services -->
+        <br />
+        <h2 class="lg:text-2xl sm:text-base">Services in {{ area.title }}</h2>
+        <br />
+        <h4 v-if="area.services.length === 0">
+          {{ area.title }} has no services.
+        </h4>
+        <section class="services-container">
+          <div
+            v-for="(service, serviceIndex) of area.services"
+            :key="'Service-' + serviceIndex"
+            class="service-container"
+          >
+            <div class="content">
+              <service-preview
+                :id="service.id"
+                :title="service.title"
+                :summary="service.overview"
+                :image="service.image"
+              ></service-preview>
+            </div>
+          </div>
+        </section>
+        <div
+          class="nav-button"
+          @click="goToExperts(`/employeeName/${area.title}`)"
+        >
+          <h3 class="lg: text-xl sm:text-base">
+            Go to all experts in {{ area.title }}
+          </h3>
+        </div>
+      </section>
     </section>
   </section>
 </template>
 
 <script>
-import ArticleMini from '../../components/ArticleMini.vue'
+import ServicePreview from '../../components/ServicePreview.vue'
 import redirectButton from '~/components/redirectButton.vue'
 export default {
-  components: { ArticleMini, redirectButton },
+  components: { ServicePreview, redirectButton },
   async asyncData({ $axios, route }) {
     // const { id } = route.params
     const { data } = await $axios.get(
@@ -81,6 +80,18 @@ export default {
     const area = data
     return {
       area,
+    }
+  },
+  head() {
+    return {
+      title: 'Hatgemini - ' + this.area.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.area.overview,
+        },
+      ],
     }
   },
   methods: {
@@ -92,60 +103,70 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-hr {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  width: 90%;
-  align-self: center;
+@media only screen and (max-width: 600px) {
+  .service-container {
+    flex: 1 0 100%;
+    text-align: -webkit-center;
+  }
 }
-.article-mini {
-  border: 0px;
-  min-height: 30vh;
+@media only screen and (min-width: 601px) {
+  .service-container {
+    flex: 1 0 50%;
+    text-align: -webkit-center;
+  }
 }
-
-.text-white {
-  color: #fff !important;
-}
-.center {
-  text-align: center !important;
-}
-.content {
+.main-section {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.sand {
-  color: #000 !important;
-}
-.greyscale {
-  filter: grayscale(70%);
-}
-.large {
-  font-size: 18px !important;
-}
-
-#overview,
-#details {
-  padding: 20px;
-}
-
-.content {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 980px;
-}
-.services {
+.services-container {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  padding: 20px;
+}
+.service-section {
+  max-width: 85%;
+}
+.content {
+  width: auto;
+}
+hr {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 95%;
+  align-self: center;
+}
+#overview,
+#details {
+  padding: 2vw;
+}
+.text-black {
+  color: #000 !important;
+}
+article {
+  display: flex;
+  justify-content: center;
+}
+.text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  max-width: 75%;
 }
 
-@media only screen and (min-width: 601px) {
-  .service {
-    // border: 0.1vw solid $main-border-color;
-    width: 33%;
-  }
-}
 .nav-button {
   display: inline-flex;
+  padding: 2.1%;
+}
+* > .card {
+  margin: auto;
+  width: auto;
+}
+img {
+  opacity: 0.5;
+  filter: brightness(80%);
 }
 </style>

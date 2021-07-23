@@ -7,9 +7,9 @@
           src="https://www.bamboohr.com/blog/wp-content/uploads/Employee_Development_Plans_4_Winning_Steps_to_Engage_Employees700x525.png"
         />
         <div class="display-middle center">
-          <span class="text-white" style="font-size: 40px; margin: auto">
-            All our Employees
-          </span>
+          <span class="text-black" style="font-size: 40px; margin: auto"
+            >All our Employees</span
+          >
         </div>
       </header>
       <div class="all-people-container">
@@ -33,7 +33,7 @@
       </div>
       <div class="control-bar">
         <div
-          v-if="$data.next > 0"
+          v-if="showPreviousButton()"
           class="nav-button sm:w-32"
           @click="getPrevious()"
         >
@@ -70,12 +70,29 @@ export default {
       next: { type: Number, default: () => 0 },
     }
   },
+  head: {
+    title: 'Our Staff - Hatgemini',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          ' Employees of Hatgemini. Find out what our employees specialize in: ',
+      },
+    ],
+  },
   methods: {
     canShow(personIndex) {
       if (personIndex < (this.$store.state.counter + 1) * 6) {
         if (personIndex >= this.$store.state.counter * 6) {
           return true
         }
+      }
+      return false
+    },
+    showPreviousButton() {
+      if (this.$store.state.counter > 0) {
+        return true
       }
       return false
     },
@@ -114,8 +131,8 @@ export default {
     text-align: -webkit-center;
   }
   .nav-button {
-    width: 5vw;
-    height: 3.3vh;
+    width: 8vw;
+    height: 4vh;
     text-align: center;
     margin: auto;
   }
@@ -148,5 +165,9 @@ h2 {
   justify-content: space-around;
   display: inline-flex;
   margin-top: 2vw;
+}
+img {
+  opacity: 0.5;
+  filter: brightness(80%);
 }
 </style>

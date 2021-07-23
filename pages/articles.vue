@@ -2,7 +2,7 @@
   <!-- Container class only adds some style properties such as centering text and putting the right margin to containers  -->
   <div>
     <header id="header">
-      <h1>All our employee's articles</h1>
+      <h1>All our employees' articles</h1>
       <div v-if="adUrl" class="ad">
         <img :src="adUrl" alt="Advertisement" />
       </div>
@@ -43,16 +43,22 @@ export default {
       adUrl: '',
     }
   },
+  head: {
+    title: 'Articles - Hatgemini',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          ' Read articles regarding, Engineering, Telecommunication, Entertainment and more! Gain more knowledge, in less time.',
+      },
+    ],
+  },
   mounted() {
     setTimeout(async () => {
       const { data } = await axios.get('/api/ad')
       this.adUrl = data.url
     }, 1000)
-  },
-  methods: {
-    goToArticle(path) {
-      this.$router.push({ path })
-    },
   },
 }
 </script>

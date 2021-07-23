@@ -22,6 +22,7 @@ export default {
 
 <style lang="scss">
 /* THIS IS THE BACKGROUND CLASS */
+
 html {
   background-color: $secondary-bg-color;
 }
@@ -55,11 +56,19 @@ header > img {
   box-sizing: border-box;
   margin: 0;
 }
-
-.container {
-  background-color: $main-bg-color;
-  text-align: center;
-  margin: 0 auto;
+@media only screen and (min-width: 601px) {
+  .container {
+    background-color: $main-bg-color;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 601px) {
+  .container {
+    background-color: $main-bg-color;
+    text-align: center;
+    margin: 0 auto;
+  }
 }
 
 .center {
@@ -87,6 +96,9 @@ header > img {
 .AreaPreview {
   transition: 0.3s;
 }
+.ServicePreview {
+  transition: 0.3s;
+}
 .article-mini > .img > #img-shadow:hover,
 .PersonProfile:hover {
   background-color: rgba(0, 0, 0, 0.3);
@@ -101,6 +113,10 @@ header > img {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
+.ServicePreview:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 /* TEXT SCALINGS WITH VIEW WIDTH */
 a,
 h5 {

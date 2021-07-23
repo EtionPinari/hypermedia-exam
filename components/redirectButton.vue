@@ -10,7 +10,7 @@
 <script>
 export default {
   props: {
-    numberOfPagesBack: { type: Number, default: () => -2 },
+    numberOfPagesBack: { type: Number, default: () => -1 },
   },
   methods: {
     goBack(numberOfPagesBack) {
@@ -23,5 +23,8 @@ export default {
 <style lang="scss" scoped>
 .btn {
   cursor: pointer;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 65px;
 }
 </style>

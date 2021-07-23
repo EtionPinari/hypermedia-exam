@@ -3,13 +3,13 @@
     <div
       class="img"
       :style="{ 'background-image': `url(${image})` }"
-      @click="goToArticle(`/blog/${id}`)"
+      @click="navigate(`/blog/${id}`)"
     >
       <div id="img-shadow">
         <div class="card">
           <h3 class="lg: text-xl sm:text-base">{{ title }}</h3>
 
-          <p class="lg:text-lg :sm:text-xs">{{ summary }}</p>
+          <p class="lg:text-lg smaller-text">{{ summary }}</p>
         </div>
       </div>
     </div>
@@ -18,17 +18,14 @@
 </template>
 
 <script>
+import RoutingMixin from '~/mixins/routing'
 export default {
+  mixins: [RoutingMixin],
   props: {
     id: { type: Number, default: () => 0 },
     title: { type: String, default: () => '' },
     image: { type: String, default: () => '' },
     summary: { type: String, default: () => '' },
-  },
-  methods: {
-    goToArticle(path) {
-      this.$router.push({ path })
-    },
   },
 }
 </script>
@@ -46,7 +43,13 @@ hr {
   align-self: center;
   margin: auto;
 }
-
+@media only screen and (max-width: 600px) {
+  .smaller-text {
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-top: 5px;
+  }
+}
 /* card is where the content is displayed */
 .card {
   padding: 20px 10px;
@@ -83,7 +86,7 @@ p {
   cursor: pointer;
   /* flex: 2; */
   width: 100%;
-  // height: 200px;
+  height: 234px;
   max-width: 80%;
   min-height: 25vh;
   margin: 2.3vh auto;

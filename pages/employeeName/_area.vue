@@ -1,6 +1,3 @@
-// STILL IN WORK BUT // THIS IS THE PAGE THAT FINDS THE EMPLOYEE'S THROUGH THEIR
-NAMES
-
 <template>
   <div>
     <RedirectButton />
@@ -8,10 +5,12 @@ NAMES
     <div class="all-people-container">
       <div v-for="(person, personIndex) of person" :key="'art-' + personIndex">
         <person-profile
+          :id="person.id"
           :name="person.name"
           :surname="person.surname"
           :summary="person.summary"
           :image="person.image"
+          :area="person.areas[0]"
         />
       </div>
     </div>
@@ -33,6 +32,19 @@ export default {
     return {
       person,
       areaName,
+    }
+  },
+  head() {
+    return {
+      title: 'Hatgemini - ' + this.areaName + `'s staff`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            ' Experts of: ' + this.areaName + ' can help your business grow.',
+        },
+      ],
     }
   },
 }

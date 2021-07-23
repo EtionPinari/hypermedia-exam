@@ -1,7 +1,7 @@
 <template>
-  <div class="AreaPreview area">
-    <div class="card" @click="goToArea(`/area/${id}`)">
-      <img :src="image" class="areapreview" />
+  <div class="ServicePreview service">
+    <div class="card" @click="navigate(`/service/${id}`)">
+      <img :src="image" class="servicepreview" />
       <div class="content2">
         <h3 class="lg:text-xl sm:text-base">{{ title }}</h3>
       </div>
@@ -10,17 +10,19 @@
 </template>
 
 <script>
+import RoutingMixin from '~/mixins/routing'
 export default {
+  mixins: [RoutingMixin],
   props: {
     id: { type: Number, default: () => 0 },
     title: { type: String, default: () => '' }, //
     image: { type: String, default: () => '' }, //
     overview: { type: String, default: () => '' }, //
     details: { type: String, default: () => '' }, //
-    services: { type: String, default: () => '' },
+    areas: { type: String, default: () => '' },
   },
   methods: {
-    goToArea(path) {
+    goToService(path) {
       this.$router.push({ path })
     },
   },
@@ -32,11 +34,11 @@ export default {
 .card {
   padding: 0.3vw 0.5vw;
   align-items: center;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: inherit;
+  margin: auto;
   margin-bottom: 1.3vw;
 }
 h3 {
@@ -51,23 +53,23 @@ h3 {
 }
 
 @media only screen and (min-width: 601px) {
-  .AreaPreview,
-  .area {
+  .ServicePreview,
+  .service {
     cursor: pointer;
     width: 35vw;
   }
-  .areapreview {
-    height: 15vw;
+  .servicepreview {
+    height: 13vw;
     width: 25vw;
   }
 }
 @media only screen and (max-width: 600px) {
-  .AreaPreview,
-  .area {
+  .ServicePreview,
+  .service {
     cursor: pointer;
     width: 75vw;
   }
-  .areapreview {
+  .servicepreview {
     width: 60vw;
     height: 45vw;
   }
