@@ -3,9 +3,9 @@
     <div class="card">
       <img class="card-img" :src="image" />
       <div class="card-content">
-        <h1 class="card-header">
+        <h2 class="card-header">
           {{ title }}
-        </h1>
+        </h2>
         <p class="card-text">
           {{ summary }}
         </p>
