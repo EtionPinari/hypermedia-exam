@@ -16,7 +16,7 @@
 >> I helped in: Navbar, Footer and Homepage + About us design and implementation, routing, creation of the logo, cross-checking documentation. <br />
 
 > Group member: Ronzulli Michael – 953527 – michael.ronzulli@mail.polimi.it  <br />
->> I helped in: Services and its component design and implementation, writing the documentation (C-IDM, Content tables). <br />
+>> I helped in: Services and its component design and implementation, writing the documentation (C-IDM, Content tables and Visual Design). <br />
 
 > Group member: Etion Pinari – 965175 – etion.pinari@mail.polimi.it <br />
 >> I helped in: Chatbot design and implementation, Employees and articles pages plus their components, redirect button. Contact us page. Database implementation (table creations) and APIs. NuxtJS initial configuration. Writing scenarios and this Git Description.<br />
