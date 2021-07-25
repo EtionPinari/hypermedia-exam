@@ -1,5 +1,7 @@
 # hypermedia-website
 # This branch contains only the code uploaded to Herokuapp for the website (no modules folder as it caused bugs)
+  To read the documentation (C-IDM, P-IDM, Wireframes, scenarios and ER-diagram), go to the 'Documentation' folder.
+  Instead if you are interested in the chatbot design, go to 'Documentation' > 'Chatbot design'.
 ## Build Setup
 
 ```bash
