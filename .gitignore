@@ -88,3 +88,4 @@ sw.*
 
 # Vim swap files
 *.swp
+hypermedia-website/server/personalDB.js
