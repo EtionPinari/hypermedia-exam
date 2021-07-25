@@ -8,7 +8,7 @@
           alt="People working together"
         />
         <div class="display-middle center">
-          <span class="text-black" style="font-size: 40px; margin: auto"
+          <span class="text-black" style="margin: auto"
             > <h1> All our Employees </h1> </span
           >
         </div>

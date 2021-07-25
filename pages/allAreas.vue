@@ -7,14 +7,14 @@
         alt="Person looking away with a spyglass"
       />
       <div class="display-middle center">
-        <span class="text-black" style="font-size: 40px">All our Areas</span>
+        <span class="text-black" style="margin: auto"><h1> All our Areas </h1></span>
       </div>
     </header>
 
     <div>
-      <h1 class="lg:text-2xl sm:text-base">
+      <h2 class="lg:text-2xl sm:text-base">
         These are all the areas of our company:
-      </h1>
+      </h2>
       <div class="all-areas-container">
         <div
           v-for="(area, areaIndex) of areas"

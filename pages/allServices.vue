@@ -7,14 +7,14 @@
         alt="Multiple gear containing the services provided by Hatgemini"
       />
       <div class="display-middle center">
-        <span class="text-black" style="font-size: 40px">All our Services</span>
+        <span class="text-black" style="margin: auto"><h1> All our Services </h1></span>
       </div>
     </header>
 
     <div>
-      <h1 class="lg:text-2xl sm:text-base">
+      <h2 class="lg:text-2xl sm:text-base">
         These are all the services of our company:
-      </h1>
+      </h2>
       <div class="all-services-container">
         <div
           v-for="(service, serviceIndex) of services"
