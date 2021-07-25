@@ -1,5 +1,5 @@
 # hypermedia-website
-
+# This branch contains only the code uploaded to Herokuapp for the website (no modules folder as it caused bugs)
 ## Build Setup
 
 ```bash
