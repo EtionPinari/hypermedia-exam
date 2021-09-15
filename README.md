@@ -4,7 +4,7 @@
 # Required documentation for the evaluators is found below:
 > <h4> Group Name: OneForAll (in mmcc3 site) / Hatgemini (in the google document) </h4> <br />
 
-> Each member has put inside the database 3 tuples for employees, 2 for services, 3 for articles (not required) and 1 for areas.
+> Each member has put inside the database 3 tuples for employees, 2 for services, 3 for articles (optional) and 1 for areas.
 > Furthermore each member has contributed in testing, developing, finding bugs, stylizing (for both mobile and computers) and giving ideas on the design of the site.
 
 
