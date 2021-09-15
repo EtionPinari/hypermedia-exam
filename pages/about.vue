@@ -33,6 +33,23 @@
         Internet/Intranet applications and communication & network management
         services. At Hatgemini, we guarantee rapid, reliable and robust
         information technology solutions that work.
+        <br />
+        We thank our developers:
+        <a href="https://github.com/EtionPinari" target="_blank">
+          Etion Pinari
+        </a>
+        <br />
+        <a href="https://github.com/kummy98" target="_blank">
+          Pardeep Kumar
+        </a>
+        <br />
+        <a href="https://github.com/Lisaco97" target="_blank">
+          Lisa Cosaro
+        </a>
+        <br />
+        <a href="https://github.com/MichaelRonzulli" target="_blank">
+          Michael Ronzulli
+        </a>
       </div>
     </div>
   </div>
