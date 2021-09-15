@@ -35,6 +35,7 @@
         information technology solutions that work.
         <br />
         We thank our developers:
+        <br />
         <a href="https://github.com/EtionPinari" target="_blank">
           Etion Pinari
         </a>
